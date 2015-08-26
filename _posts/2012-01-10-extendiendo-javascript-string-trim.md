@@ -10,10 +10,13 @@ categories:
 tags:
   - extender javascript
   - trim
+migration_issue: highlightline
 ---
 El famoso trim, que casi siempre esta presente, javascript no lo tiene (o por lo menos todavía). Vamos a usar ese tan necesario metodo para ver un poco como podemos extender nuestro javascript; pero es importante no utilizar una libreria, por ej: jQuery tiene $.trim() lo cual es muy útil, pero la idea no es referenciar una libreria por un método. 
 
-<pre class="brush: jscript; highlight: [12]; title: ; notranslate" title="">Function.prototype.nuevoMetodo = function(nombre, funcion) {
+<!--highlight:[12]-->
+{% highlight js %}
+Function.prototype.nuevoMetodo = function(nombre, funcion) {
     if (!this.prototype[nombre]) {
         this.prototype[nombre] = funcion;
         return this;
@@ -26,7 +29,7 @@ String.nuevoMetodo('trim', function(){
 
 var trimeado = '    hola'.trim();
 console.log(trimeado); // 'hola'
-</pre>
+ {% endhighlight %}
 
 Primero extendemos el objeto Function de javascript mediante prototype con una funcion nuestra que llamé *nuevoMetodo*, la cual recibe un nombre y una funcion. Lo primero que hacemos es comprobar que no lo tenga, como vimos <a href="http://fernetjs.com/2011/10/usando-for-each-con-arrays/" title="Usando for each con Arrays" target="_blank">en este post</a> podemos acceder a propiedades de un objeto en forma de array, y ya que el valor *undefined* es falso podemos hacer la condición: Si no existe, lo agregamos. De esta manera estamos prototipando *Function* con una función generica para agregar métodos y extender nuestro javascript.
 

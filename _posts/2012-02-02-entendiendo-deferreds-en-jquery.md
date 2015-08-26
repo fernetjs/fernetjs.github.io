@@ -25,39 +25,44 @@ AJAX es uno de los principales usos de las deferreds en la mayoría de los casos
 Antes de la versión 1.5 de jQuery, así tendríamos que hacer para ejecutar dos acciones luego de la respuesta existosa a una llamada get:  
 <!--more-->
 
-<pre class="brush: jscript; title: ; notranslate" title="">$.get("postCopado.php",
+{% highlight js %}
+$.get("postCopado.php",
 	function(data){
 		accionPostCarga1(data);
 		accionPostCarga2(data);
 	});
-</pre>
+ {% endhighlight %}
 
 A partir de la 1.5, $.get nos devuelve un objeto que cumple con la interfaz de una Deferred, por lo que podemos hacer algo así:
 
-<pre class="brush: jscript; title: ; notranslate" title="">// accionPostCarga1 y accionPostCarga2 son funciones que se van a ejecutar una vez que tengamos 
+{% highlight js %}
+// accionPostCarga1 y accionPostCarga2 son funciones que se van a ejecutar una vez que tengamos 
 //  una respuesta exitosa a la petición get
 $.get("postCopado.php").done(accionPostCarga1, accionPostCarga2);
-</pre>
+ {% endhighlight %}
 
 Tanto como $.get como .done en este caso devuelven la misma Deferred ( o sea que es encadenable / chainable ) ==> podemos seguir agregando acciones:
 
-<pre class="brush: jscript; title: ; notranslate" title="">// Agrego una función a ejecutar en caso de que la request get falle.
+{% highlight js %}
+// Agrego una función a ejecutar en caso de que la request get falle.
 $.get("postCopado.php").done(accionPostCarga1, accionPostCarga2).fail(mostrarError);
-</pre>
+ {% endhighlight %}
 
 O tambien puedo guardar la deferred en una variable y manipularla:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var req = $.get("postCopado.php");
+{% highlight js %}
+var req = $.get("postCopado.php");
 req.done(accionPostCarga1, accionPostCarga2);
 req.fail(mostrarError);
 // ocultarAjaxLoaderIcon se va a ejecutar no importa si la respuesta fue exitosa o fallida.
 req.always(ocultarAjaxLoaderIcon);
 console.log('esto se ejecuta primero que nada, y luego las acciones definidas para req');
-</pre>
+ {% endhighlight %}
 
 Ahora imaginemos que queremos que cierta funcionalidad se ejecute cuando ya se obtuvo la respuesta para dos requests distintas?? Fácil, usamos $.when
 
-<pre class="brush: jscript; title: ; notranslate" title="">//armarPagina se ejecuta solo si se obtienen las respuestas exitosas
+{% highlight js %}
+//armarPagina se ejecuta solo si se obtienen las respuestas exitosas
 // a las dos requests.
 $.when( $.get('post.php'), $.get('comments.php') ).done(armarPagina);
 
@@ -67,7 +72,7 @@ function armarPagina(a, b){
     console.log(a[2].responseText);
     console.log(b[2].responseText);
 }
-</pre>
+ {% endhighlight %}
 
 ### ¿Esto sólo?
 

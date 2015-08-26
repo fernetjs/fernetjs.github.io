@@ -18,27 +18,31 @@ Para evitar esto, lo mejor es empezar a pensar en patrones de diseño en javascr
 
 #### Patrón Módulo
 
-<pre class="brush: jscript; title: ; notranslate" title="">var miFuncion = function() {};
+{% highlight js %}
+var miFuncion = function() {};
 miFuncion = miFuncion();
-</pre>
+ {% endhighlight %}
 
 Extraño, almacenamos una función en miFuncion y luego pisamos su valor con la ejecución de esa función.  
 Y si ahora acortamos el código?:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var miFuncion = ( function(){} )();
-</pre>
+{% highlight js %}
+var miFuncion = ( function(){} )();
+ {% endhighlight %}
 
 Bien, ahora tenemos dentro de miFuncion una funcion ya ejecutada&#8230;  
 Ahora vamos a un ejemplo mas real, cambiemos el nombre por *suma* y agreguemos una varibale *total*.
 
-<pre class="brush: jscript; title: ; notranslate" title="">var suma = (function() {
+{% highlight js %}
+var suma = (function() {
   var total = 0;
 })();
-</pre>
+ {% endhighlight %}
 
 Pero no tenemos acceso a *total*, asi que vamos a retornar un objeto que nos de acceso:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var suma = (function() {
+{% highlight js %}
+var suma = (function() {
   var total = 0;
 
   return {
@@ -52,7 +56,7 @@ Pero no tenemos acceso a *total*, asi que vamos a retornar un objeto que nos de 
     }
   };
 })();
-</pre>
+ {% endhighlight %}
 
 Ahá!, o sea que desde afuera no tenemos forma de cambiar *total*, pero si llamamos a *sumar* podemos modificar su valor y obtenerlo con *getTotal*.
 
@@ -64,7 +68,8 @@ Eso suena piola, ahora vamos a ordenarlo, porque necesitamos un módulo resta ta
 
 Creemos un nuevo modulo maths donde vamos a poner nuestros 2 *sub-modulos* suma y resta:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var maths = maths || {};
+{% highlight js %}
+var maths = maths || {};
 
 maths.suma = (function() {
   var total = 0;
@@ -103,7 +108,7 @@ maths.suma.getTotal(); //retorna 80
 maths.resta.restar(40, 20); //retorna 20
 maths.resta.restar(10, 10); //retorna 0
 maths.resta.getTotal(); //retorna 20
-</pre>
+ {% endhighlight %}
 
 En la primer linea nos aseguramos de no pisar una declaracion anterior, si ya hay una, usamos esa, sino creamos un objeto vacio ([pueden ver mas de ese || en este post][1]). Y después, ya que en javascript podemos crear propiedades sin problemas en cualquier momento, simplemente le agregamos 2 propiedades, en las cuales creamos dos módulos.
 

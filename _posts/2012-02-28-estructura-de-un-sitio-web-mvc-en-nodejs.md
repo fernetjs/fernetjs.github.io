@@ -17,7 +17,8 @@ Para el caso de NodeJS, hace tiempo que vengo armando y buscando en internet cua
 
 Llegué a una conclusión (y escucho con toda atención y felicidad propuestas de mejora):
 
-<pre class="brush: cpp; title: ; notranslate" title="">/app-root
+{% highlight cpp %}
+/app-root
   /models
 
   /controllers
@@ -35,7 +36,7 @@ Llegué a una conclusión (y escucho con toda atención y felicidad propuestas d
 
   app.js
   package.json
-</pre>
+ {% endhighlight %}
 
 Con algunas variaciones a lo que puede ser una apliación en .NET, Java, PHP, o cualquier otra &#8230; está es la estructura que, por el momento, me cierra mas.
 

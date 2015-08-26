@@ -13,6 +13,7 @@ tags:
   - html5
   - local storage
   - session storage
+migration_issue: highlightline
 ---
 Seguramente ya escuchaste sobre el almacenamiento local de HTML5, la intensión de este post es pegarle un vistazo para que empieces a usarlo.
 
@@ -27,7 +28,8 @@ Ambos tienen los mismos métodos:
 
 No hay mucho para explicar sobre los métodos ya que hablan por si solos, veamos un ejemplo:
 
-<pre class="brush: jscript; title: ; notranslate" title="">if (window.localStorage) {
+{% highlight js %}
+if (window.localStorage) {
 
   localStorage.setItem("nombre", "pepe");
 
@@ -38,23 +40,54 @@ No hay mucho para explicar sobre los métodos ya que hablan por si solos, veamos
 else {
   throw new Error('Tu Browser no soporta LocalStorage!');
 }
-</pre>
+ {% endhighlight %}
 
 > También se puede utilizar los Items como propiedades del objeto localStorage ó sessionStorage (pero <font style="color:red"><strong>no está recomendado</strong></font>, así que tomalo como título informativo):
 > 
-> <pre class="brush: jscript; title: ; notranslate" title="">localStorage["nombre"] = "pepe";
+> {% highlight js %}
+localStorage["nombre"] = "pepe";
 var nombre = localStorage.nombre;
 delete localStorage["nombre"];
-</pre>
+ {% endhighlight %}
 
 El soporte de navegadores es muy amplio:
 
-<pre>+----------------+--------+-----------------+----+-------+-----------------+
+<pre>+---migration_issue: highlightline
+------migration_issue: highlightline
+-------+migration_issue: highlightline
+--------+migration_issue: highlightline
+------migration_issue: highlightline
+------migration_issue: highlightline
+-----+----+migration_issue: highlightline
+-------+migration_issue: highlightline
+------migration_issue: highlightline
+------migration_issue: highlightline
+-----+
 |    Feature     | Chrome | Firefox (Gecko) | IE | Opera | Safari (WebKit) |
-+----------------+--------+-----------------+----+-------+-----------------+
++---migration_issue: highlightline
+------migration_issue: highlightline
+-------+migration_issue: highlightline
+--------+migration_issue: highlightline
+------migration_issue: highlightline
+------migration_issue: highlightline
+-----+----+migration_issue: highlightline
+-------+migration_issue: highlightline
+------migration_issue: highlightline
+------migration_issue: highlightline
+-----+
 | localStorage   |      4 | 3.5             |  8 | 10.50 |               4 |
 | sessionStorage |      5 | 2               |  8 | 10.50 |               4 |
-+----------------+--------+-----------------+----+-------+-----------------+
++---migration_issue: highlightline
+------migration_issue: highlightline
+-------+migration_issue: highlightline
+--------+migration_issue: highlightline
+------migration_issue: highlightline
+------migration_issue: highlightline
+-----+----+migration_issue: highlightline
+-------+migration_issue: highlightline
+------migration_issue: highlightline
+------migration_issue: highlightline
+-----+
 </pre>
 
 Pueden ver mas info [acá][1]
@@ -68,24 +101,27 @@ Por que esto?
   1. Por los *&#8220;fallbacks/ polyfills&#8221;*, si queremos agregarle un soporte a cookies por si no tiene disponible el web storage, puede que tengamos problemas si no estamos manejando strings.
   2. Lo serializa de todas formas, pero la diferencia es que no es automático, por lo que podemos tener comportamientos extraños:
 
-<pre class="brush: jscript; title: ; notranslate" title="">localStorage.setItem("locura", true);
+{% highlight js %}
+localStorage.setItem("locura", true);
   var locura = localStorage.getItem("locura");
   console.log(locura); // true
   console.log(typeof locura); // 'string'
-</pre>
+ {% endhighlight %}
 
 Ahora, con JSON?, supongamos que tenemos:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var persona = {
+{% highlight js %}
+var persona = {
     nombre: "pepe",
     edad: 20,
     locura: true
 };
-</pre>
+ {% endhighlight %}
 
 **Guardamos directo el JSON al localStorage:**
 
-<pre class="brush: jscript; title: Problem?; notranslate" title="Problem?">localStorage.setItem("persona", persona);
+{% highlight js %}
+localStorage.setItem("persona", persona);
 var personaGuardada = localStorage.getItem("persona");
 
 console.log(typeof persona); //object
@@ -93,11 +129,13 @@ console.log(typeof personaGuardada); //string
 
 console.log(personaGuardada.locura); //undefined!
 var personaGuardada = JSON.parse(personaGuardada); //Uncaught SyntaxError
-</pre>
+ {% endhighlight %}
 
 **Como habría que hacerlo:**
 
-<pre class="brush: jscript; highlight: [1,9]; title: ; notranslate" title="">var personaAGuardar = JSON.stringify(persona);
+<!--highlight:[1,9]-->
+{% highlight js %}
+var personaAGuardar = JSON.stringify(persona);
 
 localStorage.setItem("persona", personaAGuardar);
 var personaGuardada = localStorage.getItem("persona");
@@ -107,14 +145,15 @@ console.log(typeof personaGuardada); //string
 
 var personaGuardada = JSON.parse(personaGuardada); 
 console.log(personaGuardada.locura); //true
-</pre>
+ {% endhighlight %}
 
 * * *
 
 Por último te dejo un fallback a Cookies, ya que no siempre tenemos soporte para usarlo, está es una implementacion de Mozilla bastante coqueta (no se si funciona en IE 7, por ejemplo), la idea es que en nuestra aplicación usamos directamente window.localStorage y siempre va a existir, si el browser no lo soporta va a ir a cookies automáticamente.  
 **Fuente**: [MDN &#8211; DOM Storage][3]
 
-<pre class="brush: jscript; title: ; notranslate" title="">if (!window.localStorage) {
+{% highlight js %}
+if (!window.localStorage) {
   Object.defineProperty(window, "localStorage", new (function () {
     var aKeys = [], oStorage = {};
     Object.defineProperty(oStorage, "getItem", {
@@ -174,7 +213,7 @@ Por último te dejo un fallback a Cookies, ya que no siempre tenemos soporte par
     this.enumerable = true;
   })());
 }
-</pre>
+ {% endhighlight %}
 
  [1]: http://caniuse.com/#feat=namevalue-storage
  [2]: http://dev-test.nemikor.com/web-storage/support-test/

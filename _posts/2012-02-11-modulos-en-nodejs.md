@@ -13,18 +13,21 @@ tags:
   - modulos
   - nodejs
   - variables
+migration_issue: highlightline
 ---
 NodeJS tiene un sistema de módulos bastante simple: cada archivo .js es un modulo (archivo de servidor, no confundir con contenido estático), veamos 2 módulos que se encuentran en el directorio root y son utilizados desde nuestro server app.js:
 
-<pre class="brush: jscript; title: estructura; notranslate" title="estructura">app.js //servidor NodeJS
+{% highlight js %}
+app.js //servidor NodeJS
    foo.js //un módulo
    bar.js //otro módulo
-</pre>
+ {% endhighlight %}
 
-<pre class="brush: jscript; title: app.js; notranslate" title="app.js">var http = require('http'); // módulo Core de Node
+{% highlight js %}
+var http = require('http'); // módulo Core de Node
     var foo = require('./foo.js');
     var bar = require('./bar');
-</pre>
+ {% endhighlight %}
 
 En nuestro app.js referenciamos a ambos módulos foo y bar, con *&#8216;./&#8217;* es el path relativo al que lo esta llamando, en este caso *app.js*.
 
@@ -38,49 +41,56 @@ Los archivos *.js* son interpretados como archivos de texto javascript, los arch
 
 En cada módulo tenemos como objeto global el *module* y dentro de este, un objeto *exports* con el cual vamos a publicar los accesos a nuestro módulo desde otros.
 
-<pre class="brush: jscript; title: foo.js; notranslate" title="foo.js">//podemos evitar el module, ya que es nuestro global
+{% highlight js %}
+//podemos evitar el module, ya que es nuestro global
 exports.enviarMensaje = function(mensaje) {
     console.log('Mensaje recibido en módulo foo: ' + mensaje);
 }; 
-</pre>
+ {% endhighlight %}
 
-<pre class="brush: jscript; title: app.js; notranslate" title="app.js">var foo = require('./foo.js');
+{% highlight js %}
+var foo = require('./foo.js');
 foo.enviarMensaje('hola módulo foo!');
 //imprime: Mensaje recibido en módulo foo: hola módulo foo!
-</pre>
+ {% endhighlight %}
 
 > La asignacion al *exports* tiene que ser inmediata, no podemos hacerla en callbacks, por ejemplo esto no funciona:
 > 
-> <pre class="brush: jscript; title: foo.js; notranslate" title="foo.js">setTimeout(function() {
+> {% highlight js %}
+setTimeout(function() {
    module.exports.algo = true;
 }, 100)
-</pre>
+ {% endhighlight %}
 
 Si declaramos una variable dentro de un módulo, esta va a ser privada al módulo, recuerden que si no la asignamos al objeto *exports* no va a ser accesible desde otro módulo:
 
-<pre class="brush: jscript; title: bar.js; notranslate" title="bar.js">var nombre = 'Pepe';
+{% highlight js %}
+var nombre = 'Pepe';
 
 exports.getNombre = function (){
       return nombre;
 };
-</pre>
+ {% endhighlight %}
 
 Si no ponemos el *var* que pasa?, bueno estamos asignando al objeto global, pero el global del módulo, por lo que es lo mismo que lo pongamos o no, de todas formas, siempre es mejor poner el *var* porque nos puede pasar lo siguiente:
 
-<pre class="brush: jscript; highlight: [1]; title: bar.js; notranslate" title="bar.js">exports.algo = function (){
-   foo = 'Pepe';
-   var baz = 'Pepe2';
-};
-</pre>
-
-En ese caso *foo* va a ser global para todo el módulo, y puede que no sea algo que esperamos:
-
-<pre class="brush: jscript; title: bar.js; notranslate" title="bar.js">var foo;
+<!--highlight:[1]-->
+{% highlight js %}
 exports.algo = function (){
    foo = 'Pepe';
    var baz = 'Pepe2';
 };
-</pre>
+ {% endhighlight %}
+
+En ese caso *foo* va a ser global para todo el módulo, y puede que no sea algo que esperamos:
+
+{% highlight js %}
+var foo;
+exports.algo = function (){
+   foo = 'Pepe';
+   var baz = 'Pepe2';
+};
+ {% endhighlight %}
 
 De esa forma queda claro que usamos la global *foo* en la funcion y creamos una *baz* a nivel de la función.  
 Pueden ver mas sobre el comportamiento del *var* en [Alcance de Variables (var scope)][2] y [Variables Globales][3]

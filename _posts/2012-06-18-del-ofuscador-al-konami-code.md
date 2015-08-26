@@ -17,12 +17,14 @@ tags:
 Cuenta la historia que durante una juntada de fernetjs, estaba tratando de probar <a href="https://github.com/TShadwell/Nice.js" title="nice.js" target="_blank">nice.js</a>.  
 Nice.js supuestamente ofusca el código javascript, y lo transforma a ascii art en base a una imagen. Me pareció divertido, y lo quise probar. Más allá de que fui cuidadoso eligiendo la imagen y le dediqué varios minutos, a la hora de elegir el script no quise perder el tiempo, entonces fuí al azar a un tab que tenía abierto, abrí las developer tools de chrome, agarré un script, y lo copié todo. El tab era jquery.com, y me quedé sorprendido cuando ví el siguiente comentario:
 
-<pre class="brush: jscript; title: ; notranslate" title="">// Hehe.
-</pre>
+{% highlight js %}
+// Hehe.
+ {% endhighlight %}
 
 Seguido a eso, el siguiente código (el archivo es <a href="http://jquery.com/files/rocker/scripts/custom.js" target="_blank">custom.js</a>):
 
-<pre class="brush: jscript; title: ; notranslate" title="">if ( window.addEventListener ) {
+{% highlight js %}
+if ( window.addEventListener ) {
         var kkeys = [], konami = "38,38,40,40,37,39,37,39,66,65";
         window.addEventListener("keydown", function(e){
                 kkeys.push( e.keyCode );
@@ -30,7 +32,7 @@ Seguido a eso, el siguiente código (el archivo es <a href="http://jquery.com/fi
                         window.location = "http://ejohn.org/apps/hero/";
         }, true);
 }
-</pre>
+ {% endhighlight %}
 
 Qué fue lo que hice? Probar la combinación de teclas de esos códigos :38, etc. (arriba, arriba, abajo, abajo, izquierda, derecha, izquierda, derecha, b, a).
 

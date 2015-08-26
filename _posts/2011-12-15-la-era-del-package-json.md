@@ -20,7 +20,8 @@ Este archivo (o mejor dicho standard) nace desde una especificación de implemen
 
 Simplemente es crear un archivo con el nombre package.json en el root del paquete/ proyecto con su información, dependecias y otras *yerbas*. Un ejemplo sería:
 
-<pre class="brush: jscript; title: ; notranslate" title="">{
+{% highlight js %}
+{
     "name": "miPaquete"
   , "version": "0.0.1"
   , "description": "un paquete de nodeJs con dependencias a express y socket.io de NPM."
@@ -29,7 +30,7 @@ Simplemente es crear un archivo con el nombre package.json en el root del paquet
     , "socket.io": "&gt;= 0.2.3"
   }
 }
-</pre>
+ {% endhighlight %}
 
 Básicamente definimos el *nombre* del paquete, su *versión* y *descripción*, también podemos definir dependencias con otros paquetes.  
 Como verán, es un json (Javascript Object Notation), si desconocen <a href="http://json.org/" target="_blank">JSON</a>, es un buen momento para aprenderlo.

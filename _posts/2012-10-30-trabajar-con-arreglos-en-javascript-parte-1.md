@@ -58,7 +58,8 @@ A continuación se muestran los métodos de la clase array y algunos ejemplos de
   Ejemplos
 </h3>
 
-<pre class="brush: jscript; title: ; notranslate" title="">var arr = ['durazno', 'pera', 'manzana', 'banana', 'mandarina']
+{% highlight js %}
+var arr = ['durazno', 'pera', 'manzana', 'banana', 'mandarina']
 
 arr.pop()
 &gt; "mandarina" //el arreglo queda: ["durazno", "pera", "manzana", "banana"]
@@ -101,6 +102,6 @@ arr.indexOf('naranja')
 
 arr.indexOf('kiwi')
 &gt; 1
-</pre>
+ {% endhighlight %}
 
 En la segunda parte de este artículo se muestran ejemplos de los métodos más interesantes de array: forEach, filter, map, every, some

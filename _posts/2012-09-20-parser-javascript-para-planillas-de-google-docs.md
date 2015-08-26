@@ -77,17 +77,19 @@ El siguiente paso es publicar la planilla en la web, en formato TXT. Bastante si
 
 Finalmente! Desde un script en nuestro HTML podemos acceder a los datos de la planilla:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var url = "la url de la publicacion en la web de la planilla";
+{% highlight js %}
+var url = "la url de la publicacion en la web de la planilla";
 googleDocsSimpleParser.parseSpreadsheetTxtUrl(url, function (personas) {
   //personas es un array de objetos, lo podemos iterar o manipular a gusto!
 });
-</pre>
+ {% endhighlight %}
 
 La variable personas contendrá un array de objetos con la información de la planilla. En particular, en este ejemplo la variable personas contendrá:
 
-<pre class="brush: jscript; title: ; notranslate" title="">[{nombre: "Kilgoure", apellido: "Trout"},
+{% highlight js %}
+[{nombre: "Kilgoure", apellido: "Trout"},
  {nombre: "Billy"   , apellido: "Pilgrim"}]
-</pre>
+ {% endhighlight %}
 
 Si no quieren escribir tanto, en la página de descarga hay una página demo.html que contiene un par de ejemplos concretos de uso, conectándose a una planilla de prueba que ya está publicada. Bajen y abran con el navegador, y voilá <img src="http://fernetjs.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" />
 

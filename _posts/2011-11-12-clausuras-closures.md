@@ -17,7 +17,8 @@ El concepto es &#8220;clausurar&#8221; el contexto en el que se ejecuta una func
 
 En donde se encuentra una función dentro de otra, la función interna tiene acceso a las variables de la función externa.
 
-<pre class="brush: jscript; title: ; notranslate" title="">function externa(x) {
+{% highlight js %}
+function externa(x) {
    var variable = 3;
 
    function interna(y) {
@@ -28,14 +29,15 @@ En donde se encuentra una función dentro de otra, la función interna tiene acc
 }
 
 externa(2);
-</pre>
+ {% endhighlight %}
 
 Esto siempre dará 16 en la consola, porque *interna()* puede acceder a la *x* que fue definida como argumento en *externa()* y tambien puede acceder a variable de *externa()*.
 
 Eso **NO** es un *closure*. Un *closure* es cuando se retorna la función interna y esta misma cierra sus variables externas antes de salir.  
 <!--more-->
 
-<pre class="brush: jscript; title: ; notranslate" title="">function externa(x) {
+{% highlight js %}
+function externa(x) {
    var variable = 3;
 
    return function (y) {
@@ -44,7 +46,7 @@ Eso **NO** es un *closure*. Un *closure* es cuando se retorna la función intern
 }
 var interna = externa(2); // interna es ahora un closure.
 interna(10);
-</pre>
+ {% endhighlight %}
 
 También retornará 16, porque *interna()* todavia puede referenciar a *x* y *variable*, aunque ya no este directamente dentro del alcance de *externa()*. Sin embargo, como *variable* todavía esta siendo manejada dentro del closure *interna()*, va a continuar incrementandose cada vez que *interna()* sea llamada, a diferencia del ejemplo anterior.
 
@@ -54,7 +56,8 @@ En el último ejemplo *x* es un número literal y como todo literal en javascrip
 
 Por otro lado, javascript siempre utiliza referencias cuando trabaja con Objetos. Por ejemplo, si llamamos a *externa()* con un objeto, el closure que retornará estará referenciado al objeto original.
 
-<pre class="brush: jscript; title: ; notranslate" title="">function externa(x) {
+{% highlight js %}
+function externa(x) {
    var variable = 3;
 
    return function (y) {
@@ -71,7 +74,7 @@ var edad = new Number(2);
 var interna = externa(edad);
 
 interna(10);
-</pre>
+ {% endhighlight %}
 
 Como es esperado, cada llamada a *interna()* incrementará *x.unaProp*. Lo que puede no ser esperado es que *x* está referenciando al mismo objeto que guarda *edad*, luego de un par de llamadas a *interna()* *edad.unaProp* valdrá 2.
 

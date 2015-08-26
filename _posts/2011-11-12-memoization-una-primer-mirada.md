@@ -19,24 +19,27 @@ Para entender el concepto, vamos a ver una implementación sencilla, para una pr
 
 La problemática sencilla de la que hablamos, es calcular el factorial de cierto número. La implementación que yo hice en javascript es la siguiente:
 
-<pre class="brush: jscript; title: ; notranslate" title="">function factorial(num) {
+{% highlight js %}
+function factorial(num) {
     if (num === 0) {
         return 1;
     } else {
         return num * factorial(num - 1);
     }
 }
-</pre>
+ {% endhighlight %}
 
 Como se puede ver es una función recursiva (se llama a si misma). Ahora, si la probamos, vamos a ver que por ejemplo
 
-<pre class="brush: jscript; title: ; notranslate" title="">factorial(0);// 1
-factorial(4);//24</pre>
+{% highlight js %}
+factorial(0);// 1
+factorial(4);//24 {% endhighlight %}
 
 Parece funcionar bien.. pero lo que queremos hacer es optimizar esta función, porque a cada valor más grande que le pasamos como parámetro, la función nos tarda mucho mas <img src="http://fernetjs.com/wp-includes/images/smilies/frownie.png" alt=":(" class="wp-smiley" style="height: 1em; max-height: 1em;" />  
 <!--more-->
 
-<pre class="brush: jscript; title: ; notranslate" title="">function mejor_factorial(num) {
+{% highlight js %}
+function mejor_factorial(num) {
     // si el cache no esta inicializado, lo inicializamos
     if (!mejor_factorial.cache) {
         mejor_factorial.cache = {};
@@ -53,11 +56,12 @@ Parece funcionar bien.. pero lo que queremos hacer es optimizar esta función, p
     mejor_factorial.cache[num] = num * mejor_factorial(num - 1);
     return mejor_factorial.cache[num];
 }
-</pre>
+ {% endhighlight %}
 
-<pre class="brush: jscript; title: ; notranslate" title="">mejor_factorial(0);// 1
+{% highlight js %}
+mejor_factorial(0);// 1
 mejor_factorial(4);//24
-</pre>
+ {% endhighlight %}
 
 Esperemos que con los comentarios se haya entendido qué es lo que se hace en cada parte del código. Ahora vayamos a la posta, ¿Es realmente &#8220;mucho&#8221; más rapida <span class="Apple-style-span" style="font-family: Consolas, Monaco, monospace; font-size: 12px; line-height: 18px; white-space: pre;">mejor_factorial </span>que <span class="Apple-style-span" style="font-family: Consolas, Monaco, monospace; font-size: 12px; line-height: 18px; white-space: pre;">factorial</span>?
 

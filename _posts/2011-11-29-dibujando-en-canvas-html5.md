@@ -10,6 +10,7 @@ categories:
   - Performance
 tags:
   - canvas
+migration_issue: highlightline
 ---
 Canvas de HTML5 es simplemente un TAG, un contenedor en donde vamos a dibujar ya sea desde líneas, cuadrados y círculos hasta imágenes y texto. Aparte de tener el poder de dibujar tenemos otra ventaja &#8230; no utilizamos el DOM, es decir, si tuviéramos que realizar lo mismo con divs, spans, etc. por cada elemento vamos a estar utilizando el DOM y re-flows del explorador, pero dentro de canvas no se va a crear un elemento DOM para lo que dibujemos (ojo que al no tener DOM tampoco tenemos eventos como mouseover, click, etc. por cada elemento que dibujemos, pero si por todo el tag canvas).
 
@@ -29,10 +30,11 @@ Hay que tener en cuenta que al ser HTML 5 no va a funcionar en cualquier explora
 
 ### Configurando
 
-<pre class="brush: xml; title: ; notranslate" title="">&lt;canvas id="miCanvas" width="145px" height="145px"&gt;
+{% highlight xml %}
+&lt;canvas id="miCanvas" width="145px" height="145px"&gt;
  &lt;span&gt;Tu explorador es anciano, renovalo si queres ver la magia&lt;/span&gt;
 &lt;/canvas&gt;
-</pre>
+ {% endhighlight %}
 
 Tan simple como eso, agregamos al html el tag *<canvas>* y seteamos el tamaño. Noten que ingrese el tamaño como atributo del tag y no como CSS, es importante hacerlo así ya que en algunos exploradores no funciona bien si lo hacemos por CSS. 
 
@@ -43,9 +45,11 @@ El contenido dentro de los tags se va a mostrar si el explorador desconoce lo qu
 Para comenzar a dibujar obtenemos el contexto del canvas en javascript:  
 <!--more-->
 
-<pre class="brush: jscript; highlight: [2]; title: ; notranslate" title="">var canvas = document.getElementById('miCanvas');
+<!--highlight:[2]-->
+{% highlight js %}
+var canvas = document.getElementById('miCanvas');
 var contexto = canvas.getContext('2d');
-</pre>
+ {% endhighlight %}
 
 ### Dibujando
 
@@ -53,7 +57,8 @@ Para hacerlo más divertido, vamos a recrear el logo de FernetJS en canvas:
 
 Comencemos por dibujar el cuadrado amarillo del fondo:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var canvas = document.getElementById('miCanvas');
+{% highlight js %}
+var canvas = document.getElementById('miCanvas');
 var contexto = canvas.getContext('2d');
 
 // le damos un color de llenado al contexto
@@ -68,13 +73,14 @@ contexto.strokeStyle = 'black';
 
 // dibujamos un cuadrado pero solo de contorno
 contexto.strokeRect(1, 10, 143, 134); // strokeRect(x, y, largo, alto)
-</pre>
+ {% endhighlight %}
 
 [<img class="alignnone size-full wp-image-742" title="ref 1" src="http://www.fernetjs.com/wp-content/uploads/2011/11/logo_canvas1.png" alt="" width="145" height="145" />][1]
 
 Ahora dibujemos el &#8216;JS&#8217;, lo voy a escribir en el canvas para mostrarles que se puede, pero el método que voy a utilizar de dibujar texto tiene graves problemas de performance, es preferible hacer una imagen o una imagen por letra y dibujar la/s imagen/es (como en los viejos, pero muy viejos tiempos).
 
-<pre class="brush: jscript; title: ; notranslate" title="">// cambiamos el color de llenado del contexto
+{% highlight js %}
+// cambiamos el color de llenado del contexto
 contexto.fillStyle = '#333';
 
 // asignamos al contexto el tipo de letra, tamaño y posicion inicial
@@ -83,7 +89,7 @@ contexto.textBaseline = 'top';
 
 // dibujamos el texto
 contexto.fillText('JS', 2, 5); // fillText(texto, x, y);
-</pre>
+ {% endhighlight %}
 
 [<img class="alignnone size-full wp-image-743" title="ref 2" src="http://www.fernetjs.com/wp-content/uploads/2011/11/logo_canvas2.png" alt="" width="145" height="145" />][2]
 
@@ -99,7 +105,9 @@ Pero qué pasa si tenemos el siguiente escenario?:
 
 En el último paso deberíamos volver a ejecutar el código (repetirnos) para setearle al contexto el estilo que teníamos antes. Bueno, hay dos funciones que nos ayudan en eso:
 
-<pre class="brush: jscript; highlight: [4,9]; title: ; notranslate" title="">contexto.fillStyle = 'blue';
+<!--highlight:[4,9]-->
+{% highlight js %}
+contexto.fillStyle = 'blue';
 contexto.fillRect(10, 10, 10, 10);  // Dibujo cuadrado azul
 
 contexto.save(); //Guardo el fillStyle = 'blue'
@@ -110,13 +118,15 @@ contexto.fillRect(20, 20, 10, 10); // Dibujo cuadrado rojo
 contexto.restore(); //Recupero el fillStyle = 'blue'
 
 contexto.fillRect(30, 30, 10, 10);  // Dibujo cuadrado azul
-</pre>
+ {% endhighlight %}
 
 Con las functiones *.save()* y *.restore()* podemos guardar y recuperar configuraciones de nuestro contexto y sí, se pueden anidar, es decir con 2 veces *.save()* y 2 veces *.restore()* vuelvo al primer estado.
 
 Volviendo con el dibujo del logo, vamos a *estirar* la palabra JS, pero para esto vamos a tener que escalar el contexto y en este momento sería útil guardar la configuración de contexto actual, así que vamos a editar donde dibujamos la palabra:
 
-<pre class="brush: jscript; highlight: [2,5,14]; title: ; notranslate" title="">// me guardo la configuración de contexto actual
+<!--highlight:[2,5,14]-->
+{% highlight js %}
+// me guardo la configuración de contexto actual
 contexto.save();
 
 // escalo el contexto (amplío)
@@ -130,7 +140,7 @@ contexto.fillText('JS', 2, 5);
 
 // recupero la configuracion del contexto guardada con .save()
 contexto.restore();
-</pre>
+ {% endhighlight %}
 
 [<img class="alignnone size-full wp-image-744" title="ref 3" src="http://www.fernetjs.com/wp-content/uploads/2011/11/logo_canvas3.png" alt="" width="145" height="145" />][3]
 
@@ -139,14 +149,16 @@ De esta forma continuamos dibujando después del *.restore()* y la configuració
 Ahora vamos a dibujar la imagen del vaso en el canvas, esta es nuestra imagen:  
 [<img class="alignnone size-full wp-image-739" title="ref " src="http://www.fernetjs.com/wp-content/uploads/2011/11/glassup.png" alt="" width="145" height="145" />][4]
 
-<pre class="brush: jscript; highlight: [5]; title: ; notranslate" title="">var vaso = new Image();
+<!--highlight:[5]-->
+{% highlight js %}
+var vaso = new Image();
 vaso.onload = function() {
 
     //.drawImage(imagen, x, y);
     contexto.drawImage(vaso, 0, 0);
 };
 vaso.src = "[URL DE LA IMAGEN]";
-</pre>
+ {% endhighlight %}
 
 [<img class="alignnone size-full wp-image-745" title="ref 4" src="http://www.fernetjs.com/wp-content/uploads/2011/11/logo_canvas4.png" alt="" width="145" height="145" />][5]
 
@@ -156,7 +168,9 @@ El parámetro de imagen también puede recibir una imagen embebida del tipo: &#8
 
 Lo último que nos quedaría es dibujar las líneas para enfatizar el vaso. Esas líneas las podemos pensar como triángulos, y para dibujarlos tenemos que armar un *path*:
 
-<pre class="brush: jscript; highlight: [5,17,20]; title: ; notranslate" title="">// seteo el estilo de llenado del contexto a negro.
+<!--highlight:[5,17,20]-->
+{% highlight js %}
+// seteo el estilo de llenado del contexto a negro.
 contexto.fillStyle = 'black';
 
 // comienzo un path
@@ -176,7 +190,7 @@ contexto.closePath();
 
 // lleno el path con el color negro
 contexto.fill();
-</pre>
+ {% endhighlight %}
 
 [<img class="alignnone size-full wp-image-746" title="ref 5" src="http://www.fernetjs.com/wp-content/uploads/2011/11/logo_canvas5.png" alt="" width="445" height="165" />][6]
 

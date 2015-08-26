@@ -14,7 +14,8 @@ Desde que vi el tilt de google, el snow, etc &#8230; vengo con ganas de jugar co
 
 Simplemente entren a una web, abran la consola con F12 (Firefox o Chrome), en el tab scripts peguen el siguiente codigo y EJECUTAR
 
-<pre class="brush: jscript; title: ; notranslate" title="">function terremoto() {
+{% highlight js %}
+function terremoto() {
     var ele = document.getElementsByTagName('body')[0],
          vel = 80,
          m = 1,
@@ -43,7 +44,7 @@ function aplicarEstilos(ele, x) {
 }
 
 terremoto();
-</pre>
+ {% endhighlight %}
 
 
 

@@ -21,7 +21,8 @@ El paso a paso para arrancar a usarlo:
 1 &#8211; Escribir un archivo html que va a ser el encargado de correr los tests. Éste va a referenciar a los estilos y javascript de mocha, el javascript que contenga nuestro código, y el javascript que contenga las pruebas. También vamos a estar referenciando a expect.js (aunque no es requerido para usar mocha). Tal cual se describe en la [documentación][1].  
 <!--more-->
 
-<pre class="brush: xml; title: ; notranslate" title="">&lt;html&gt;
+{% highlight xml %}
+&lt;html&gt;
 &lt;head&gt;
   &lt;meta charset="utf-8"&gt;
   &lt;title&gt;Mocha Tests&lt;/title&gt;
@@ -44,7 +45,7 @@ El paso a paso para arrancar a usarlo:
   &lt;div id="mocha"&gt;&lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-</pre>
+ {% endhighlight %}
 
 2 &#8211; Crear y editar los archivos que contienen los casos de prueba. En este caso, el archivo sería misTests.js
 
@@ -52,7 +53,8 @@ El paso a paso para arrancar a usarlo:
 
 Para ilustrar un poco más cómo se pueden ver las pruebas, imaginemos que estamos desarrollando un juego y tenemos una clase Personaje que tiene un método para agregar un ítem a su inventario ( yo sé que les gusta el spanglish en el código ). 
 
-<pre class="brush: jscript; title: ; notranslate" title="">describe('Personaje', function(){
+{% highlight js %}
+describe('Personaje', function(){
     describe('#pickUp()', function(){
         it('should have the ability to store the object in its items collection', function(){
             var something = new Item(),
@@ -76,12 +78,13 @@ Para ilustrar un poco más cómo se pueden ver las pruebas, imaginemos que estam
 
     });        
 });​
-</pre>
+ {% endhighlight %}
 
 Para ver la lista de assertions que tenemos disponible en expect-js, consultar la <a href="https://github.com/LearnBoost/expect.js/blob/master/README.md" title="expectjs - readme" target="_blank">documentación</a>. Las llamadas a describe e it que vemos en el código existen gracias a al setup(&#8216;bdd&#8217;) que mencionamos antes en el html.  
 De la forma en que estructuro los tests en mi caso es de la siguiente:
 
-<pre class="brush: jscript; title: ; notranslate" title="">describe('Clase o Módulo', function(){
+{% highlight js %}
+describe('Clase o Módulo', function(){
     describe('#método()', function(){
         it('un aspecto que debe cumplir método', function(){
             // testearlo
@@ -92,7 +95,7 @@ De la forma en que estructuro los tests en mi caso es de la siguiente:
         it('debería hacer algo interesante...');
     });        
 });​
-</pre>
+ {% endhighlight %}
 
 Una vez que estén los tests escritos, abriendo el html seríamos capaces de ver los tests que pasaron, los que fallaron, y los que están pendientes.
 

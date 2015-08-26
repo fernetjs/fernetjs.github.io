@@ -12,6 +12,7 @@ tags:
   - nginx
   - nodejs
   - vps
+migration_issue: highlightline
 ---
 Anteriormente expliqué como poner productiva una app en NodeJS utilizando PaaS en [NodeJS con Nodejitsu y Nodester][1], pero hace poco me puse a investigar para ir mas allá, así que me compré un VPS (Servidor Virtual Privado) e incursioné en el desafío.
 
@@ -37,10 +38,11 @@ Los que hayan usado Apache (por ejemplo para PHP) conocerán que es bastante sim
 
 La instalación va a depender de la Distribución de Linux / el SO que elijamos, para el caso de CentOS va por yum
 
-<pre class="brush: bash; title: ; notranslate" title="">wget http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm
+{% highlight bash %}
+wget http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm
 rpm -ivh nginx-release-centos-6-0.el6.ngx.noarch.rpm
 yum install nginx
-</pre>
+ {% endhighlight %}
 
 ### Configurando NGINX
 
@@ -58,10 +60,13 @@ Así que primero, configuramos nuestros procesos de Node para que corran, por ej
 
 Abrimos el archivo de configuración para Linux:
 
-<pre class="brush: bash; title: ; notranslate" title="">vim /etc/nginx/nginx.conf
-</pre>
+{% highlight bash %}
+vim /etc/nginx/nginx.conf
+ {% endhighlight %}
 
-<pre class="brush: bash; highlight: [4,5,12,18,19,26]; title: ; notranslate" title=""># acá otras configuraciones
+<!--highlight:[4,5,12,18,19,26]-->
+{% highlight bash %}
+# acá otras configuraciones
 http {
   server {
     listen   80;
@@ -91,12 +96,13 @@ http {
     }
   }
 }
-</pre>
+ {% endhighlight %}
 
 Guardamos el config y arrancamos nginx
 
-<pre class="brush: bash; title: ; notranslate" title="">sudo service nginx start
-</pre>
+{% highlight bash %}
+sudo service nginx start
+ {% endhighlight %}
 
 Pueden ver un ejemplo de una configuración [acá][8]
 

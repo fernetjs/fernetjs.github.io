@@ -21,33 +21,38 @@ Asumo que tenemos acceso por SSH al server como root, o al menos con privilegios
 
 Desde el ubuntu package manager:
 
-<pre class="brush: bash; title: ; notranslate" title="">sudo apt-get update
+{% highlight bash %}
+sudo apt-get update
 sudo apt-get install nodejs npm
-</pre>
+ {% endhighlight %}
 
 Al instalar desde los paquetes de Ubuntu, `nodejs` no nos va a quedar como `node`, sino como `nodejs`, así que creamos un link simbólico (<a href="https://es.wikipedia.org/wiki/Enlace_simb%C3%B3lico" target="_blank">symlink</a>) para poder usar `node`.
 
-<pre class="brush: bash; title: ; notranslate" title="">ln -s /usr/bin/nodejs /usr/bin/node
+{% highlight bash %}
+ln -s /usr/bin/nodejs /usr/bin/node
 node --version
-</pre>
+ {% endhighlight %}
 
 Actualizamos NPM a la última versión:
 
-<pre class="brush: bash; title: ; notranslate" title="">npm install -g npm
+{% highlight bash %}
+npm install -g npm
 npm --version
-</pre>
+ {% endhighlight %}
 
 Es muy loco como se actualiza npm, si lo vemos en detalle usamos npm para instalar npm en sí mismo y en forma global, lo que termina resultando en la actualización a la última versión
 
 ### Instalamos [NGINX][3]
 
-<pre class="brush: bash; title: ; notranslate" title="">sudo apt-get install nginx
-</pre>
+{% highlight bash %}
+sudo apt-get install nginx
+ {% endhighlight %}
 
 Y lo configuramos para que funcione como servicio de Ubuntu (lo mas probable es que ya esté configurado al instalar, pero por si las dudas).
 
-<pre class="brush: bash; title: ; notranslate" title="">sudo update-rc.d nginx defaults
-</pre>
+{% highlight bash %}
+sudo update-rc.d nginx defaults
+ {% endhighlight %}
 
 Esto nos asegura que al reiniciar el servidor NGINX vuelva a levantar solo.  
 Probamos que ya esté en funcionamiento abriendo el navegador y *pateando* la url http://[IP\_pública\_del_servidor] deberíamos ver un mensaje de bienvenida a nginx.
@@ -63,17 +68,20 @@ En sites-available vamos a tener las configuraciones de los servidores y en site
 
 Así que utilicemos el default que viene (donde apunta a la bienvenida que vimos al instalar) para crear un server:
 
-<pre class="brush: bash; title: ; notranslate" title="">cp /etc/nginx/sites-available/default /etc/nginx/sites-available/fernetjs.com
-</pre>
+{% highlight bash %}
+cp /etc/nginx/sites-available/default /etc/nginx/sites-available/fernetjs.com
+ {% endhighlight %}
 
 Ahora abrimos la nueva configuración de servidor y la modificamos a un servidor nodejs:
 
-<pre class="brush: bash; title: ; notranslate" title="">vim /etc/nginx/sites-available/fernetjs.com
-</pre>
+{% highlight bash %}
+vim /etc/nginx/sites-available/fernetjs.com
+ {% endhighlight %}
 
 Vamos a ver algo como lo siguiente:
 
-<pre class="brush: jscript; title: ; notranslate" title="">server {
+{% highlight js %}
+server {
         listen 80 default_server;
         listen [::]:80 default_server ipv6only=on;
 
@@ -91,11 +99,12 @@ Vamos a ver algo como lo siguiente:
                 # include /etc/nginx/naxsi.rules
         }
 }
-</pre>
+ {% endhighlight %}
 
 Lo modificamos para que cumpla con nuestro dominio cambiando default_server y agregando el proxy a un futuro proceso node que vamos a ver mas adelante:
 
-<pre class="brush: jscript; title: ; notranslate" title="">server {
+{% highlight js %}
+server {
     listen 80;
     listen [::]:80 ipv6only=on;
 
@@ -108,29 +117,32 @@ Lo modificamos para que cumpla con nuestro dominio cambiando default_server y ag
         proxy_set_header Host $host;
     }
 }
-</pre>
+ {% endhighlight %}
 
 Ahora tenemos un servidor que escucha en el puerto 80 de nginx y sólo cuando se ingresa por el dominio fernetjs.com o www.fernetjs.com va a utilizar el servidor web de node que tengamos corriendo en el puerto 3000.
 
 Por último creamos el link simbólico a el nuevo server en sites-enabled y le avisamos a nginx que recargue las configuraciones:
 
-<pre class="brush: bash; title: ; notranslate" title="">ln -s /etc/nginx/sites-available/fernetjs.com /etc/nginx/sites-enabled/fernetjs.com
+{% highlight bash %}
+ln -s /etc/nginx/sites-available/fernetjs.com /etc/nginx/sites-enabled/fernetjs.com
 nginx -s reload
-</pre>
+ {% endhighlight %}
 
 ### Levantamos los procesos nodejs como servicios
 
 Nos queda tener algo que mantenga a los servidores web de nodejs corriendo y en modo de servicios de sistema operativo, así que instalamos [forever][4] y [forever-service][5]
 
-<pre class="brush: bash; title: ; notranslate" title="">npm install -g forever forever-service
-</pre>
+{% highlight bash %}
+npm install -g forever forever-service
+ {% endhighlight %}
 
 Suponiendo que tenemos un proyecto express de nodejs instalado en /usr/local/fernetjs:  
 Creamos el servicio y lo corremos en el puerto 3000:
 
-<pre class="brush: bash; title: ; notranslate" title="">cd /usr/local/fernetjs/
+{% highlight bash %}
+cd /usr/local/fernetjs/
 sudo forever-service install fernetjs --script ./bin/www -e "NODE_ENV=production PORT=3000" --start
-</pre>
+ {% endhighlight %}
 
 Para manejar los servicios de nodejs:
 
@@ -141,9 +153,10 @@ Para manejar los servicios de nodejs:
 
 Si queremos ver los logs o listar lo que tenemos en forever podemos seguir utilizando:
 
-<pre class="brush: bash; title: ; notranslate" title="">sudo forever list
+{% highlight bash %}
+sudo forever list
 sudo forever logs [indíce]
-</pre>
+ {% endhighlight %}
 
 **A partir de ahora si reiniciamos el servidor no necesitamos levantar los servidores nodejs, correr forever de nuevo, etc** 😉
 

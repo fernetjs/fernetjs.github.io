@@ -43,7 +43,8 @@ Principalmente el fernet volador tiene 2 entradas públicas, una para iniciar y 
 
 Arranquemos por el objeto konamiFernetJS:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var konamiFernetJS = (function($){
+{% highlight js %}
+var konamiFernetJS = (function($){
   //variables privadas
   var running = false, //si está en ejecución
     timerMove, //timer para movimiento
@@ -87,7 +88,7 @@ Arranquemos por el objeto konamiFernetJS:
     stop: reset
   }; 
 })(jQuery);
-</pre>
+ {% endhighlight %}
 
 De esta manera dejamos toda funcionalidad, variables, etc. dentro de una sola variable global *konamiFernetJS*.
 
@@ -95,7 +96,8 @@ De esta manera dejamos toda funcionalidad, variables, etc. dentro de una sola va
 
 En esta funcion vamos a crear el dom, eventos e iniciar los loops de animacion:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var runKonami = function(){
+{% highlight js %}
+var runKonami = function(){
   //creamos los elementos del DOM
   //este es el div que rota con la imagen de la botella
   bottle = $("&lt;div&gt;").addClass('fernet-capita');
@@ -146,13 +148,14 @@ En esta funcion vamos a crear el dom, eventos e iniciar los loops de animacion:
   }, 200);
 		
 };
-</pre>
+ {% endhighlight %}
 
 #### eventos keyup y keydown
 
 Manejando el array *keys* dependiendo de que esta presionado y que se dejó de presionar
 
-<pre class="brush: jscript; title: ; notranslate" title="">var konamiKeyDown = function(e){
+{% highlight js %}
+var konamiKeyDown = function(e){
   //comprobamos que la flecha presionada no esté en el array (sea nueva)
   if (keys.indexOf(e.which) === -1) {
     if (keys.length &gt; 1) keys.shift(); // si el array ya tiene 2, sacamos la primera
@@ -173,11 +176,12 @@ var konamiKeyUp = function(e){
   if (idx !== -1)
     keys.splice(idx, 1); //si el array tiene la flecha que soltamos, la eliminamos
 };
-</pre>
+ {% endhighlight %}
 
 #### loop de movimiento de la botella: moveBottle()
 
-<pre class="brush: jscript; title: ; notranslate" title="">var moveBottle = function(){
+{% highlight js %}
+var moveBottle = function(){
   //tomamos posiciones actuales y la altura de la ventana actual con su scroll
   var top = bottleWrap.position().top, 
     left = bottleWrap.position().left,
@@ -231,11 +235,12 @@ var konamiKeyUp = function(e){
   bottleWrap.css('top', top + 'px').css('left', left + 'px');
   bottle.attr('style', style);
 };
-</pre>
+ {% endhighlight %}
 
 #### Limpiamos memoria cuando se detenga: reset()
 
-<pre class="brush: jscript; title: ; notranslate" title="">var reset = function(){
+{% highlight js %}
+var reset = function(){
   //eliminamos eventos
   $(document).unbind('keydown', konamiKeyDown);
   $(document).unbind('keyup', konamiKeyUp);
@@ -251,7 +256,7 @@ var konamiKeyUp = function(e){
   keys = []; //volvemos a cero el array de flechas
   running = false; //le avisamos que ya no está en ejecución
 };
-</pre>
+ {% endhighlight %}
 
 Y eso es todo el fernet volador (sacando el css), estoy seguro que cambiarias varias cosas (con escribir el post yo cambiaría algunas :P) por eso te dejo un repo en github para que tengas todo el ejemplo completo y puedas modificarlo o reutilizarlo.
 

@@ -15,18 +15,20 @@ tags:
 ---
 Antes de hacer un *if* en cualquier lenguaje es importante entender que es *false* y que es *true* además de un booleano. 
 
-<pre class="brush: jscript; title: ; notranslate" title="">function unaFuncion(){
+{% highlight js %}
+function unaFuncion(){
   if (foo){
     foo = true;
   }
 
   var foo = true;
 }
-</pre>
+ {% endhighlight %}
 
 Entra al *if* ?, la respuesta es no &#8230; pero no entra porque vale *false* o *null*, sino porque vale *undefined*, la [declaracion de la variable se alzó][1] al principio de la función por el interpretador, pero no así su asignación. Y todo valor undefined resulta en falso.
 
-<pre class="brush: jscript; title: ; notranslate" title="">function unaFuncion(){
+{% highlight js %}
+function unaFuncion(){
   var foo = '';
   
   if (!foo && !foo.length){
@@ -36,13 +38,14 @@ Entra al *if* ?, la respuesta es no &#8230; pero no entra porque vale *false* o 
   if (foo) 
     console.log('mmm entro?');
 }
-</pre>
+ {% endhighlight %}
 
 Ahora *foo* no vale *undefined*, ni *null*, ni *false*, sin embargo un string vacio y el numero 0 son valores falsos, no siendo asi &#8216;false&#8217;, el cual es muy conocido en la jerga de scripting por ejemplo al asignar un &#8216;false&#8217; a un hidden y después preguntar contra su valor en un if: &#8216;false&#8217; es un string, el cual no es vacio, por lo tanto resulta en *true*.  
   
 Algunos errores comunes:
 
-<pre class="brush: jscript; title: ; notranslate" title="">function unaFuncion(){
+{% highlight js %}
+function unaFuncion(){
   var foo = 'hola';
   if (!parseFloat(foo)){
     console.log('devuelve NaN, otro valor falso');
@@ -61,7 +64,7 @@ Algunos errores comunes:
   if (baz.length)
     console.log('este mensaje no se logea, porque es 0 y resulta en false');
 }
-</pre>
+ {% endhighlight %}
 
 #### Valores Falsos (falsy values)
 
@@ -80,7 +83,8 @@ Algunos errores comunes:
 
 Ahora que sabemos que valores son falsos, tenemos que entender que || y && no retornan booleanos, como en otros lenguajes:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var nombre = 'pepe';
+{% highlight js %}
+var nombre = 'pepe';
 var apellido = 'gonzales';
 var sobreNombre = '';
 var edad = 65;
@@ -96,13 +100,14 @@ console.log(apellido); //logea 'gonzales'
 console.log(sobreNombre); //logea ''
 console.log(edad); //logea 65
 console.log(foreverAlone); //logea 0
-</pre>
+ {% endhighlight %}
 
 En ningun caso retorno *true *o *false*, **en javascript || y && retornan el último valor evaluado**, es decir, en el caso de || si el primero es verdadero lo retorna, sino retorna el siguiente, pero en el caso del && retorna el siguiente al último verdadero. Para este caso se aplican los mismos valores *falsos* que vimos antes en la tabla.
 
 Un ejemplo de mas real de su uso:
 
-<pre class="brush: jscript; title: ; notranslate" title="">function unaPersona(opciones){
+{% highlight js %}
+function unaPersona(opciones){
   var nombre = (opciones && opciones.unNombre) || 'Sin Nombre';
   console.log(nombre);
 }
@@ -111,7 +116,7 @@ unaPersona({ unNombre: 'Pepe' }); //logea: Pepe
 unaPersona({ }); //logea: Sin Nombre
 unaPersona({ unNombre: '' }); //logea: Sin Nombre
 unaPersona(null); //logea: Sin Nombre 
-</pre>
+ {% endhighlight %}
 
 Se puede utilizar para valores default. En este caso simplemente hago la comprobacion de que opciones no sea undefined o null, luego que tambien tenga una propiedad unNombre que no sea undefined, ni null, ni un string vacio (o sea, los valores falsos de la tabla), si ambos son verdaderos, retorno el último, sino salgo por el || y guardo &#8216;Sin Nombre&#8217;.
 

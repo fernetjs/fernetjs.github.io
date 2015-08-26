@@ -19,7 +19,8 @@ Se define la clase Usuario que posee la complejidad mínima y necesaria para exh
 Usuario es una clase trivial con 3 propiedades: **id**, **nombre** y **esAdmin** y el método **validar** que devuelve 2 errores.  
 Se construye el arreglo **usuarios** con 3 objetos de esa clase.
 
-<pre class="brush: jscript; title: ; notranslate" title="">function Usuario(nombre, esAdmin, id){	
+{% highlight js %}
+function Usuario(nombre, esAdmin, id){	
 	this.nombre = nombre;
 	this.esAdmin = esAdmin;
 	this.id = id;
@@ -34,7 +35,7 @@ var usu2 = new Usuario('Pedro', false);
 var usu3 = new Usuario('Alberta', true);
 
 var usuarios = [usu1, usu2, usu3];
-</pre>
+ {% endhighlight %}
 
 </br>
 
@@ -47,29 +48,32 @@ El objetivo de este ejemplo es escribir el código necesario para saber si algun
 
 #### Usando for:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var hayAlMenosUnAdministrador = false;
+{% highlight js %}
+var hayAlMenosUnAdministrador = false;
 for (var i; i &lt; usuarios.length; i++) {
 	var usuario = usuarios[i];
 	if (usuario.esAdmin) 
 		hayAlMenosUnAdministrador = true;        
 }
-</pre>
+ {% endhighlight %}
 
 #### Usando some:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var hayAlMenosUnAdministrador = usuarios.some(function(usuario){
+{% highlight js %}
+var hayAlMenosUnAdministrador = usuarios.some(function(usuario){
 	return usuario.esAdmin;
 })
-</pre>
+ {% endhighlight %}
 
 #### Usando some pero más prolijo:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var esAdmin = function(usuario){
+{% highlight js %}
+var esAdmin = function(usuario){
 	return usuario.esAdmin;
 };
 
 var hayAlMenosUnAdministrador = usuarios.some(esAdmin);
-</pre>
+ {% endhighlight %}
 
 </br>
 
@@ -80,8 +84,9 @@ var hayAlMenosUnAdministrador = usuarios.some(esAdmin);
 Dada una función, **every** devuelve verdadero si todos los elementos del arreglo cumplen con la misma.  
 El objetivo de este ejemplo es practicamente la misma idea anterior, solo que en este caso el objetivo es saber si todos los usuarios son administradores.
 
-<pre class="brush: jscript; title: ; notranslate" title="">var sonTodosAdmin = usuarios.every(esAdmin);
-</pre>
+{% highlight js %}
+var sonTodosAdmin = usuarios.every(esAdmin);
+ {% endhighlight %}
 
 </br>
 
@@ -94,7 +99,8 @@ El objetivo de este ejemplo es escribir el código necesario para construir un a
 
 #### Usando for:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var todosLosErrores = [];
+{% highlight js %}
+var todosLosErrores = [];
 for (var i = 0; i &lt; usuarios.length; i++){
 	var usuario = usuarios[i];
 	var errores = usuario.validar();
@@ -102,31 +108,34 @@ for (var i = 0; i &lt; usuarios.length; i++){
 	for (var e = 0; e &lt; errores.length; i++)
 		todosLosErrores.push(e);
 }
-</pre>
+ {% endhighlight %}
 
 #### Mejorado:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var todosLosErrores = [];
+{% highlight js %}
+var todosLosErrores = [];
 for (var i = 0; i &lt; usuarios.length; i++){
 	var usuario = usuarios[i];
 	var errores = usuario.validar();	
 	todosLosErrores = todosLosErrores.concat(errores);
 }
-</pre>
+ {% endhighlight %}
 
 #### Usando reduce:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var todosLosErrores = usuarios.reduce( function(errores, usuario){
+{% highlight js %}
+var todosLosErrores = usuarios.reduce( function(errores, usuario){
 	return errores.concat(usuario.validar());
 },[]);
-</pre>
+ {% endhighlight %}
 
 #### Usando reduce pero más prolijo:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var agregarErrores = function(errores, usuario){
+{% highlight js %}
+var agregarErrores = function(errores, usuario){
 	return errores.concat(usuario.validar());
 }
 var todosLosErrores = usuarios.reduce(agregarErrores,[]);
-</pre>
+ {% endhighlight %}
 
 En la tercera parte de este artículo se muestran ejemplos de los métodos: **forEach**, **filter** y **map**.

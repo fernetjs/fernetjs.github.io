@@ -27,7 +27,8 @@ El objetivo era, aparte de ser un *code for fun*, que sea muy configurable y que
 
 #### Disposición de la invasión alienígena
 
-<pre class="brush: jscript; title: ; notranslate" title="">// formando el "404" con los aliens
+{% highlight js %}
+// formando el "404" con los aliens
 // 1 = Alien Cangrejo | 2 = Alien Calamar
 ImageMapper.Invasion = function(){
     return [
@@ -40,11 +41,12 @@ ImageMapper.Invasion = function(){
         [2,2,2,2,2,2,2,2,2,2,2,2,2]
     ];
 };
-</pre>
+ {% endhighlight %}
 
 #### Disposición de los ladrillos para el escudo
 
-<pre class="brush: jscript; title: ; notranslate" title="">// formando el "NOT FOUND" del escudo
+{% highlight js %}
+// formando el "NOT FOUND" del escudo
 // 1 = Ladrillo de Escudo
 ImageMapper.Shield = function(){
     return [ 
@@ -55,11 +57,12 @@ ImageMapper.Shield = function(){
         [1,0,0,1,0,1,1,1,0,0,1,0,0,0,0,0,1,0,0,0,1,1,1,0,1,1,1,0,1,0,0,1,0,1,1,0]
     ];
 };
-</pre>
+ {% endhighlight %}
 
 Los aliens, cada ladrillo del escudo, la nave y los disparos también son arreglos &#8230; 
 
-<pre class="brush: jscript; title: ; notranslate" title="">// JSON array para el Alien Cangrejo
+{% highlight js %}
+// JSON array para el Alien Cangrejo
 // 0 = transparente | 1 = estático | 2 y 3 = estados de animación
 ImageMapper.AlienCrab = function(){
     return [
@@ -77,7 +80,7 @@ ImageMapper.AlienCrab = function(){
         [0,3,0,2,2,0,2,2,0,3,0]
     ];
 };
-</pre>
+ {% endhighlight %}
 
 &#8230; pero claro, todo iba muy bien hasta que empecé a tener muchas instancias *volando* por cada objeto dibujable. Digamos que tenia que dibujar bloque por bloque por cada elemento y rápidamente la performance se me fue al pozo.
 

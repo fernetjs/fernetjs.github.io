@@ -20,10 +20,12 @@ Para este tema tenemos [scripts armados de google][2] en varios lenguajes, pero 
 
 La implementación es bastante simple:
 
-<pre class="brush: bash; title: ; notranslate" title="">$ npm install ga
-</pre>
+{% highlight bash %}
+$ npm install ga
+ {% endhighlight %}
 
-<pre class="brush: jscript; title: ; notranslate" title="">var GoogleAnalytics = require('ga');
+{% highlight js %}
+var GoogleAnalytics = require('ga');
 var ga = new GoogleAnalytics('UA-XXXXXXX-X', 'dominio.com');
 
 //suponemos que creamos nuestro server Express
@@ -34,7 +36,7 @@ app.get('/api/v1/:algo', function(req, res){
 });
 
 //... otros métodos HTTP
-</pre>
+ {% endhighlight %}
 
 El problema que aparece ahi es la IP, estamos llamando al GA desde el servidor, por lo que la IP va a ser siempre la del servidor, no la del cliente que utiliza nuestra API.
 

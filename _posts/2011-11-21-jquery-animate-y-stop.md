@@ -14,6 +14,7 @@ tags:
   - hover
   - mouseenter
   - mouseleave
+migration_issue: highlightline
 ---
 Hoy en día encontramos muchas animaciones en la web, muchas formas de realizarlas y muchos plugins también. Lo que vengo viendo es el uso del método *.animate()* de jquery pero sin tener en cuenta su cola de animaciones (queue), por ejemplo disparando animaciones en un *mouseenter* y *mouseleave* sin detener la animación que esta ocurriendo, lo que incrementa la cola de animaciones y genera una repeticion no esperada de la misma animación muchas veces.
 
@@ -27,11 +28,13 @@ Veamos como hacer una animación con jQuery:
 
 En el ejemplo estamos utilizando la implementación de jQuery *.hover()* para el *mouseenter* y el *mouseleave* pasándole 2 handlers para cada uno y realizando una animación: aumentamos el ancho y alto cuando esta sobre el div y lo disminuimos a su estado inicial cuando termina. Como funciona?, simplemente utilizando el *.animate()* enviamos parámetros como objeto de las propiedades de CSS que queremos modificar en un tiempo determinado (milisegundos) y jQuery se encarga de armar la lógica para que suceda. 
 
-<pre class="brush: jscript; highlight: [2]; title: ; notranslate" title="">$('#divAnimado').hover(function(){
+<!--highlight:[2]-->
+{% highlight js %}
+$('#divAnimado').hover(function(){
     $(this).animate({
         width: 140,
     //...
-</pre>
+ {% endhighlight %}
 
 Pero qué pasa si pasamos el mouse repetidas veces antes de que termine una animación?, prueben poner el mouse adentro de div y sacarlo antes de que termine la animación varias veces.
 
@@ -48,10 +51,12 @@ De esta manera lo que hacemos es:
 
 Ahora si pasamos el mouse repetidas veces tenemos una mejor experiencia.
 
-<pre class="brush: jscript; highlight: [2]; title: ; notranslate" title="">$('#divAnimado').hover(function(){
+<!--highlight:[2]-->
+{% highlight js %}
+$('#divAnimado').hover(function(){
     $(this).stop(true).animate({
         width: 140,
     //...
-</pre>
+ {% endhighlight %}
 
 Es muy común ver el método *.animate()*, empezar a utilizarlo y no darnos cuenta de este comportamiento, es por eso que les recomiendo que estén al tanto del *.stop(true)*, ya que la mayoría de las veces, queremos que detenga y limpie la cola de animaciones antes de ejecutar otra animación.

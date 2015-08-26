@@ -15,7 +15,8 @@ Las deferreds en jquery fueron una pieza fundamental, que gracias a otorgar un m
 
 Vamos a ver cómo crear una Deferred:
 
-<pre class="brush: jscript; title: ; notranslate" title="">function esperar(msegs){
+{% highlight js %}
+function esperar(msegs){
     return $.Deferred(function(dfd){
         setTimeout(dfd.resolve, msegs);
     });    
@@ -23,7 +24,7 @@ Vamos a ver cómo crear una Deferred:
 console.log('empezo');
 esperar(4000).then(function() { console.log('ya espere demasiado'); });
 console.log('Acaba de empezar');
-</pre>
+ {% endhighlight %}
 
 <!--more-->
 
@@ -50,7 +51,8 @@ Si no se entiende por qué la salida va a tener ese orden, recomiendo echarle un
 
 Ahora, cambiemos algo del código:
 
-<pre class="brush: jscript; title: ; notranslate" title="">function esperar(msegs){
+{% highlight js %}
+function esperar(msegs){
     return $.Deferred(function(dfd){
         setTimeout(dfd.resolve, msegs);
     });
@@ -60,7 +62,7 @@ var espera = esperar(4000);
 espera.then(function() { console.log('ya espere demasiado'); });
 espera.resolve();
 console.log('Acaba de empezar');​
-</pre>
+ {% endhighlight %}
 
 La salida en consola &#8216;ya espere demasiado&#8217; va a aparecer antes que &#8216;acaba de empezar&#8217;, ya que resolvimos la deferred por fuera, antes de que se ejecute el resolve del setTimeout.
 
@@ -68,7 +70,8 @@ Algo que estaría bueno, sería que el método esperar me devuelva una Deferred,
 Para eso usamos el método .promise(), que va a devolver la misma deferred, pero sin los métodos que cambian el estado de la misma.  
 Es por eso que el siguiente código nos va a tirar error:
 
-<pre class="brush: jscript; title: ; notranslate" title="">function esperar(msegs){
+{% highlight js %}
+function esperar(msegs){
     return $.Deferred(function(dfd){
         setTimeout(dfd.resolve, msegs);
     }).promise();
@@ -78,7 +81,7 @@ var espera = esperar(4000);
 espera.then(function() { console.log('ya espere demasiado'); });
 espera.resolve();
 console.log('Acaba de empezar');​
-</pre>
+ {% endhighlight %}
 
 ## Demás acciones / métodos
 

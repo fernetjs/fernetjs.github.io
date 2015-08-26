@@ -46,7 +46,8 @@ Recarga
 
 Todo listo, ahora armemos la matriz de referencia y animaciones en el código:
 
-<pre class="brush: jscript; title: ; notranslate" title="">// defino los tipos de armas que voy a tener
+{% highlight js %}
+// defino los tipos de armas que voy a tener
 var armas = ['cuchillo', 'pistola', 'escopeta', 'grosa'];
 
 // defino para cada arma donde están sus estados en la matriz
@@ -74,7 +75,7 @@ var sprites = {
         accion: [[1,4],[2,4],[3,4],[4,4],[5,4]]
     }
 };
-</pre>
+ {% endhighlight %}
 
 Como se puede ver, hay celdas que se repiten y es la idea, es común que usemos una &#8220;celda&#8221; varias veces en la misma animación.
 
@@ -84,7 +85,8 @@ La animación se produce sola, simplemente por cada paso del game loop (actualiz
 
 Lo que hacemos primero es dejar el game loop corriendo, cuando el usuario presiona una tecla, guardamos que arma seleccionó y su estado:
 
-<pre class="brush: jscript; title: ; notranslate" title="">// Asignamos el callback al evento keypress
+{% highlight js %}
+// Asignamos el callback al evento keypress
 document.addEventListener('keypress', asignarArmaYEstado);
 
 // estadoAnterior, estado y arma son variables globales 
@@ -112,11 +114,12 @@ function asignarArmaYEstado(evento){
         break;
   }
 }
-</pre>
+ {% endhighlight %}
 
 En la próxima corrida del actualizar en el game loop, nos fijamos cual es el arma y su estado actual, para actualizar la posición de la matriz:
 
-<pre class="brush: jscript; title: ; notranslate" title="">// la variable pos mantiene la posición a dibujar
+{% highlight js %}
+// la variable pos mantiene la posición a dibujar
 // y es otra variable global del modulo en el game loop
 
 function actualizar(){
@@ -155,17 +158,18 @@ function actualizar(){
     h: sprites.dimension.alto
   };   
 }
-</pre>
+ {% endhighlight %}
 
 Por último al dispararse el dibujar, utilizamos el drawImage de canvas, pero con unas cuantas opciones mas para poder dibujar **sólo** la &#8220;celda&#8221; del estado y arma que queremos:
 
 Para información sobre el drawImage, está muy bien explicado [acá][8]
 
-<pre class="brush: jscript; title: ; notranslate" title="">function dibujar(){
+{% highlight js %}
+function dibujar(){
   //context.drawImage(&lt;Objeto Image&gt;, &lt;X Sprite&gt;, &lt;Y Sprite&gt;, &lt;Ancho Sprite&gt;, &lt;Alto Sprite&gt;, &lt;X en Canvas&gt;, &lt;Y en Canvas&gt;, &lt;Ancho en Canvas&gt;, &lt;Alto en Canvas&gt;);
   contexto.drawImage(imgSprites, pos.x, pos.y, pos.w, pos.h, 0, 0, pos.w, pos.h);
 }
-</pre>
+ {% endhighlight %}
 
 Les dejo un Fiddle con el resultado (click adentro del fiddle para usar): <http://jsfiddle.net/pjnovas/4PvSm>
 

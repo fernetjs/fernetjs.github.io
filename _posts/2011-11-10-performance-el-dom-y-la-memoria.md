@@ -11,6 +11,7 @@ categories:
 tags:
   - DOM
   - performance
+migration_issue: highlightline
 ---
 Con la llegada de las aplicaciones ricas de internet (RIA: Rich Internet Applications), nuestras páginas requieren mejor experiencia de usuario, lo que lleva a un mayor manejo del DOM con largas hojas de código js, animaciones, etc. Pero esto lleva a un problema que no siempre se prevé antes de desarrollar y de pronto todo empieza a funcionar lento o se come la memoria de la maquina del cliente.
 
@@ -26,7 +27,9 @@ En el caso 2 jQuery puede ser de gran ayuda con sus funciones empty() y remove()
 Un ejemplo común es realizar llamadas ajax y refrescar una lista de elementos, simulemos eso:  
 <!--more-->
 
-<pre class="brush: jscript; highlight: [6]; title: ; notranslate" title="">var cantidadEjecuciones = 0;
+<!--highlight:[6]-->
+{% highlight js %}
+var cantidadEjecuciones = 0;
 
 function AgregarElementos(){
     cantidadEjecuciones++;
@@ -47,11 +50,13 @@ function AgregarElementos(){
 
 AgregarElementos();
 
-</pre>
+ {% endhighlight %}
 
 La función anterior simula una carga de párrafos a un div cada 2 segundos, 5 veces. A simple vista la función es llamada, limpia el div y agrega 100 párrafos nuevos. El problema es que no se están liberando los objetos de memoria, como parece y cada vez que ejecuto la función, se agregan 100 más.
 
-<pre class="brush: jscript; highlight: [7]; title: ; notranslate" title="">var cantidadEjecuciones = 0;
+<!--highlight:[7]-->
+{% highlight js %}
+var cantidadEjecuciones = 0;
 
 function AgregarElementos(){
     cantidadEjecuciones++;
@@ -72,6 +77,6 @@ function AgregarElementos(){
 }
 
 AgregarElementos();
-</pre>
+ {% endhighlight %}
 
 De esta manera, justo antes de agregar los 100 nuevos párrafos limpio el dom utilizando el remove() de jQuery y así también la memoria.

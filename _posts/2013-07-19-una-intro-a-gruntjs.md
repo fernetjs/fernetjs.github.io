@@ -12,6 +12,7 @@ tags:
   - npm
   - package.json
   - task runner
+migration_issue: highlightline
 ---
 La verdad que lo vengo usando en prácticamente cualquier cosa que hago con javascript, sea solo cliente, server o ambas. Así que decidí escribir un post de esta interesante herramienta.
 
@@ -46,21 +47,25 @@ Como mencioné antes, está en NPM. (y necesitamos NodeJS instalado).
 
 Primero instalamos el &#8220;cliente&#8221; de Grunt de forma global, es el encargado de fijarse por nosotros que versión de grunt tiene el proyecto en el que lo estamos corriendo:
 
-<pre class="brush: bash; title: ; notranslate" title="">npm install grunt-cli -g
-</pre>
+{% highlight bash %}
+npm install grunt-cli -g
+ {% endhighlight %}
 
 > El parámetro -g indica que lo instalamos global del usuario actual en el sistema operativo. 
 
 Luego instalamos el paquete grunt (el que corre las tareas) en el proyecto de forma local:
 
-<pre class="brush: bash; title: ; notranslate" title="">npm install grunt --save-dev
-</pre>
+{% highlight bash %}
+npm install grunt --save-dev
+ {% endhighlight %}
 
 Le agregamos &#8211;save (para que lo inserte en las dependencias del package.json) y -dev para que sea en las **dependencias de desarrollo**, ya que vamos a necesitar grunt en tiempo de diseño o desarrollo, no en tiempo de ejecución de nuestra aplicación.
 
 Si miramos nuestro package.json:
 
-<pre class="brush: jscript; highlight: [8]; title: ; notranslate" title="">{
+<!--highlight:[8]-->
+{% highlight js %}
+{
   "name": "nombre",
   "version": "0.0.1",
   "dependencies": { 
@@ -70,34 +75,37 @@ Si miramos nuestro package.json:
     "grunt": "~0.4.1"
   }
 }
-</pre>
+ {% endhighlight %}
 
 #### Creando el Gruntfile
 
 Ahora agregamos un archivo al root, en el mismo lugar que tenemos el package.json con el nombre **Gruntfile.js**:
 
-<pre class="brush: jscript; title: Gruntfile.js; notranslate" title="Gruntfile.js">module.exports = function(grunt) {
+{% highlight js %}
+module.exports = function(grunt) {
   // Aca vamos a armar nuestras tareas
 };
-</pre>
+ {% endhighlight %}
 
 Y que es este archivo?, simplemente un modulo de NodeJS, el cual va a ser llamado por grunt cuando lo ejecutemos pasándonos por parámetro *grunt* el acceso al paquete para agregar las tareas y configuraciones.
 
 Hagamos una prueba de nuestro Gruntfile.js registrando una tarea &#8220;Hola Mundo&#8221;:
 
-<pre class="brush: jscript; title: Gruntfile.js; notranslate" title="Gruntfile.js">module.exports = function(grunt) {
+{% highlight js %}
+module.exports = function(grunt) {
 
   grunt.registerTask('default', 'Tarea Hola Mundo', function() {
     grunt.log.write('Hola Mundo!').ok();
   });
 
 };
-</pre>
+ {% endhighlight %}
 
 Corremos grunt:
 
-<pre class="brush: bash; title: ; notranslate" title="">grunt
-</pre>
+{% highlight bash %}
+grunt
+ {% endhighlight %}
 
 Simple!, registramos una tarea propia que muestre un &#8220;hola mundo&#8221; en la consola.
 
@@ -107,13 +115,15 @@ GruntJS tiene como plugins básicos los **grunt-contrib-***. Son un set de las t
 
 Primero instalemos los paquetes npm:
 
-<pre class="brush: bash; title: ; notranslate" title="">npm install grunt-contrib-concat --save-dev
+{% highlight bash %}
+npm install grunt-contrib-concat --save-dev
 npm install grunt-contrib-uglify --save-dev
-</pre>
+ {% endhighlight %}
 
 y ahora pongamos nuestra configuracion en el Gruntfile.js:
 
-<pre class="brush: jscript; title: Gruntfile.js; notranslate" title="Gruntfile.js">module.exports = function(grunt) {
+{% highlight js %}
+module.exports = function(grunt) {
   // este método que nos da Grunt es para pasarle las configuraciones a los paquetes que usemos
   grunt.initConfig({
     concat: {
@@ -136,17 +146,19 @@ y ahora pongamos nuestra configuracion en el Gruntfile.js:
   grunt.registerTask("default", [ "concat", "uglify" ]);
   grunt.registerTask("dist", [ "default" ]);
 };
-</pre>
+ {% endhighlight %}
 
 Y listo, ahora simplemente corremos
 
-<pre class="brush: bash; title: ; notranslate" title="">grunt
-</pre>
+{% highlight bash %}
+grunt
+ {% endhighlight %}
 
 o 
 
-<pre class="brush: bash; title: ; notranslate" title="">grunt dist
-</pre>
+{% highlight bash %}
+grunt dist
+ {% endhighlight %}
 
 GruntJS tiene mucho mas en cuanto a configuraciones, plugins, etc. Pero meterse de lleno en todo lleva su tiempo y a medida que empiecen a usarlo van a ir descubriendo configuraciones nuevas, plugins y como crear tareas propias. Por ahora con esta intro pueden empezar a probar y les agrego algunos links para ampliar (son en inglés, pero con la base de este post, creo que siguiendo el código de ejemplo pueden meterse con nuevas tareas y configuraciones).
 

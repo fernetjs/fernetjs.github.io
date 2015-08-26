@@ -22,7 +22,8 @@ Bueno, ahora que sabes esto del *this* y como se bindea su contexto, algo que es
 
 Como viste en el post mas arriba en el caso del *apply* lo que estamos haciendo es meterle un nuevo contexto a una función, por ejemplo:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var obj = {
+{% highlight js %}
+var obj = {
   delta: 2,
   test: function(num1, num2){
      return (num1 + num2) * this.delta;
@@ -31,7 +32,7 @@ Como viste en el post mas arriba en el caso del *apply* lo que estamos haciendo 
 
 var resultado = obj.test(2,2);
 console.log(resultado); // (2 + 2) * 2 = 8
-</pre>
+ {% endhighlight %}
 
 En este caso, simplemente tenemos un objeto con una propiedad y una función, al llamarla con 2 números, los sumamos y le aplicamos el delta de su contexto (en el cual está corriendo la función), que para este caso es el objeto en si mismo.
 
@@ -39,73 +40,80 @@ Pero que pasa si ahora queremos cambiarle ese contexto, un nuevo delta, definido
 
 ### apply()
 
-<pre class="brush: jscript; title: ; notranslate" title="">var cambio = {
+{% highlight js %}
+var cambio = {
   delta: 5
 };
 
 var resultado = obj.test.apply(cambio, [2,2]);
 console.log(resultado); // (2 + 2) * 5 = 20
-</pre>
+ {% endhighlight %}
 
 Le aplicamos un nuevo contexto en el cual corre la función, por lo que ahora el *this* de *obj* va a contenter nuestro objeto *cambio*, por ende, el delta valdrá 5 al ejecutarse.  
 Y que es el array que sigue a la llamada?, esos son los argumentos que recibe la función:
 
-<pre class="brush: jscript; title: ; notranslate" title="">[funcion].apply([contexto], [parámetros como array]);
-</pre>
+{% highlight js %}
+[funcion].apply([contexto], [parámetros como array]);
+ {% endhighlight %}
 
 ### call()
 
 Otra forma de llamar a una función aplicandole un contexto es con *call*, siguiendo con el ejemplo del apply:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var cambio = {
+{% highlight js %}
+var cambio = {
   delta: 5
 };
 
 var resultado = obj.test.call(cambio, 2, 2);
 console.log(resultado); // (2 + 2) * 5 = 20
-</pre>
+ {% endhighlight %}
 
 La única diferencia es la forma de pasar los argumentos, ya que en vez de que sea un array, simplemente toma el primero como el contexto y los siguientes son los argumentos en el orden que los esperamos.
 
-<pre class="brush: jscript; title: ; notranslate" title="">[funcion].call([contexto], [param1], [param2], [paramN]);
-</pre>
+{% highlight js %}
+[funcion].call([contexto], [param1], [param2], [paramN]);
+ {% endhighlight %}
 
 ### bind()
 
 En este caso hay una vuelta de tuerca mas, que nos puede ser bastante útil.  
 El *bind()* no llama a la función con un nuevo contexto, sino que nos devuelve una referencia a la función con ese nuevo contexto:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var cambio = {
+{% highlight js %}
+var cambio = {
   delta: 5
 };
 
 var funcionConCambio = obj.test.bind(cambio);
 var resultado = functionConCambio(2, 2);
 console.log(resultado); // (2 + 2) * 5 = 20
-</pre>
+ {% endhighlight %}
 
 Muy loco!, esto aplicado a callbacks puede ser muy interesante.  
 Usas el *self*, *me* o *that*?
 
 Supongamos tenemos una llamada ajax y definimos un callback para cuando termina, un ejemplo común sería:
 
-<pre class="brush: jscript; title: ; notranslate" title="">// más código donde utilizamos el this
+{% highlight js %}
+// más código donde utilizamos el this
 var that = this;
 function callback(datos){
   that.magia(datos);
 }
 
 ajax(callback);
-</pre>
+ {% endhighlight %}
 
 Ahora con bind nos quedaría asi:
 
-<pre class="brush: jscript; title: ; notranslate" title="">function callback(datos){
+{% highlight js %}
+function callback(datos){
   this.magia(datos);
 }
 
 ajax(callback.bind(this));
-</pre>
+ {% endhighlight %}
 
 Mucho más limpio!
 

@@ -12,10 +12,13 @@ tags:
   - expressjs
   - nodejs
   - package.json
+migration_issue: highlightline
 ---
 [ExpressJS][1] es un web framework que envuelve a ConnectJS. Con ExpressJS podemos crear un server, manejar las requests, responses y mucho mas, pero antes de meternos veamos un momento la estructura del sitio ([post relacionado][2]):
 
-<pre class="brush: cpp; highlight: [11,12]; title: ; notranslate" title="">/app-root
+<!--highlight:[11,12]-->
+{% highlight cpp %}
+/app-root
   /models
   /controllers
   /views
@@ -27,35 +30,40 @@ tags:
   /utils
   app.js
   package.json
-</pre>
+ {% endhighlight %}
 
 En app.js vamos a crear nuestro servidor, pero ExpressJS es un NPM, asi que primero lo instalamos  
 <!--more-->
 
-<pre class="brush: cpp; title: ; notranslate" title="">npm install express
-</pre>
+{% highlight cpp %}
+npm install express
+ {% endhighlight %}
 
 O &#8230; mejor todavia, empecemos organizadamente a armar nuestro [package.json][3]:
 
-<pre class="brush: jscript; highlight: [5]; title: package.json; notranslate" title="package.json">{
+<!--highlight:[5]-->
+{% highlight js %}
+{
   "name": "SitioWebConNodeJS",
   "version": "0.0.1",
   "dependencies": {
     "express": "&gt;=2.5.8"
   }
 }
-</pre>
+ {% endhighlight %}
 
 Ahora simplemente podemos hacer: 
 
-<pre class="brush: cpp; title: ; notranslate" title="">npm install
-</pre>
+{% highlight cpp %}
+npm install
+ {% endhighlight %}
 
 Solito se va a encargar de bajar las dependencias de nuestro proyecto leyendo el package.json. Es importante mantener nuestro package.json actualizado, ya que sirve como &#8220;mapa&#8221; de nuestras dependencias para NPM, Hosting, nosotros mismos, etc &#8230; 
 
 Bueno, ahora que tenemos instalado el NPM de ExpressJS podemos armar nuestro app.js:
 
-<pre class="brush: jscript; title: app.js; notranslate" title="app.js">//creamos una variable para el módulo
+{% highlight js %}
+//creamos una variable para el módulo
   var express = require('express');
 
   //creamos el server
@@ -69,25 +77,28 @@ Bueno, ahora que tenemos instalado el NPM de ExpressJS podemos armar nuestro app
   //ponemos el server en escucha en un puerto
   app.listen(1666);
   console.log('Server Express iniciado en %d', app.address().port);
-</pre>
+ {% endhighlight %}
 
 Bastante simple, ahora iniciamos el server
 
-<pre class="brush: cpp; title: ; notranslate" title="">node app.js
-</pre>
+{% highlight cpp %}
+node app.js
+ {% endhighlight %}
 
 Abrimos el browser en **http://localhost:1666** y se va a disparar el único *get* que tenemos. 
 
-<pre class="brush: jscript; title: ; notranslate" title="">app.get('/', function (req, res){
+{% highlight js %}
+app.get('/', function (req, res){
     res.send('Aló aló Mundo!');
   });
-</pre>
+ {% endhighlight %}
 
 Se parece bastante a lo que haciamos con el [módulo Core *http* de NodeJS][4]: declaramos una funcion callback que recibe la request y el response y despues simplemente enviamos un texto al response.
 
 Asi como tenemos el *get*, podemos declarar cualquiera de los verbos de HTTP, por ejemplo:
 
-<pre class="brush: jscript; title: ; notranslate" title="">app.get('/proyectos/:id', function (req, res){
+{% highlight js %}
+app.get('/proyectos/:id', function (req, res){
      res.send('Este es el proyecto ' + req.params.id);
   });
 
@@ -98,11 +109,12 @@ Asi como tenemos el *get*, podemos declarar cualquiera de los verbos de HTTP, po
   app.post('/proyectos/nuevo', function (req, res){
      res.send('Creando proyecto');
   });
-</pre>
+ {% endhighlight %}
 
 Por último tenemos la configuracion de ambientes. En ExpressJS configuramos los ambientes con el metodo .configure()
 
-<pre class="brush: jscript; title: ; notranslate" title="">//si no especificamos un ambiente, se aplica para todos 
+{% highlight js %}
+//si no especificamos un ambiente, se aplica para todos 
   app.configure(function(){
     //configuración común para todos
   });
@@ -115,12 +127,13 @@ Por último tenemos la configuracion de ambientes. En ExpressJS configuramos los
   app.configure('stage', 'production', function(){
     //configuracion para stage y producción
   });
-</pre>
+ {% endhighlight %}
 
 Ejecutamos la app para el entorno Productivo:
 
-<pre class="brush: cpp; title: ; notranslate" title="">EXPRESS_ENV=production node app.js
-</pre>
+{% highlight cpp %}
+EXPRESS_ENV=production node app.js
+ {% endhighlight %}
 
 > Es importante usar el ambiente *production* cuando está productivo nuestro sitio, porque algunos mecanismos de cache se funcionan sólo en ese estado.
 

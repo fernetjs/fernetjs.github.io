@@ -26,10 +26,11 @@ Node se encuentra en actividad permanente, y hay muchas versiones dando vueltas.
 
 En <a href="http://fernetjs.com/2011/12/la-era-del-package-json/" title="La era del package.json" target="_blank">el package.json</a> de nuestro proyecto podemos especificar la versión de node con la que sabemos que funciona. Por ejemplo, <a href="https://github.com/MatthewMueller/cheerio/blob/master/package.json" title="cheerio package.json" target="_blank">cheerio</a> corre en versiones mayores o iguales a 0.6.
 
-<pre class="brush: jscript; title: ; notranslate" title="">"engines": {
+{% highlight js %}
+"engines": {
     "node": "&gt;= 0.6"
   }
-</pre>
+ {% endhighlight %}
 
 La definición/uso de &#8220;engines&#8221; la podemos encontrar en el sitio de npm: <a href="http://npmjs.org/doc/json.html#engines" title="npm json-engines" target="_blank">http://npmjs.org/doc/json.html#engines</a>
 
@@ -40,8 +41,9 @@ La definición/uso de &#8220;engines&#8221; la podemos encontrar en el sitio de 
 Una opción es simplemente clonar el proyecto, y correr nave.sh.  
 Otra, es instalarlo por NPM:
 
-<pre class="brush: bash; title: ; notranslate" title="">npm install -g nave
-</pre>
+{% highlight bash %}
+npm install -g nave
+ {% endhighlight %}
 
 Después, el uso es bastante sencillo e intuitivo.  
 **Instalar (descargar y buildear) una versión de node: **  

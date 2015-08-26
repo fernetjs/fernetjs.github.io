@@ -21,47 +21,54 @@ jQuery NO es un lenguaje de programación, ni tampoco la solución a todos tus p
 Pensemos a jQuery como una función, si &#8230; simplemente una función que recibe parametros. La función está nombrada como jQuery(*parametros*), por ejemplo:  
 <!--more-->
 
-<pre class="brush: jscript; title: ; notranslate" title="">var todosLosDivs = jQuery('div');
-</pre>
+{% highlight js %}
+var todosLosDivs = jQuery('div');
+ {% endhighlight %}
 
 Llamamos a la función jQuery pasandole como parámetro un string, en éste caso &#8216;div&#8217; y eso nos retornará todos los *divs* en nuestro documento. Bueno, a esto se le llama *selector*, un *selector* es un cadena (string) en la cual, por medio de standares como ser CSS, xPath, customs de jQuery, etc; definimos lo que vamos a buscar en nuestro documento. 
 
 Y el signo $?, bueno, $() es lo mismo que jQuery(). Es un nombre alias para lo mismo, como javascript permite nombres de variables y funciones que empiecen con $ tenemos declarado ese alias para ahorrarnos escribir jQuery(), por lo que usando el ejemplo anterior, esto es lo mismo:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var todosLosDivs = $('div');
-</pre>
+{% highlight js %}
+var todosLosDivs = $('div');
+ {% endhighlight %}
 
 ### Selectores
 
 Como dije, es una cadena (string) en la cual definimos lo que queremos buscar. Pensemoslo como un *query* aplicado al DOM. Hay muchos tipos de selectores, ya sean:
 
-<pre class="brush: jscript; title: por CSS; notranslate" title="por CSS">var divs_con_clase_foo = $('div.foo');
+{% highlight js %}
+var divs_con_clase_foo = $('div.foo');
 var elemento_con_id_baz = $('#baz');
-</pre>
+ {% endhighlight %}
 
-<pre class="brush: jscript; title: por Atributos; notranslate" title="por Atributos">var inputs_con_id_termina_en_chau = $('input[id$=chau]');
+{% highlight js %}
+var inputs_con_id_termina_en_chau = $('input[id$=chau]');
 var botones = $('input[type=button]');
 var checkboxs = $('input[type=checkbox]');
-</pre>
+ {% endhighlight %}
 
-<pre class="brush: jscript; title: customs de jQuery; notranslate" title="customs de jQuery">var botones = $(':button');
+{% highlight js %}
+var botones = $(':button');
 var checkboxs = $(':checkbox');
 var checkboxs_con_checked_true = $(':checkbox :checked');
-</pre>
+ {% endhighlight %}
 
 Hay muchas formas más de *seleccionar* o hacer un *query* en el DOM, por ejemplo enviandole un elemento *nativo* de DOM:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var ele = document.getElementById('miElemento');
+{% highlight js %}
+var ele = document.getElementById('miElemento');
 var boton = $(ele);
-</pre>
+ {% endhighlight %}
 
 Pero no termina ahí, el punto no es solo *buscar* de una manera mas fácil en el DOM, sino también manipularlo. Lo que nos devuelve esa búsqueda es un objeto de jQuery (conocido como *jQuery wrapped set*, o envoltorio de jQuery), este objeto es un arreglo de elementos DOM, a los cuales les podemos aplicar alguna función de todas las que nos brinda jQuery, por ejemplo, agregarles a todos una clase CSS &#8216;baz&#8217;:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var divs = $('div.foo');
+{% highlight js %}
+var divs = $('div.foo');
 if (divs.length &gt; 0) {
     divs.addClass('baz');
 }
-</pre>
+ {% endhighlight %}
 
 Como se puede ver tengo un atributo *length* y ya que es un arreglo puedo comprobar cuantos elementos encontró. Despues le agregamos la clase CSS a todos los elementos.
 
@@ -69,22 +76,24 @@ Como se puede ver tengo un atributo *length* y ya que es un arreglo puedo compro
 
 jQuery no es la solución a tu vida con javascript y el DOM, esos *queries* que hacemos necesitan procesamiento, también crear el jquery wrapper, y no queremos procesamientos con uso de memoria si no son necesarios. Un ejemplo muy común donde pierde sentido es:
 
-<pre class="brush: jscript; title: ; notranslate" title="">$('.boton').bind('click', function(){
+{% highlight js %}
+$('.boton').bind('click', function(){
     var id_del_boton = $(this).attr('id');
     if (id === 'foo') {
        // algo
     }
 });
-</pre>
+ {% endhighlight %}
 
 Lo que estoy haciendo es bindear el evento *click* de un botón y cuando se dispare compruebo su id y realizo algo. Bueno, es muy común que en el primer amor a jQuery hagamos ese tipo de cosas, donde estamos creando un objeto jQuery solo para comprobar su id, algo que es mejor hacer utlizando el atributo nativo:
 
-<pre class="brush: jscript; title: ; notranslate" title="">$('.boton').bind('click', function(){
+{% highlight js %}
+$('.boton').bind('click', function(){
     if (this.id === 'foo') {
        // algo
     }
 });
-</pre>
+ {% endhighlight %}
 
 Ese es uno, entre otros ejemplos en donde NO es necesario usar jQuery.
 

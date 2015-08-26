@@ -38,19 +38,21 @@ console.error('No me alcanza pal fernet');
 
 Todos estos métodos soportan que le pasemos varios parámetros.
 
-<pre class="brush: jscript; title: ; notranslate" title="">// no hace falta hacer
+{% highlight js %}
+// no hace falta hacer
 console.log('Este es el título de mi documento: ' + window.document.title);
 // puedo hacer
 console.log('Este es el título de mi documento:', window.document.title);
-</pre>
+ {% endhighlight %}
 
 También se soporta el uso de &#8220;templated strings&#8221;. Como primer parámetro podemos pasar un string que contiene &#8220;strings de reemplazo&#8221;, que van a ser el lugar donde se van a formatear los sucesivos parámetros restantes.
 
-<pre class="brush: jscript; title: ; notranslate" title="">var stock = 1,
+{% highlight js %}
+var stock = 1,
   marca = 'acme';
 console.warn('Me queda %d fernet marca %s :(', stock, marca);
 // imprime: 'Me queda 1 fernet marca acme :('
-</pre>
+ {% endhighlight %}
 
 Pueden existir diferencias entre navegadores, pero en general los posibles strings de reemplazo como `%s` son:
 
@@ -65,8 +67,9 @@ Pueden existir diferencias entre navegadores, pero en general los posibles strin
 
 Adicionalmente, se puede formatear la salida con CSS, utilizando `%c`. El soporte para estos estilos también puede cambiar en base al navegador.
 
-<pre class="brush: jscript; title: ; notranslate" title="">console.log('%cFERNETJS', 'background:#AAAA00; font-size:16pt');
-</pre>
+{% highlight js %}
+console.log('%cFERNETJS', 'background:#AAAA00; font-size:16pt');
+ {% endhighlight %}
 
 <img src="http://fernetjs.com/wp-content/uploads/2014/12/log_style.png" alt="console log con estilo" width="468" height="46" class="size-full wp-image-3981" />
 
@@ -77,7 +80,8 @@ Utilizando las características vistas hasta ahora, ya se pueden hacer bastantes
 `console.assert` es muy similar a console.log, con la diferencia de que solo escribe el mensaje en consola sólo cuando el primer parámetro es falso, y lo acompaña con el stacktrace.  
 Es muy útil para todas aquellas situaciones en las que no queremos &#8220;spammear&#8221; la consola o queremos detectar situaciones no esperadas, por ejemplo dentro de un <a href="http://fernetjs.com/2012/09/construyendo-un-game-loop/" title="Construyendo un Game Loop" target="_blank">game loop</a>.
 
-<pre class="brush: jscript; title: ; notranslate" title="">console.assert(true, 'Esto no va a imprimir nada en consola');
+{% highlight js %}
+console.assert(true, 'Esto no va a imprimir nada en consola');
 console.assert(false, 'Esto si');
 
 function sum(a, b){
@@ -89,13 +93,14 @@ function sum(a, b){
 sum(1,2); // no imprime nada en consola
 sum(10, '???'); // Assertion failed: b no es un número!: ???
 // de todas maneras retorna '10???'
-</pre>
+ {% endhighlight %}
 
 ### count
 
 `console.count` loguea en consola la cantidad de veces que esta línea es llamada. Recibe solamente un string como parámetro, que es la etiqueta a utilizar para este contador.
 
-<pre class="brush: jscript; title: ; notranslate" title="">function load(){
+{% highlight js %}
+function load(){
   // [...]
   console.count('load');
 }
@@ -106,7 +111,7 @@ function render(){
 load(); //load: 1
 render(); //render: 1
 render(); //render: 2
-</pre>
+ {% endhighlight %}
 
 <img src="http://fernetjs.com/wp-content/uploads/2014/12/count.png" alt="" width="215" height="192" class="alignnone size-full wp-image-3984" />
 
@@ -118,22 +123,25 @@ Recibe un objeto como parámetro, y lo representa en consola de forma interactiv
 
 console.table recibe un objeto o array y lo representa en forma de tabla en la consola. También puede recibir un último parámetro que es un array de strings que contiene las propiedades que se quieren incluir. Inclusive se puede ordenar por columna clickeando en el encabezado de la tabla!
 
-<pre class="brush: jscript; title: ; notranslate" title="">var links = [
+{% highlight js %}
+var links = [
   { nombre: 'MDN', url: 'https://developer.mozilla.org/en-US/docs/Web/API/Console.table'},
   { nombre: 'npmPackage', url: 'https://www.npmjs.org/package/console.table'}
 ];
 console.table(links);
-</pre>
+ {% endhighlight %}
 
 <img src="http://fernetjs.com/wp-content/uploads/2014/12/table.png" alt="" width="869" height="82" class="alignnone size-full wp-image-3988" />
 
-<pre class="brush: jscript; title: ; notranslate" title="">// sólo nos interesa la propiedad url
+{% highlight js %}
+// sólo nos interesa la propiedad url
 console.table(links, ['url']);
-</pre>
+ {% endhighlight %}
 
 <img src="http://fernetjs.com/wp-content/uploads/2014/12/table2.png" alt="" width="864" height="84" class="alignnone size-full wp-image-3987" />
 
-<pre class="brush: jscript; title: ; notranslate" title="">// podemos imprimir objetos
+{% highlight js %}
+// podemos imprimir objetos
 var linksComoObjetos = {
   MDN: {
     url: 'https://developer.mozilla.org/en-US/docs/Web/API/Console.table'
@@ -143,7 +151,7 @@ var linksComoObjetos = {
   }
 };
 console.table(linksComoObjetos);
-</pre>
+ {% endhighlight %}
 
 <img src="http://fernetjs.com/wp-content/uploads/2014/12/table3.png" alt="" width="865" height="82" class="alignnone size-full wp-image-3986" />
 
@@ -155,7 +163,8 @@ Son métodos que nos permiten tener organizado todo el logueo que hagamos a la c
 
 Primero llamamos a `console.group` con una etiqueta, y todo logueo de consola que se haga después de eso, va a quedar agrupado dentro de la misma hasta que llamemos a `console.groupEnd` con la misma etiqueta. `console.groupCollapsed` es idéntico a `console.group`, salvo que por defecto ese grupo arranca sin estar expandido en la consola.
 
-<pre class="brush: jscript; title: ; notranslate" title="">function update(){
+{% highlight js %}
+function update(){
   for(var i=0; i&lt; 5; i++){
     console.log(i);
   }
@@ -173,13 +182,14 @@ console.groupEnd('logica');
 console.groupCollapsed('rendering');
 render();
 console.groupEnd('rendering');
-</pre>
+ {% endhighlight %}
 
 <img src="http://fernetjs.com/wp-content/uploads/2014/12/group.png" alt="" width="145" height="127" class="alignnone size-full wp-image-3992" />
 
 También se pueden tener grupos anidados!
 
-<pre class="brush: jscript; title: ; notranslate" title="">function update(){
+{% highlight js %}
+function update(){
   console.groupCollapsed('DB');
   for(var i=0; i&lt; 5; i++){
     console.log(i);
@@ -199,7 +209,7 @@ console.groupEnd('logica');
 console.groupCollapsed('rendering');
 render();
 console.groupEnd('rendering');
-</pre>
+ {% endhighlight %}
 
 <img src="http://fernetjs.com/wp-content/uploads/2014/12/group2.png" alt="" width="138" height="82" class="alignnone size-full wp-image-3991" />
 
@@ -211,14 +221,15 @@ console.groupEnd('rendering');
 
 De manera similar a group y groupEnd, reciben una etiqueta como parámetro. Al llamar a `console.time('etiqueta')`, un timer comienza a correr para esa etiqueta, que parará cuando se llame a `console.timeEnd('etiqueta')`, y se imprimirá el tiempo en pantalla.
 
-<pre class="brush: jscript; title: ; notranslate" title="">console.time('ejemplo poco original');
+{% highlight js %}
+console.time('ejemplo poco original');
 setTimeout(function(){
   console.timeEnd('ejemplo poco original');
 }, 1000);
 // en consola se logueará algo similar a:
 // ejemplo poco original: 1843.323ms
 // estará muy lenta mi máquina, que arroja ese número considerablemente más grande que 1000ms!
-</pre>
+ {% endhighlight %}
 
 ### profile, profileEnd
 

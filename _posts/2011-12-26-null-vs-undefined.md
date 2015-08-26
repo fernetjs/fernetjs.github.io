@@ -19,25 +19,28 @@ Por un lado, null puede tener solo un valor y ese valor es null :). El tipo de d
 
 <!--more-->
 
-<pre class="brush: jscript; title: ; notranslate" title="">alert(typeof(null)); //object
-</pre>
+{% highlight js %}
+alert(typeof(null)); //object
+ {% endhighlight %}
 
 Se puede decir que null es un placeholder que contiene nada, su espacio en memoria está seteado como vacío.  
 Por otro lado, undefined significa que el valor aún no fue seteado, ni siquiera seteado como vacío. Por ejemplo, una variable que fue declarada pero no inicializada va a tener un valor de undefined: 
 
-<pre class="brush: jscript; title: ; notranslate" title="">var fernetjs; 
+{% highlight js %}
+var fernetjs; 
 alert(typeof fernetjs); //undefined
-</pre>
+ {% endhighlight %}
 
 De acuerdo al ECMAcore, ambos tipos de datos al igual que el resto de los tipos de datos primitivos de javascript (a excepción del string) ocupan un clúster de 8B en la memoria stack que es mucho más rápida que el heap que es donde van a parar los tipos de datos por referencia con un tamaño de almacenamiento variable. Más info en [Uso de memoria][1]  
 En una de las reuniones de fernetJS pjnovas comentó el caso de que tuvo que asignar null a todas las variables de un juego para poder destruirlas (como se dijo anteriormente el espacio ocupado por null es vacío), sin embargo no es posible hacer eso si les hubiese asignado undefined.
 
 Algo curioso que se da en terminos de comparación entre estos dos tipos de datos es lo siguiente:
 
-<pre class="brush: jscript; title: ; notranslate" title="">alert(null == undefined); //true
+{% highlight js %}
+alert(null == undefined); //true
 
 alert(null === undefined); //false
-</pre>
+ {% endhighlight %}
 
 como pueden ver, esto puede ser el causante de muchos problemas en la aplicación (ver [Diferencia entre == y ===][2]) por eso siempre es necesario utilizar los operadores de igualdad correctos.
 

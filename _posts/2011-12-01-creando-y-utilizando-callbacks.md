@@ -16,7 +16,8 @@ Como la palabra en inglés lo indica un callback es una &#8220;llamada de vuelta
 
 Para ver mas esto de utilizar funciones como variables pasen por <a title="Alcance de Variables – Parte 2: funciones" href="http://www.fernetjs.com/2011/10/alcance-de-variables-parte-2-funciones/"  target="_blank">aca</a>
 
-<pre class="brush: jscript; title: ; notranslate" title="">function haceAlgo(miCallback){
+{% highlight js %}
+function haceAlgo(miCallback){
     //hago algo y llamo al callback avisando que terminé
     miCallback();
 }
@@ -25,12 +26,13 @@ haceAlgo(function(){
    console.log('terminó de hacer algo');
 });
 
-</pre>
+ {% endhighlight %}
 
 También podemos enviar y recibir parámetros:  
 <!--more-->
 
-<pre class="brush: jscript; title: ; notranslate" title="">function haceAlgo(miCallback){
+{% highlight js %}
+function haceAlgo(miCallback){
     //hago algo y llamo al callback avisando que terminé
     miCallback('cualquier cosa');
 }
@@ -39,12 +41,13 @@ haceAlgo(function(queHizo){
    console.log('terminó de hacer ' + queHizo);
 });
 
-</pre>
+ {% endhighlight %}
 
 Pero callback no significa que voy a llamar cuando termino algo, simplemente puedo tener distintos callbacks que se van llamando en determinados casos.  
 La idea es disparar eventos en las funciones que llamaron &#8220;avisando&#8221; que esta sucendiendo, por ejemplo:
 
-<pre class="brush: jscript; title: ; notranslate" title="">function haceAlgo(callbackPaso1, callbackPaso2, callbackTermino){
+{% highlight js %}
+function haceAlgo(callbackPaso1, callbackPaso2, callbackTermino){
     //algo aca
     callbackPaso1('paso 1');
 
@@ -66,11 +69,12 @@ haceAlgo(
        console.log(queHizo);
     });
 
-</pre>
+ {% endhighlight %}
 
 También lo podemos utilizar declarando funciones nombradas y separando la lógica:
 
-<pre class="brush: jscript; title: ; notranslate" title="">function haceAlgo(callbackPaso1, callbackPaso2, callbackTermino){
+{% highlight js %}
+function haceAlgo(callbackPaso1, callbackPaso2, callbackTermino){
     //algo aca
     callbackPaso1('paso 1');
 
@@ -95,7 +99,7 @@ function termino(queHizo){
 
 haceAlgo(paso1, paso2, termino);
 
-</pre>
+ {% endhighlight %}
 
 De esta forma creamos funciones nombradas fuera de la llamada y estas a su vez podrian disparar otros eventos (con collbacks) tambien.
 

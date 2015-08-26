@@ -13,6 +13,7 @@ tags:
   - prototype
   - sintaxis
   - this
+migration_issue: highlightline
 ---
 Cada vez que llamamos a una función en javascript se crea un nuevo contexto, en el cual tenemos *this* y *arguments*, el último lo pueden ver mejor explicado <a href="http://fernetjs.com/2011/11/funciones-argumentos-y-parametros/" title="Funciones: Argumentos y Parámetros" target="_blank">en este post</a>. El *this* se va a inicializar de distintas formas dependiendo de como invoquemos a la función.
 
@@ -27,7 +28,9 @@ Hay 4 patrones para invocar una función:
 
 Cuando una función es guardada como una propiedad de un objeto, lo llamamos *método*. En este caso *this* es inicializado con el objeto al que pertenece la función.
 
-<pre class="brush: jscript; highlight: [4]; title: ; notranslate" title="">var obj = {
+<!--highlight:[4]-->
+{% highlight js %}
+var obj = {
     valor: 0,
     incrementar: function(incremento){
        this.valor += incremento;
@@ -36,7 +39,7 @@ Cuando una función es guardada como una propiedad de un objeto, lo llamamos *m�
 
 obj.incrementar(2);
 console.log(obj.valor); // 2
-</pre>
+ {% endhighlight %}
 
 <!--more-->
 
@@ -44,7 +47,9 @@ console.log(obj.valor); // 2
 
 Cuando una función no está dentro de un objeto es invocada como función, y *this* es inicializado con el Objeto Global. Esto es un problema, ya que cuando llamamos a una función dentro de otra, *this* sigue referenciando al Objeto Global y si queremos acceder al this de la función padre tenemos que almacenarlo en una variable primero:
 
-<pre class="brush: jscript; highlight: [4]; title: ; notranslate" title="">var obj = {
+<!--highlight:[4]-->
+{% highlight js %}
+var obj = {
     valor: 0,
     incrementar: function(incremento){ // es invocado como método
        var that = this;
@@ -61,14 +66,16 @@ Cuando una función no está dentro de un objeto es invocada como función, y *t
 obj.incrementar(2);
 console.log(obj.valor); // 2
 
-</pre>
+ {% endhighlight %}
 
 ### Patrón de invocación como Constructor
 
 Javascript es un lenguaje de herencia prototipada, lo que significa que un objeto puede heredar directamente propiedades de otro objeto y como su prototipado no es muy convincente, javascript ofrece una sintaxis estilo *creación de objetos* como en los lenguajes clasicos de POO (Programación Orientada a Objetos).  
 Dicho esto, cuando invocamos una función con *new* se creará un objeto con una referencia al valor de su miembro de función prototipada (también llamado *constructor*) y *this* tendrá una referencia a este nuevo objeto.
 
-<pre class="brush: jscript; highlight: [2,5]; title: ; notranslate" title="">var Persona = function(){ // nuestro "constructor"
+<!--highlight:[2,5]-->
+{% highlight js %}
+var Persona = function(){ // nuestro "constructor"
     this.nombre = 'José';
 }
 Persona.prototype.mostrarNombre = function(){
@@ -77,7 +84,7 @@ Persona.prototype.mostrarNombre = function(){
 
 var p = new Persona();
 p.mostrarNombre(); //imprime 'José'
-</pre>
+ {% endhighlight %}
 
 > como vimos antes, si invocamos la función Persona() sin el new, *this* se inicializa distinto y nuestra *clase* se va a comportar de forma muy extraña, es por eso que como convención llamamos a las *clases* con la primer letra en mayúscula. 
 
@@ -88,7 +95,9 @@ La función *apply* nos deja construir un arreglo de argumentos para usar al inv
 
 Usando el ejemplo anterior de prototipado, vamos a cambiar el *this* utilizando el *apply*
 
-<pre class="brush: jscript; highlight: [5,10,15]; title: ; notranslate" title="">var Persona = function(){ // nuestro "constructor"
+<!--highlight:[5,10,15]-->
+{% highlight js %}
+var Persona = function(){ // nuestro "constructor"
     this.nombre = 'José';
 }
 Persona.prototype.mostrarNombre = function(){
@@ -103,6 +112,6 @@ var otroObjeto = {
 var p = new Persona();
 p.mostrarNombre(); //imprime 'José'
 p.mostrarNombre.apply(otroObjeto); // imprime 'Pepe'
-</pre>
+ {% endhighlight %}
 
 Fuente: <a href="http://shop.oreilly.com/product/9780596517748.do" title="JavaScript: The Good Parts" target="_blank">JavaScript: The Good Parts &#8211; Douglas Crockford</a>

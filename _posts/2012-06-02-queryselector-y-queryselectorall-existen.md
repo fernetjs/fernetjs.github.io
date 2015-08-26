@@ -40,7 +40,8 @@ Este post está hecho porque sé que hay mucha gente que no está al tanto de qu
 
 querySelector es una función que a partir de un selector, devuelve el primer elemento que matchea con ese selector, o null en caso de que no matchee con ningún elemento.
 
-<pre class="brush: jscript; title: ; notranslate" title="">// obtengo el primer artículo
+{% highlight js %}
+// obtengo el primer artículo
 var articulo = document.querySelector('article'),
     primerLinkDelArticulo = null;
 // checkeo si existe al menos un "article"
@@ -48,24 +49,26 @@ if (articulo !== null){
     // tambien puedo correr querySelector sobre un elemento (matchea hijos)
     primerLinkDelArticulo = articulo.querySelector('a');
 }
-</pre>
+ {% endhighlight %}
 
 querySelectorAll devuelve un array de elementos con los que el selector matchea. En caso de que esto no ocurra con ningún elemento, el resultado va a ser un array vacío (array con length === 0).
 
-<pre class="brush: jscript; title: ; notranslate" title="">//traigo todos los elementos con la clase warning
+{% highlight js %}
+//traigo todos los elementos con la clase warning
 var warnings = document.querySelectorAll('.warning');
 if (warnings.length &gt; 0){
     throw new Error('que lo pario! que pasó??');
 }
-</pre>
+ {% endhighlight %}
 
 Obviamente, todo esto toma un poco más de sentido cuando tenemos selectores un poco más complejos.. un ejemplo un toque mas práctico:
 
-<pre class="brush: jscript; title: ; notranslate" title="">// los links que apuntan a un pdf
+{% highlight js %}
+// los links que apuntan a un pdf
 var pdfs = document.querySelectorAll('a[href$=".pdf"]');
 pdfs.forEach(function(aPdf){
     console.log(aPdf.href);
 });
-</pre>
+ {% endhighlight %}
 
 En fin.. éstas funciones son una herramienta más a tener en cuenta &#8211; que en mi caso y algunos casos conocidos estaba siendo menospreciada y casi olvidada.

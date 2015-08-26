@@ -13,6 +13,7 @@ tags:
   - asincronismo
   - canvas
   - setTimeout
+migration_issue: highlightline
 ---
 Continuando con el post de [Dibujando en Canvas &#8211; HTML5][1] vamos a ver como animar lo que dibujamos.
 
@@ -24,7 +25,9 @@ Ya que tenemos el logo de FernetJS en Canvas, vamos a animarlo.
   
 Primero necesitamos un loop de animación, es decir una función recursiva que se ejecute cada x tiempo realizando los cambios necesarios para animar (como ser una disminución de posiciones x, y de la imagen del vaso):
 
-<pre class="brush: jscript; highlight: [1,8,16,23]; title: ; notranslate" title="">function loop(posX, posY) {
+<!--highlight:[1,8,16,23]-->
+{% highlight js %}
+function loop(posX, posY) {
     //limpio el contexto
     contexto.clearRect(0, 0, 145, 145);
 
@@ -47,7 +50,7 @@ Primero necesitamos un loop de animación, es decir una función recursiva que s
 }
 
 loop(150, 150);
-</pre>
+ {% endhighlight %}
 
 Ese es mi loop para animar el vaso, la idea es que llamando a la función loop enviándole las coordenadas iniciales x, y se va a llamar a sí misma cada 40 milisegundos con un [setTimeout()][3] restándole 10 pixeles a cada coordenada hasta que llegue a 0.
 
@@ -56,7 +59,9 @@ Ese es mi loop para animar el vaso, la idea es que llamando a la función loop e
 De esta manera podríamos encadenar animaciones y realizar de a una a medida que van terminando. Ahora podríamos hacer un [callback  
 ][5] cuando termine esa animación para disparar otra:
 
-<pre class="brush: jscript; highlight: [1,17,21]; title: ; notranslate" title="">function animar(termino){
+<!--highlight:[1,17,21]-->
+{% highlight js %}
+function animar(termino){
 
     function loop(posX, posY) {
         contexto.clearRect(0, 0, 145, 145);
@@ -81,7 +86,7 @@ animar(function() {
     //realizo otra animacion o algo mas
 });
 
-</pre>
+ {% endhighlight %}
 
 Como se puede ver es bastante diferente a un .animate() de jQuery o a modificar propiedades del DOM. Si tuviéramos que hacer todo esto con imágenes?, funciona bien, pero es mas carga y si queremos cambiar algo tenemos que hacer las imágenes de nuevo. De esta manera vamos a tener una buena experiencia de animación, mantenible y con performance &#8230; aparte de poder realizar animaciones dibujando lo cual le da un toque mas interesante a crear imágenes.
 

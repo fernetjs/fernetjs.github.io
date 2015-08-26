@@ -21,22 +21,25 @@ A partir de acá sabemos que al navegador web entra al sitio web **renderiza** t
 
 **Desde el body**
 
-<pre class="brush: xml; title: ; notranslate" title="">&lt;body onload="myMainFunction()"&gt;
-</pre>
+{% highlight xml %}
+&lt;body onload="myMainFunction()"&gt;
+ {% endhighlight %}
 
 **Desde el javascript**
 
-<pre class="brush: jscript; title: ; notranslate" title="">window.onload=function() {
+{% highlight js %}
+window.onload=function() {
   // myMainFunction() o el código desde acá
 }
-</pre>
+ {% endhighlight %}
 
 **Desde JQuery**
 
-<pre class="brush: jscript; title: ; notranslate" title="">$(function() {
+{% highlight js %}
+$(function() {
 // myMainFunction() o el código desde acá
 });
-</pre>
+ {% endhighlight %}
 
 Por otra parte, ¿que es un **nodo** exactamente?, &#8220;un **nodo** es uno de los elementos de una **lista enlazada**, de **un árbol** o de **un grafo**&#8220;, &#8220;Cada **nodo** será una **estructura** o **registro** que dispondrá de varios **campos**, y al menos uno de esos **campos** será un **puntero** o referencia a otro **nodo**&#8221;
 

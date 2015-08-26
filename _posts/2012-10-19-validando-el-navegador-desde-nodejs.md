@@ -12,6 +12,7 @@ tags:
   - navegadores
   - nodejs
   - user-agent
+migration_issue: highlightline
 ---
 Supongamos que tenemos un sitio web extremadamente coqueto con lo último en tecnología HTML5, CSS3 y toda la locura. Pero entra un usuario con Internet Explorer 6 y le explota en la cara, se rompe todo, la mayoría de la magia que nos llevo mucho trabajo hacer ni siquiera la visualiza. 
 
@@ -29,14 +30,16 @@ Una forma es inspeccionar en el Encabezado (header) HTTP, la propiedad *User-Age
 
 Por ejemplo, un posible encabezado para Internet Explorer 9:
 
-<pre class="brush: bash; highlight: [4]; title: ; notranslate" title="">GET / HTTP/1.1
+<!--highlight:[4]-->
+{% highlight bash %}
+GET / HTTP/1.1
 Accept: text/html
 Accept-Language: es-AR
 User-Agent: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
 Accept-Encoding: gzip, deflate
 Proxy-Connection: Keep-Alive
 Host: example.com
-</pre>
+ {% endhighlight %}
 
 > Mozilla/5.0 ?, si, por [razones históricas][1] Internet Explorer se identifica como un navegador Mozilla, que loco no? 
 
@@ -48,7 +51,8 @@ Tenemos varios paquetes NPM para leer el UserAgent, en este caso les voy a mostr
 
 Supongamos que tenemos un servidor en NodeJS con Express y bajo un pedido de una página queremos validar el navegador:
 
-<pre class="brush: jscript; title: ; notranslate" title="">// hacemos referencia al paquete
+{% highlight js %}
+// hacemos referencia al paquete
 var useragent = require('useragent');
 
 //le avisamos que vamos usar algunas características más
@@ -81,7 +85,7 @@ app.get('/', function(req, res) {
 
   // y así sucesivamente
 });
-</pre>
+ {% endhighlight %}
 
 Se pueden hacer muchas cosas mas con esa biblioteca, pueden ver más sobre la api en [useragent de 3rd-Eden][2].
 

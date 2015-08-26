@@ -11,37 +11,42 @@ tags:
   - funciones
   - llaves
   - variables
+migration_issue: highlightline
 ---
 Como segunda parte de [Alcance de Variables][1] vamos a ver como se comportan las funciones.
 
 En la parte 1 vimos que las declaraciones de variables son *alzadas* al principio de la función por el interpretador. Bueno, las declaraciones de funciones también lo son.
 
-<pre class="brush: jscript; title: ; notranslate" title="">function miFunction(){
+{% highlight js %}
+function miFunction(){
     foo();
 
     function foo(){
        console.log('foo fue llamada!');
     }
 }
-</pre>
+ {% endhighlight %}
 
 De la misma manera que en la declaracion de variables, el interpretador alzó la declaracion de la función *foo* al principio:
 
-<pre class="brush: jscript; highlight: [2,3,4]; title: ; notranslate" title="">function miFunction(){
+<!--highlight:[2,3,4]-->
+{% highlight js %}
+function miFunction(){
     function foo(){
        console.log('foo fue llamada!');
     }
 
     foo();
 }
-</pre>
+ {% endhighlight %}
 
 En javascript podemos asignar funciones a variables, ya sean anónimas o nombradas, donde el *alzado* del interpretador puede ser un poco confuso.  
 <!--more-->
 
 ### Función Anónima
 
-<pre class="brush: jscript; title: ; notranslate" title="">function miFuncion(){
+{% highlight js %}
+function miFuncion(){
     foo(); // TypeError "foo no es una función"
 
     // Expresion de función anónima
@@ -51,11 +56,13 @@ En javascript podemos asignar funciones a variables, ya sean anónimas o nombrad
 
     foo(); // resulta en: función llamada!
 }
-</pre>
+ {% endhighlight %}
 
 Lo que pasó en ese caso es que el interpretador *alzó* la declaracion de la variable *foo*, pero no así su asignación:
 
-<pre class="brush: jscript; highlight: [2,5]; title: ; notranslate" title="">function miFuncion(){
+<!--highlight:[2,5]-->
+{% highlight js %}
+function miFuncion(){
     var foo;
     foo(); // simplemente es una variable! foo === undefined
 
@@ -65,11 +72,12 @@ Lo que pasó en ese caso es que el interpretador *alzó* la declaracion de la va
 
     foo(); // ahora sí es una función
 }
-</pre>
+ {% endhighlight %}
 
 ### Función Nombrada
 
-<pre class="brush: jscript; title: ; notranslate" title="">function miFuncion(){
+{% highlight js %}
+function miFuncion(){
     foo(); // TypeError "foo no es una función"
     baz(); // ReferenceError "baz no está definida"
 
@@ -81,12 +89,14 @@ Lo que pasó en ese caso es que el interpretador *alzó* la declaracion de la va
     foo(); // resulta en: función llamada!
     baz(); // ReferenceError "baz no está definida"
 }
-</pre>
+ {% endhighlight %}
 
 Sucede lo mismo, con la diferencia que no podemos llamar a la función nombrada desde afuera ya que su alcance no se encuentra en nuestra función, es decir, *baz* directamente no fue *alzada* porque ni siquiera se encuentra al alcance de *miFuncion*, no sabe que existe.  
 Veamos como fue interpretado:
 
-<pre class="brush: jscript; highlight: [2,6]; title: ; notranslate" title="">function miFuncion(){
+<!--highlight:[2,6]-->
+{% highlight js %}
+function miFuncion(){
     var foo;
     foo(); // simplemente no es una función todavía.
     baz(); // baz no existe, no fue declarada.
@@ -98,7 +108,7 @@ Veamos como fue interpretado:
     foo(); // ahora sí es una función.
     baz(); // sigue sin existir en este alcance.
 }
-</pre>
+ {% endhighlight %}
 
 ### Como escribir código conociendo todo esto?
 

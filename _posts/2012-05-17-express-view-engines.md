@@ -12,14 +12,16 @@ tags:
   - node
   - nodejs
   - npm
+migration_issue: highlightline
 ---
 Como vimos en el [post anterior de ExpressJS][1], podemos referenciar a nuestro WebFramework con el ViewEngine que elijamos, vamos a ver 2 opciones de VisionMedia: EJS y Jade, y por último Mustache.
 
 Ambas opciones se instalan desde NPM:
 
-<pre class="brush: cpp; title: ; notranslate" title="">npm install ejs
+{% highlight cpp %}
+npm install ejs
 npm install jade
-</pre>
+ {% endhighlight %}
 
 > Ejs, jade, mustache, etc. son paquetes externos a Express. Por lo que hay que instalarlos por npm aparte. 
 
@@ -30,7 +32,9 @@ Ejs y Jade son los primeros que salieron con Express, hoy en dia tenemos mas opc
 
 Siguiendo con la estructura, creamos el archivo nuevo lenguajes.ejs donde vamos a tener nuestra vista.
 
-<pre class="brush: cpp; highlight: [6,7]; title: ; notranslate" title="">/app-root
+<!--highlight:[6,7]-->
+{% highlight cpp %}
+/app-root
   /models
 
   /controllers
@@ -49,11 +53,12 @@ Siguiendo con la estructura, creamos el archivo nuevo lenguajes.ejs donde vamos 
 
   app.js
   package.json
-</pre>
+ {% endhighlight %}
 
 Luego, configuramos el server express con el view engine:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var express = require('express'),
+{% highlight js %}
+var express = require('express'),
   app = express.createServer();
 
 app.set('views', __dirname + '/views');
@@ -65,7 +70,7 @@ app.get('/', function(req, res){
     lenguajes: ['javascript', 'java', '.net', 'python', 'php']
   });
 });
-</pre>
+ {% endhighlight %}
 
 En la primeras 2 lineas referenciamos a express y creamos un server. En la linea 04 le decimos a express donde vamos a guardar las vistas y en la 05 le especificamos el view engine a utilizar.
 
@@ -73,7 +78,8 @@ En la primeras 2 lineas referenciamos a express y creamos un server. En la linea
 
 Ejs es el mas simple, ya que se parece mucho a otros lenguajes como Java o .NET. Con Ejs la vista nos quedaria de esta forma:
 
-<pre class="brush: xml; title: ; notranslate" title="">&lt;!DOCTYPE html&gt;
+{% highlight xml %}
+&lt;!DOCTYPE html&gt;
 &lt;html&gt;
   &lt;head&gt;
     &lt;title&gt;&lt;%= title %&gt;&lt;/title&gt;
@@ -88,7 +94,7 @@ Ejs es el mas simple, ya que se parece mucho a otros lenguajes como Java o .NET.
   &lt;% } %&gt;
   &lt;/body&gt;
 &lt;/html&gt;
-</pre>
+ {% endhighlight %}
 
 [Github Ejs][2]
 
@@ -96,7 +102,8 @@ Ejs es el mas simple, ya que se parece mucho a otros lenguajes como Java o .NET.
 
 Jade es bastante diferente, ya que es mas apuntando a [ZenCoding][3], no exactamente eso, pero es divertido:
 
-<pre class="brush: jscript; title: ; notranslate" title="">!!! html
+{% highlight js %}
+!!! html
   head
     title= title
   body
@@ -105,7 +112,7 @@ Jade es bastante diferente, ya que es mas apuntando a [ZenCoding][3], no exactam
       - lenguajes.forEach(function(lenguaje){
         li= lenguaje
       - })
-</pre>
+ {% endhighlight %}
 
 [Github Jade][4]
 
@@ -113,7 +120,8 @@ Jade es bastante diferente, ya que es mas apuntando a [ZenCoding][3], no exactam
 
 Este es interesante ya que el template queda bastante mas limpio, es decir, no tiene condicionales ni forEachs. Por lo que no es para cualquier cosa, pero si armas templates simple (como el de arriba) queda mucho mas limpio tu view.
 
-<pre class="brush: xml; title: ; notranslate" title="">&lt;!DOCTYPE html&gt;
+{% highlight xml %}
+&lt;!DOCTYPE html&gt;
 &lt;html&gt;
   &lt;head&gt;
     &lt;title&gt;{{title}}&lt;/title&gt;
@@ -126,7 +134,7 @@ Este es interesante ya que el template queda bastante mas limpio, es decir, no t
   &lt;/ul&gt;
   &lt;/body&gt;
 &lt;/html&gt;
-</pre>
+ {% endhighlight %}
 
 [Github Mustache][5]
 

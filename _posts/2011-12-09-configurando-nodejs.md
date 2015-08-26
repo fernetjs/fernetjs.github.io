@@ -32,25 +32,29 @@ Empecemos por descargar el instalador de la pagina (node-v0.X.msi Windows instal
 
 Simplemente corremos el instalador, abrimos la consola (cmd.exe) y probamos la version de node instalada:
 
-<pre class="brush: cpp; title: ; notranslate" title="">node -v
-</pre>
+{% highlight cpp %}
+node -v
+ {% endhighlight %}
 
 Esto nos va a mostrar la version que instalamos, lo que nos queda es probar algo de javascript para ser felices, asi que en la consola escribimos node y presionamos enter para entrar en la consola y despues tiramos algo de js:
 
-<pre class="brush: jscript; title: ; notranslate" title="">node
+{% highlight js %}
+node
 &gt; var prueba = 'Hola Node';
 &gt; console.log(prueba);
-</pre>
+ {% endhighlight %}
 
 listo!, node instalado en windows. Para lo que respecta NPM, ya lo tenemos, vamos a ver la version:
 
-<pre class="brush: cpp; title: ; notranslate" title="">npm -v
-</pre>
+{% highlight cpp %}
+npm -v
+ {% endhighlight %}
 
 Eso es todo, ya tenemos node y npm instalado para empezar a codear. Si queremos instalar paquetes del NPM:
 
-<pre class="brush: cpp; title: ; notranslate" title="">npm install [paquete]
-</pre>
+{% highlight cpp %}
+npm install [paquete]
+ {% endhighlight %}
 
 Se van a instalar con sus dependencias solito.
 
@@ -69,48 +73,55 @@ Después de tener el tar.gz vamos a hacer los pasos de descomprimir, crear una c
 
 Abrimos el terminal, nos posicionamos donde tenemos el .tar.gz y hacemos lo siguiente:
 
-<pre class="brush: cpp; title: ; notranslate" title="">tar -zxf node-v0.6.5.tar.gz
+{% highlight cpp %}
+tar -zxf node-v0.6.5.tar.gz
 cd node-v0.6.5
 ./configure
 make
 sudo make install
-</pre>
+ {% endhighlight %}
 
 Ya tenemos node!, podemos comprobarlo poniendo en el terminal:
 
-<pre class="brush: cpp; title: ; notranslate" title="">node -v
-</pre>
+{% highlight cpp %}
+node -v
+ {% endhighlight %}
 
 y nos va a retornar la version de node instalada.
 
 Tiremos algo de codigo javascript para un momento de emoción: simplemente tenemos que escribir node, y darle al ENTER, para abrir la consola de node, y empezamos a tirar codigo js:
 
-<pre class="brush: jscript; title: ; notranslate" title="">node
+{% highlight js %}
+node
 &gt; var prueba = 'Hola Node';
 &gt; console.log(prueba);
-</pre>
+ {% endhighlight %}
 
 Presionamos Ctrl+C 2 veces y volvemos al terminal.
 
 Desde la version 0.6 de node ya tenemos el NPM incluido, pero por si necesitan instalarlo, en el terminal pomenos:
 
-<pre class="brush: cpp; title: ; notranslate" title="">curl http://npmjs.org/install.sh | sh
-</pre>
+{% highlight cpp %}
+curl http://npmjs.org/install.sh | sh
+ {% endhighlight %}
 
 > Si no reconoce el comando cURL, no lo tienen instalado, primero ingresen en el terminal:
 > 
-> <pre class="brush: cpp; title: ; notranslate" title="">sudo apt-get install curl
-</pre>
+> {% highlight cpp %}
+sudo apt-get install curl
+ {% endhighlight %}
 
 listo!, comprobemos la version en el terminal:
 
-<pre class="brush: cpp; title: ; notranslate" title="">npm -v
-</pre>
+{% highlight cpp %}
+npm -v
+ {% endhighlight %}
 
 y ahora es simplemente agregar paquetes a nuestro gusto utilizando:
 
-<pre class="brush: cpp; title: ; notranslate" title="">npm install [paquete]
-</pre>
+{% highlight cpp %}
+npm install [paquete]
+ {% endhighlight %}
 
 * * *
 
@@ -128,13 +139,15 @@ La otra forma de instalarlo es la misma que la de [Linux][2] explicada más ar
 
 Comprobamos las versión de node:
 
-<pre class="brush: cpp; title: ; notranslate" title="">node -v
-</pre>
+{% highlight cpp %}
+node -v
+ {% endhighlight %}
 
 &#8230; y de NPM:
 
-<pre class="brush: cpp; title: ; notranslate" title="">npm -v
-</pre>
+{% highlight cpp %}
+npm -v
+ {% endhighlight %}
 
 Listo! Todo en orden, tenemos NodeJS instalado en nuestra Mac.
 
@@ -148,9 +161,10 @@ Una forma interesante de usar nodejs es en la nube, no importa sobre que SO este
 Trabaja con github para guardar los proyectos que realicemos por lo que es necesario tener una cuenta en gitub también, está todo muy bien explicado en el sitio.  
 Y por si fuera poco, tambien tenemos la opción de descargarnos el IDE y trabajar en local, y está dentro de los del NPM:
 
-<pre class="brush: cpp; title: ; notranslate" title="">npm install cloud9
+{% highlight cpp %}
+npm install cloud9
 cloud9
-</pre>
+ {% endhighlight %}
 
 * * *
 

@@ -15,7 +15,8 @@ tags:
 
 Veamos con este ejemplo la diferencia entre los operadores &#8216;==&#8217; y &#8216;===&#8217;:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var a = [1,2,3,4]; 
+{% highlight js %}
+var a = [1,2,3,4]; 
 var b = [1,2,3,4];  
 var c = { x: 1, y: 2, z: 3 }; 
 var d = { x: 1, y: 2, z: 3 };  
@@ -37,26 +38,28 @@ alert(("2" == 2)); //true
 alert((true === 1)); //false 
 alert(("2" === 2)); // false
 
-</pre>
+ {% endhighlight %}
 
 Javascript tiene dos operadores de igualdad &#8216;===&#8217; y &#8216;==&#8217;. El operador &#8216;===&#8217; retornará true si los dos operandos son del mismo tipo ***Y*** tienen el mismo valor.  
 En cambio, el operador &#8216;==&#8217; intenta forzar una conversión si los operandos son de distinto tipo para luego comparar los valores.  
 Veamos otro ejemplo:  
 <!--more-->
 
-<pre class="brush: jscript; title: ; notranslate" title="">var a = [1,2,3,4]; 
+{% highlight js %}
+var a = [1,2,3,4]; 
 var b = [1,2,3,4]; 
 var c = a;  
 var ab_igualdad = (a === b); // false 
 var ac_igualdad = (a === c); // true 
-</pre>
+ {% endhighlight %}
 
 En realidad el operador &#8216;===&#8217; verifica que ambos operandos apunten al mismo objeto o en el caso de tipo de datos de valor que ambos operandos tengan el mismo valor.  
 Veamos un ejemplo de esto con strings:
 
-<pre class="brush: jscript; title: ; notranslate" title="">alert(("fernetjs" == new String("fernetjs")));    // true 
+{% highlight js %}
+alert(("fernetjs" == new String("fernetjs")));    // true 
 alert(("fernetjs" === new String("fernetjs")));   // false 
-</pre>
+ {% endhighlight %}
 
 Acá vemos que con &#8216;===&#8217; da false porque hablamos de distintos objetos.
 
@@ -64,7 +67,8 @@ Acá vemos que con &#8216;===&#8217; da false porque hablamos de distintos objet
 
 Se corrió lo siguiente 6 veces con cada operador de igualdad y los resultados arrojaron una mejor performace con el operador &#8216;===&#8217;.
 
-<pre class="brush: jscript; title: ; notranslate" title="">console.time("testEquality"); 
+{% highlight js %}
+console.time("testEquality"); 
 var n = 0; 
 while(true) {     
     n++;     
@@ -84,12 +88,13 @@ console.timeEnd("testTypeEquality");
 
 //16.83 en promedio con '=='
 //16.5 en promedio con '==='
-</pre>
+ {% endhighlight %}
 
 Usen la implementación de console.time and console.timeEnd en caso de que prueben  
 con explorer 8:
 
-<pre class="brush: jscript; title: ; notranslate" title="">if(window.console && typeof(window.console.time) == "undefined") {
+{% highlight js %}
+if(window.console && typeof(window.console.time) == "undefined") {
     console.time = function(name, reset){
         if(!name) { return; }
         var time = new Date().getTime();
@@ -113,7 +118,7 @@ con explorer 8:
         return diff;
     };
 }
-</pre>
+ {% endhighlight %}
 
 Conclusión: aunque la diferencia no es grande (dependiendo del caso), vemos que con &#8216;===&#8217; obtuvimos un mejor tiempo.
 

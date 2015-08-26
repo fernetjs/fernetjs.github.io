@@ -16,23 +16,26 @@ tags:
   - funciones
   - nodejs
   - parámetros
+migration_issue: highlightline
 ---
 Algo necesario en todo lenguaje de programación es el manejo de errores. Lamentablemente en JS es poco usado y en llamadas asíncronas está mal usado la mayoría de las veces. Es por eso que armo este post para que nos enteremos de que el objeto Error existe en JS y nos sirve mucho mas de lo que sabemos y/o creemos.
 
 Arrancamos con un ejemplo común:
 
-<pre class="brush: jscript; title: ; notranslate" title="">try {
+{% highlight js %}
+try {
   //.. venimos haciendo cosas 
   throw "disparo un error!";
 }
 catch(e){
   console.log(e); // "disparo un error!"
 }
-</pre>
+ {% endhighlight %}
 
 Bueno, tiramos un error que es un string, pero podemos hacerlo mejor:
 
-<pre class="brush: jscript; title: ; notranslate" title="">try {
+{% highlight js %}
+try {
   //.. venimos haciendo cosas 
   throw new Error("disparo un error!");
 }
@@ -40,24 +43,27 @@ catch(e){
   console.log(e.message); //"disparo un error!"
   console.log(e.stack); //Error: disparo un error! at http://localhost/:3:2 at condition .... 
 }
-</pre>
+ {% endhighlight %}
 
 Ahh, ahora se vé mucho mejor, tenemos el stack y el mensaje por separado y si hacemos un *throw e;* vamos a ver el error completito en la consola (o en el terminal en el caso de NodeJS). O sea, que ahora es un objeto, no mas cadenas voladas en el *eter*.
 
 > Cómo vimos en [otro post][1], el alcance de las variables es a nivel de función, pero para el catch, nuestra variable e tiene alcance SOLO dentro del catch:
 > 
-> <pre class="brush: jscript; title: ; notranslate" title="">console.dir(e); //error: e no está declarada
+> {% highlight js %}
+console.dir(e); //error: e no está declarada
 catch(e){
   console.dir(e); //jeje   
 }
 console.dir(e); //error: e no está declarada
-</pre>
+ {% endhighlight %}
 
 Manejar errores de esta manera nos trae muchas facilidades, aparte de tener el Stack y de tener realmente una Excepcion y no un string, nos abre las puertas para empezar a manejar errores enserio, ahora podemos:
 
 ### Crear nuestros Tipos de Errores:
 
-<pre class="brush: jscript; highlight: [5,6]; title: ; notranslate" title="">function MiError(mensaje) {
+<!--highlight:[5,6]-->
+{% highlight js %}
+function MiError(mensaje) {
   this.name = "MiError";
   this.message = mensaje || "No Especificado";
 }
@@ -72,13 +78,15 @@ try {
   console.log(e.stack);  // Error: explotó! at http://localhost/:9:2 at condition .... 
   console.log(e instanceof MiError); //true
 }
-</pre>
+ {% endhighlight %}
 
 Simplemente extendemos la clase *Error* con nuestro nuevo tipo de error <img src="http://fernetjs.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" />
 
 Al tener tipos propios de errores, es seguro que vamos a necesitar catchear cada tipo, porque para eso los creamos, ya que esto no es un feo string y ahora es una clase, podemos comprobar por instancia para que quede prolijo:
 
-<pre class="brush: jscript; highlight: [4]; title: ; notranslate" title="">try {
+<!--highlight:[4]-->
+{% highlight js %}
+try {
   throw new MiError("explotó!");
 } catch (e) {
   if (e instanceof MiError){
@@ -89,11 +97,12 @@ Al tener tipos propios de errores, es seguro que vamos a necesitar catchear cada
     throw e;
   }
 }
-</pre>
+ {% endhighlight %}
 
 > Van a ver por ahí casos donde se utiliza: 
 > 
-> <pre class="brush: jscript; title: ; notranslate" title="">catch(e if e instanceof MiError)</pre>
+> {% highlight js %}
+catch(e if e instanceof MiError) {% endhighlight %}
 > 
 > Cuidado con eso porque solo lo soporta Mozilla y no es parte del Standard ECMAScript. </blockquote> 
 > 
@@ -116,23 +125,27 @@ Al tener tipos propios de errores, es seguro que vamos a necesitar catchear cada
 > 
 > Lo que se utiliza, y no se bien si realmente es un standard (en NodeJS), es tener un argumento más (**el primero**) en cada callback, el cual va a ser el error:
 > 
-> <pre class="brush: jscript; title: ; notranslate" title="">dao.leerDatos(function(error, datos){
+> {% highlight js %}
+dao.leerDatos(function(error, datos){
    // en error tengo la excepcion (pero no hay try/ catch)
 });
-</pre>
+ {% endhighlight %}
 > 
 > Porque el argumento *error* en el primer lugar?, yo creo que viene por el lado del *opcional*, en JavaScript ningún argumento es obligatorio, podemos definirlos o no, y usarlos o no, no estamos obligados a seguir una *firma* de métodos/ funciones como en otros lenguajes. Entonces de esta manera si queremos agarrar el argumento *datos* estamos obligados a agregar el argumento *error*, por su orden 😛
 > 
 > Es por eso que en el caso de un callback que no devuelve nada, simplemente se dispara cuando algo termina, lo ideal sería que igualmente tenga un argumento error:
 > 
-> <pre class="brush: jscript; title: ; notranslate" title="">dao.guardar(entidad, function(error){
+> {% highlight js %}
+dao.guardar(entidad, function(error){
   // etc ..
 });
-</pre>
+ {% endhighlight %}
 > 
 > Bueno, y como manejo si hubo error o no?, ya que no hay try/ catch?
 > 
-> <pre class="brush: jscript; highlight: [2,4]; title: ; notranslate" title="">dao.leerDatos(function(error, datos){
+> <!--highlight:[2,4]-->
+{% highlight js %}
+dao.leerDatos(function(error, datos){
   if (error) {
     // manejo el error.
     return;
@@ -140,13 +153,15 @@ Al tener tipos propios de errores, es seguro que vamos a necesitar catchear cada
   
   console.dir(datos);
 });
-</pre>
+ {% endhighlight %}
 > 
 > Simple!, compruebo si *error* es un [valor verdadero][3] y recuerden hacer un return, o salir de ese callback de alguna otra forma, ya que sino la función continuará su ejecución, y no me suena a que queremos que suceda.
 > 
 > Mirando esto mismo de quien llama a ese manejo podemos ver como funciona:
 > 
-> <pre class="brush: jscript; highlight: [5,10]; title: ; notranslate" title="">function hacerLlamada(termino) {
+> <!--highlight:[5,10]-->
+{% highlight js %}
+function hacerLlamada(termino) {
   
   dao.leerDatos(function(error, datos){
     if (error) {
@@ -164,7 +179,7 @@ hacerLlamada(function(err, datos){
   else console.dir(datos);
 });
 
-</pre>
+ {% endhighlight %}
 > 
 > El ejemplo no es lo más feliz, pero lo que te quiero mostrar es como sería el que llama a esa función con otro callback. De está manera nos queda el código mucho mas ordenado y con los errores bien manejados, como si hubiera un try y catch (que va subiendo en su ejecución a medida que es disparado y atrapado por el que lo llamó), hacemos lo mismo con callbacks y somos todos felices :). 
 > 

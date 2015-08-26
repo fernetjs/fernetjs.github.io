@@ -30,25 +30,28 @@ Los cambios relacionados que fueron necesarios pueden ser observados [en este co
 
 En este caso, el código del método que llevaría el elemento canvas a estar en pantalla completa sería:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var canvas = this.canvas,
+{% highlight js %}
+var canvas = this.canvas,
     requestFullscreen = canvas.requestFullscreen || canvas.mozRequestFullScreen || canvas.webkitRequestFullScreen;
 if(requestFullscreen){
     requestFullscreen.call(canvas);
 }
-</pre>
+ {% endhighlight %}
 
 De la misma manera, para cancelarlo:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var cancelFullscreen = document.cancelFullscreen || document.mozCancelFullScreen || document.webkitCancelFullScreen;
+{% highlight js %}
+var cancelFullscreen = document.cancelFullscreen || document.mozCancelFullScreen || document.webkitCancelFullScreen;
 if(cancelFullscreen){
 	cancelFullscreen.call(document);
 }
-</pre>
+ {% endhighlight %}
 
 Existe un evento que se dispara cada vez que se produce el switch hacia o desde fullscreen. Este es misteriosamente (?) llamado fullscreenchange, que también viene acompañado por sus hermanos mozfullscreenchange y webkitfullscreenchange.  
 De la misma manera, existe un flag a nivel document que nos indica si actualmente se encuentra en pantalla completa, o no. Ejemplo:
 
-<pre class="brush: jscript; title: ; notranslate" title="">document.addEventListener("fullscreenchange", function () {
+{% highlight js %}
+document.addEventListener("fullscreenchange", function () {
     // Aca podes reordenar todo el contenido, o hacer cosas copadas
     console.log((document.fullscreen)? "Ahora estoy en fullscreen" : "Ahora no");
 }, false);
@@ -60,7 +63,7 @@ document.addEventListener("mozfullscreenchange", function () {
 document.addEventListener("webkitfullscreenchange", function () {
     console.log((document.webkitIsFullScreen)? "Ahora estoy en fullscreen" : "Ahora no");
 }, false);
-</pre>
+ {% endhighlight %}
 
 Cabe aclarar que no sólo se puede aplicar a un video o a un canvas, sino que tambien a un div, u otros elementos del DOM.
 
@@ -71,7 +74,8 @@ Evidentemente, en este caso aparecen los prefijos del vendor, en js y css. O sea
 
 Uno de los temas es que en firefox cuando pasas a fullscreen, todo el contenido se ajusta a la pantalla. En cambio, en browsers basados en webkit como el chrome, el contenido queda con el tamaño original, y si lo queremos ajustar, lo tenemos que hacer con CSS y los pseudo-selectores.
 
-<pre class="brush: css; title: ; notranslate" title="">:fullscreen {
+{% highlight css %}
+:fullscreen {
                 width: 100% !important;
                 height: 100% !important;
         }
@@ -83,14 +87,15 @@ Uno de los temas es que en firefox cuando pasas a fullscreen, todo el contenido 
                 width: 100% !important;
                 height: 100% !important;
         }
-</pre>
+ {% endhighlight %}
 
 Otra cosa, según mis pruebas, es que varía por browser cuando se puede disparar el fullscreen. En Chrome por ejemplo, no se va a poder pasar a fullscreen si la llamada a requestFullscreen no es consecuencia de una interacción de usuario. Por ejemplo, si tiras un requestFullscreen desde la consola, no se va a hacer el paso a fullscreen.
 
 La última diferencia en comportamiento que observé, y no menor, es el input del usuario por teclado. En Chrome, para permitir a full el input del teclado en fullscreen usando chrome, hay que pasarle como parámetro Element.ALLOW\_KEYBOARD\_INPUT a la función requestFullscreen.
 
-<pre class="brush: jscript; title: ; notranslate" title="">elemento.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
-</pre>
+{% highlight js %}
+elemento.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+ {% endhighlight %}
 
 Existen algunas libraries que tratan de solucionar algunas de esas diferencias, una de las mas conocidas es  
 <a href="https://github.com/sindresorhus/screenfull.js/" title="screenfull.js en github" target="_blank">screenfull.js</a>; aunque estoy seguro de que hay muchas más.

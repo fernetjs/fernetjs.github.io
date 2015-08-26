@@ -13,31 +13,37 @@ Probaste usar la consola, o mejor dicho, alguna de las herramientas de desarroll
 Acá dejo los path donde encontrar los archivos para modificar:
 
 Windows Vista y 7
-:   <pre class="brush: bash; title: ; notranslate" title="">C:\Users\[userName]\AppData\Local\Google\Chrome\User Data\Default\User StyleSheets\Custom.css</pre>
+:   {% highlight bash %}
+C:\Users\[userName]\AppData\Local\Google\Chrome\User Data\Default\User StyleSheets\Custom.css {% endhighlight %}
 
 Windows XP
-:   <pre class="brush: bash; title: ; notranslate" title="">C:\Documents and Settings\[userName]\Configuración local\Datos de programa\Google\Chrome\User Data\Default\User StyleSheets\Custom.css</pre>
+:   {% highlight bash %}
+C:\Documents and Settings\[userName]\Configuración local\Datos de programa\Google\Chrome\User Data\Default\User StyleSheets\Custom.css {% endhighlight %}
 
 Linux
-:   <pre class="brush: bash; title: ; notranslate" title="">~/.config/google-chrome/Default/User StyleSheets/Customs.css</pre>
+:   {% highlight bash %}
+~/.config/google-chrome/Default/User StyleSheets/Customs.css {% endhighlight %}
 
 Mac
-:   <pre class="brush: bash; title: ; notranslate" title="">~/Library/Application Support/Google/Chrome/Default/User StyleSheets/Custom.css</pre>
+:   {% highlight bash %}
+~/Library/Application Support/Google/Chrome/Default/User StyleSheets/Custom.css {% endhighlight %}
 
 El archivo Custom.css lo vas a tener en blanco, así que para guiarte en los cambios de sobre-escritura de clases podés ver los que actualmente están aplicados en tu browser ingresando lo siguiente en el cuadro de direcciones del Chrome 
 
-<pre class="brush: bash; title: ; notranslate" title="">chrome-devtools://devtools/devTools.css</pre>
+{% highlight bash %}
+chrome-devtools://devtools/devTools.css {% endhighlight %}
 
 Como se puede ver, el archivo es bastante extenso, pero se torna muy divertido lo que se puede lograr dandole tu *estilo*.
 
 Por ejemplo, para solucionar mi problema con el tamaño de la font, hice lo siguiente en mi Custom.css (estoy en Ubuntu):
 
-<pre class="brush: css; title: ; notranslate" title="">body.platform-linux .monospace, body.platform-linux .source-code {
+{% highlight css %}
+body.platform-linux .monospace, body.platform-linux .source-code {
     font-size: 22px !important;
     line-height: 26px;
     font-family: dejavu sans mono, monospace;
 }
-</pre>
+ {% endhighlight %}
 
 Algunos links con Themes (algunos extraídos de <a href="http://darcyclarke.me/design/skin-your-chrome-inspector/" target="_blank">este excelente post</a>):
 

@@ -13,6 +13,7 @@ tags:
   - canvas
   - modulos
   - requestAnimationFrame
+migration_issue: highlightline
 ---
 Hace tiempo que tengo ganas de armar este post, hay muchas formas de hacerlo, seguramente hay mejores. Está es una forma a la que llegué yo probando varias cosas y la queria compartir.  
 Antes que nada, el propósito de este post es ir creando un Game Loop paso por paso intentando ver detalladamente cada aspecto para llegar al código final, lo que puede ser el alma de un juego en HTML5. 
@@ -35,7 +36,8 @@ Antes que nada, el propósito de este post es ir creando un Game Loop paso por p
 
 Dentro de la jerga gamer se le llama asi al ciclo en el que se basa todo el juego, un ciclo &#8220;cuasi&#8221; infinito por el cual el juego actualiza sus estados y se dibuja una y otra vez mientras este vive.
 
-<pre class="brush: jscript; title: ; notranslate" title="">var velocidad = 20;
+{% highlight js %}
+var velocidad = 20;
 function loop(){
 
   actualizar();
@@ -45,7 +47,7 @@ function loop(){
 }
 
 loop();
-</pre>
+ {% endhighlight %}
 
 Lo anterior es una versión extremadamente reducida del game loop, básicamente tengo una funcion *loop* a la que se llama a sí misma cada 20 mili-segundos y es la encargada de primero actualizar los estados del juego y después dibujar.
 
@@ -55,7 +57,8 @@ Lo anterior es una versión extremadamente reducida del game loop, básicamente 
 
 Para empezar a darle forma vamos a usar el [Patrón Módulo][10] y a mejorarlo.
 
-<pre class="brush: jscript; title: ; notranslate" title="">var juego = (function(){
+{% highlight js %}
+var juego = (function(){
   var timer,
     velocidad = 20;
 
@@ -88,7 +91,7 @@ Para empezar a darle forma vamos a usar el [Patrón Módulo][10] y a mejorarlo.
 juego.iniciar();
 //juego.detener();
 
-</pre>
+ {% endhighlight %}
 
 La idea de usar este patrón es encapsular la funcionalidad del juego en un módulo, de esta manera cerrar el alcance y dejar lo que debería ser privado, como privado (en este caso el loop, actualizar y dibujar)  
 Como se vé retornamos un objeto con el acceso a nuestro módulo, para poder iniciar o detener el juego.
@@ -97,12 +100,15 @@ Como se vé retornamos un objeto con el acceso a nuestro módulo, para poder ini
 
 Ahora, para hacerlo un poco mas *real*, vamos a meter un canvas, ya que es una excelente opción hoy en día al momento de desarrollar un juego con HTML5.
 
-<pre class="brush: xml; title: ; notranslate" title="">&lt;canvas id="canvas" width="600px" height="600px"&gt;
+{% highlight xml %}
+&lt;canvas id="canvas" width="600px" height="600px"&gt;
   Tu explorador no soporta Canvas
 &lt;/canvas&gt;
-</pre>
+ {% endhighlight %}
 
-<pre class="brush: jscript; highlight: [4,5,22,23,24,25,26,27,28,32]; title: ; notranslate" title="">var juego = (function(){
+<!--highlight:[4,5,22,23,24,25,26,27,28,32]-->
+{% highlight js %}
+var juego = (function(){
   var timer,
     velocidad = 20,
     canvas,
@@ -142,7 +148,7 @@ Ahora, para hacerlo un poco mas *real*, vamos a meter un canvas, ya que es una e
   }
 
 })();
-</pre>
+ {% endhighlight %}
 
 Lo que hicimos fue agregar 2 variables dentro del alcance del módulo, uno para el canvas y otro para el contexto para poder referenciarlo desde la función dibujar. Creamos una función para iniciar y asignar las variables, y agregamos la llamada a esa función al momento de iniciar el juego.
 
@@ -154,7 +160,9 @@ Para completarlo vamos a hacer que realmente funcione con algo, como ejemplo hac
 
 Primero agregamos las 2 variables que vamos a usar para conocer la tecla presionada y el estado del cuadrado actual:
 
-<pre class="brush: jscript; highlight: [6,7,8,9,10,11,12]; title: ; notranslate" title="">var juego = (function(){
+<!--highlight:[6,7,8,9,10,11,12]-->
+{% highlight js %}
+var juego = (function(){
   var timer,
     velocidad = 20,
     canvas,
@@ -168,11 +176,13 @@ Primero agregamos las 2 variables que vamos a usar para conocer la tecla presion
     };
 
 // aca sigue el mismo código ...
-</pre>
+ {% endhighlight %}
 
 Implementamos el manejo de los eventos keydown y keyup para saber la tecla presionada:
 
-<pre class="brush: jscript; highlight: [3,6]; title: ; notranslate" title="">function agregarManejador() {
+<!--highlight:[3,6]-->
+{% highlight js %}
+function agregarManejador() {
    document.addEventListener('keydown', function(evento) {
      presionada = evento.keyCode;
    });
@@ -180,11 +190,12 @@ Implementamos el manejo de los eventos keydown y keyup para saber la tecla presi
      presionada = null;
    });
 }
-</pre>
+ {% endhighlight %}
 
 Luego implementamos el actualizar() con el cambio de estado del cuadrado (cuadrado.x) dependendiendo de la tecla presionada:
 
-<pre class="brush: jscript; title: ; notranslate" title="">function actualizar() {
+{% highlight js %}
+function actualizar() {
   switch(presionada){
     case '37': //izquierda
       cuadrado.x -= 20;
@@ -200,19 +211,20 @@ Luego implementamos el actualizar() con el cambio de estado del cuadrado (cuadra
     break;
   }
 }
-</pre>
+ {% endhighlight %}
 
 Entonces cada vez que se ejecute la función comprueba la flecha presionada y actualiza la x del cuadrado. 
 
 Ahora nos queda dibujar el estado del cuadrado en cada momento que se ejecute dibujar():
 
-<pre class="brush: jscript; title: ; notranslate" title="">function dibujar() {
+{% highlight js %}
+function dibujar() {
   contexto.clearRect(0, 0, canvas.width, canvas.height);
 
   //fillRect(x,y,width,height);
   contexto.fillRect(cuadrado.x, cuadrado.y, cuadrado.width, cuadrado.height);
 }
-</pre>
+ {% endhighlight %}
 
 En la primer linea limpiamos todo el canvas, y despues dibujamos el cuadrado en la posición actual.
 
@@ -231,7 +243,9 @@ Para explicarlo mejor: suponiendo que tenemos 30 elementos que se dibujan de a u
 
 Genial, vamos a agregar esta optimización al game loop volviendo a nuestro código, empezando por la función donde iniciamos el canvas:
 
-<pre class="brush: jscript; highlight: [11,12,13,17]; title: ; notranslate" title="">//Nos creamos las variables de buffer al inicio del modulo
+<!--highlight:[11,12,13,17]-->
+{% highlight js %}
+//Nos creamos las variables de buffer al inicio del modulo
   // ... otras variables que teníamos
   canvas,
   contexto,
@@ -251,11 +265,13 @@ Genial, vamos a agregar esta optimización al game loop volviendo a nuestro cód
       } 
       else throw "canvas no soportado!";
   }
-</pre>
+ {% endhighlight %}
 
 Lo que hicimos ahi es crearnos el &#8220;falso&#8221; canvas y su contexto partiendo como base del tamaño del canvas real, ahora lo que necesitamos es, al momento de dibujar, hacerlo sobre el falso y después aplicarlo en el real, entonces nuestra funcion dibujar() quedaría así:
 
-<pre class="brush: jscript; highlight: [2,3,10]; title: ; notranslate" title="">function dibujar() {
+<!--highlight:[2,3,10]-->
+{% highlight js %}
+function dibujar() {
   contextoBuffer.clearRect(0, 0, canvas.width, canvas.height);
   contextoBuffer.fillRect(cuadrado.x, cuadrado.y, cuadrado.width, cuadrado.height);
 
@@ -266,7 +282,7 @@ Lo que hicimos ahi es crearnos el &#8220;falso&#8221; canvas y su contexto parti
   //aplicamos el buffer
   contexto.drawImage(canvasBuffer, 0, 0); 
 }
-</pre>
+ {% endhighlight %}
 
 ##### <a name="1.5.2" style="text-decoration: none;">Request Animation Frame</a>
 
@@ -274,7 +290,9 @@ Nuestro setTimeout() para realizar el loop es genial, pero no sería mejor avisa
 
 El cambio es bastante simple para nuestro game loop, ya que es &#8220;casi&#8221; reemplazar el setTimeout() por el pedido de animaciones por frames así que cambiemos el loop:
 
-<pre class="brush: jscript; highlight: [6,12,16]; title: ; notranslate" title="">function loop(){
+<!--highlight:[6,12,16]-->
+{% highlight js %}
+function loop(){
     actualizar();
     dibujar();
 
@@ -292,7 +310,7 @@ El cambio es bastante simple para nuestro game loop, ya que es &#8220;casi&#8221
       window.cancelAnimationFrame(timer);
     }
   }
-</pre>
+ {% endhighlight %}
 
 Como se vé el cambio fue bastante simple, pero no se si notaste que ya no tenemos velocidad, bueno, es mejor no tenerla jeje, personalmente prefiero que el requestAnimationFrame la maneje por mi, por el hecho de que es bastante complicado calcular un buen &#8220;frame rate&#8221; no siendo un experto en el tema y sobretodo pensando que ese frame rate es el tiempo que tenemos para dibujar tooodo el estado de la escena (suena complicado para mi :P)
 
@@ -307,7 +325,8 @@ Les dejo el Game Loop terminado con el ejemplo:
 
 Y un [Gist][14] con el Game Loop completo como template para que hagan cosas locas:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var fernetjs = fernetjs || {};
+{% highlight js %}
+var fernetjs = fernetjs || {};
 fernetjs.juego = (function(){
   var reqAnimId,
     canvas,
@@ -374,7 +393,7 @@ fernetjs.juego = (function(){
 //detener:
 //fernetjs.juego.detener();
 
-</pre>
+ {% endhighlight %}
 
  [1]: #1.1
  [2]: #1.2

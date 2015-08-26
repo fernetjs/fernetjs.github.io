@@ -18,29 +18,32 @@ NodeJS es un framework para aplicaciones de red por arriba de la maquina virtual
 
 NodeJS **no está asociado al Browser**, es decir, no hay DOM, es javascript puro del lado del servidor sin jQuery, ni Dojo, etc. Es por esto que el famoso objeto global *window* no existe pero tenemos otro que es *process*.
 
-<pre class="brush: jscript; title: ; notranslate" title="">process.pid; // ID del proceso actual
+{% highlight js %}
+process.pid; // ID del proceso actual
 process.info; // Información del proceso
-</pre>
+ {% endhighlight %}
 
 Arranquemos con un ejemplo de NodeJS  
 <!--more-->
 
-<pre class="brush: jscript; title: ; notranslate" title="">setTimeout(function(){
+{% highlight js %}
+setTimeout(function(){
 
    console.log("mundo");
 
 }, 2000);
 
 console.log("hola");
-</pre>
+ {% endhighlight %}
 
 El setTimeout en javascript recibe una función como callback y un tiempo de espera para ejecutar ese callback en milisegundos. Es decir, vamos a ver que imprime un *hola* y luego de 2 segundos un *mundo*.  
 Pero hay una diferencia a como lo haríamos en otro lenguaje, por ejemplo en PHP quedaría algo así:
 
-<pre class="brush: php; title: ; notranslate" title="">echo("hola");
+{% highlight php %}
+echo("hola");
 sleep(2);
 echo("mundo");
-</pre>
+ {% endhighlight %}
 
 La diferencia es que en el ejemplo de PHP imprimimos *hola*, detenemos el proceso 2 segundos e imprimimos *mundo*, **detenemos la ejecución 2 segundos**. En NodeJS no estamos deteniendo el proceso, simplemente lo estamos poniendo en Iddle disparando asincrónicamente otra función dentro de 2 segundos, **en NodeJS NO detenemos la ejecución**.
 
@@ -48,7 +51,8 @@ La diferencia es que en el ejemplo de PHP imprimimos *hola*, detenemos el proces
 
 NodeJS viene con un módulo para manejar peticiones y respuestas HTTP como un Servidor web:
 
-<pre class="brush: jscript; title: ; notranslate" title="">//Obtenemos el modulo http
+{% highlight js %}
+//Obtenemos el modulo http
 var http = require('http');
 
 //creamos nuestro servidor
@@ -66,13 +70,14 @@ servidor.listen(8000);
 
 //mostramos en la consola el estado
 console.log('Servidor Iniciado, escuchando puerto 8000');
-</pre>
+ {% endhighlight %}
 
 La función que enviamos por parámetro en *createServer* es un callback y va a ser llamado cada vez que nuestro servidor reciba una petición.  
 Si ahora guardamos ese código en un archivo, digamos servidor.js y en el terminal ejecutamos 
 
-<pre class="brush: plain; title: ; notranslate" title="">node servidor.js
-</pre>
+{% highlight bash %}
+node servidor.js
+ {% endhighlight %}
 
 Vamos a ver nuestro mensaje: *Servidor Iniciado, escuchando puerto 8000*, lo único que nos quedaría es hacer una petición para ver el resultado, así que abrimos el browser y llamamos a http://localhost:8000
 
@@ -80,11 +85,12 @@ Vamos a ver nuestro mensaje: *Servidor Iniciado, escuchando puerto 8000*, lo ún
 
 Si inspeccionamos el header de nuestra respuesta HTTP veremos:
 
-<pre class="brush: plain; title: ; notranslate" title="">HTTP/1.1 200 OK
+{% highlight http %}
+HTTP/1.1 200 OK
 content-type: text/plain
 Connection: keep-alive
 Transfer-Encoding: chunked
-</pre>
+ {% endhighlight %}
 
 Node nos está escribiendo el header con algunas cosas más de las que seteamos:
 
@@ -94,7 +100,8 @@ Node nos está escribiendo el header con algunas cosas más de las que seteamos:
 
 Veamos como funciona esto:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var http = require('http');
+{% highlight js %}
+var http = require('http');
 
 var servidor = http.createServer(function(req, res){
 
@@ -114,7 +121,7 @@ var servidor = http.createServer(function(req, res){
 servidor.listen(8000);
 
 console.log('Servidor Iniciado, escuchando puerto 8000');
-</pre>
+ {% endhighlight %}
 
 Ahora por cada petición estoy escribiendo &#8220;hola&#8221;, a los 2 segundos escribo &#8220;mundo&#8221; y cierro el body, es por eso que necesito el *Connection: keep-alive* y *Transfer-encoding: chunked*, ya que sigo escribiendo el body más tarde.  
 El punto es que no sabemos que va a contener el body, cuan grande va a ser y tampoco queremos crearnos un buffer guardando toooda nuestra respuesta, mandar todo junto y ocupar memoria en el servidor.  

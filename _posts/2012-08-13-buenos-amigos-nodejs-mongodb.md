@@ -41,42 +41,48 @@ Descargamos la versión estable de MongoDB desde el [sitio oficial de descargas]
 
 Después que termina toda la descarga, descomprimimos y navegamos hasta la carpeta bin de adentro y creamos un archivo mongodb.config donde le configuramos el path a donde van a ir las bases de datos (en mi caso de linux) agregándole la siguiente linea:
 
-<pre class="brush: cpp; title: ; notranslate" title="">dbpath=/home/[usuario]/mongodb/data
-</pre>
+{% highlight cpp %}
+dbpath=/home/[usuario]/mongodb/data
+ {% endhighlight %}
 
 Para windows podría ser:
 
-<pre class="brush: cpp; title: ; notranslate" title="">dbpath=c:\mongodb\data
-</pre>
+{% highlight cpp %}
+dbpath=c:\mongodb\data
+ {% endhighlight %}
 
 > Asegurate de que el path exista y sino crealo (yo tuve que crear el directorio data) 
 
 Y ahora (parados en el bin) iniciamos el servidor con el path al mongodb.config:
 
-<pre class="brush: cpp; title: ; notranslate" title="">./mongod --config mongodb.config
-</pre>
+{% highlight cpp %}
+./mongod --config mongodb.config
+ {% endhighlight %}
 
 > *mongod* es el proceso de servidor y *mongo* el cliente. 
 
 En ese momento vamos a ver que inicia el server y queda en espera en un puerto, en mi caso el 27017 (que es el default de Mongo)
 
-<pre class="brush: cpp; title: ; notranslate" title="">MongoDB starting : pid=22105 port=27017 dbpath=/data/db/ 32-bit host=miUbuntu
-</pre>
+{% highlight cpp %}
+MongoDB starting : pid=22105 port=27017 dbpath=/data/db/ 32-bit host=miUbuntu
+ {% endhighlight %}
 
 Listo!, ya tenemos el server corriendo. Ahora abrimos otro terminal y ejecutemos el cliente *mongo* y un *db.version()* para probar:
 
-<pre class="brush: cpp; title: ; notranslate" title="">$ ./mongo
+{% highlight cpp %}
+$ ./mongo
 &gt; db.version()
-</pre>
+ {% endhighlight %}
 
 Bueno, ya tenemos todo listo, podemos crear una colección y un documento:
 
-<pre class="brush: cpp; title: ; notranslate" title="">use unTestDB
+{% highlight cpp %}
+use unTestDB
 db.personas.insert({nombre: 'pepe', apellido: 'gonzales'})
 db.personas.find()
 
 { "_id" : ObjectId("4fbaf11c7b25b9eac0403c26"), "nombre" : "pepe", "apellido" : "gonzales" }
-</pre>
+ {% endhighlight %}
 
 > El cliente lo iniciamos para crear una base de prueba, ya podemos matar el proceso *mongo* si molesta.  
 > No mates el *mongod* que es el server! 
@@ -87,14 +93,16 @@ db.personas.find()
 
 Primero necesitamos un driver para node, y ahora se pone fácil:
 
-<pre class="brush: cpp; title: ; notranslate" title="">npm install mongodb
-</pre>
+{% highlight cpp %}
+npm install mongodb
+ {% endhighlight %}
 
 El packete de NPM [mongodb][8] es un driver para NodeJS como también hay otras bibliotecas que vienen con algunas cosas interesantes como [Mongoose][9], o [MongoJS][10], pero no es nuestro caso ahora.
 
 Creamos un app.js donde vamos a hacer una prueba contra la base unTestDB que creamos antes:
 
-<pre class="brush: jscript; title: ; notranslate" title="">// hacemos referencia a la dependencia 
+{% highlight js %}
+// hacemos referencia a la dependencia 
 var mongodb = require('mongodb');
 
 // obtenemos el server MongoDB que dejamos corriendo
@@ -121,15 +129,16 @@ dbTest.open(function (error, client) {
     console.dir(docs);
   });
 });
-</pre>
+ {% endhighlight %}
 
 Lo que nos queda es correr el app.js y ver el output en la consola
 
-<pre class="brush: bash; title: ; notranslate" title="">$ node app.js
+{% highlight bash %}
+$ node app.js
 [ { _id: 4fbaf11c7b25b9eac0403c26,
     nombre: 'pepe',
     apellido: 'gonzales' } ]
-</pre>
+ {% endhighlight %}
 
 Y eso es todo!. 
 

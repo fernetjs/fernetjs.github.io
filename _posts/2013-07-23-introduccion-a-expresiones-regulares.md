@@ -23,15 +23,17 @@ A fin de poder probar lo que vamos a ver, primero tenemos que saber como usar ex
 
 En principio, en JS, las regex son un tipo de objeto más, que podemos declararlos de forma literal ó mediante un constructor:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var miRegEx1 = new RegExp("[a-z]", "i")
+{% highlight js %}
+var miRegEx1 = new RegExp("[a-z]", "i")
 var miRegEx2 = /[a-z]/i
-</pre>
+ {% endhighlight %}
 
 En terminos prácticos, *miRegEx1* y *miRegEx2* representan a la misma expresión regular. El primer argumento de *RegExp()* son las reglas que tendrá y la segunda los *modificadores*.  
 Para poder usarlas, debemos aplicarla a alguna función o método que las acepte.  
 Javascript, trae de fabrica 2 métodos en objetos RegExp y 2 en String.
 
-<pre class="brush: jscript; title: ; notranslate" title="">var miRegEx = /[a-z]/i
+{% highlight js %}
+var miRegEx = /[a-z]/i
 var miString = "Hola a todos"
 
 miRegEx.exec(miString); // Ejecuta la expresión regular contra el String. Devuelve un Array con la información que extrae.
@@ -41,12 +43,13 @@ miString.match(miRegEx); // Ejecuta la expresión regular contra el String. Devu
 miString.search(miRegEx); // Busca en el String el patrón definido por la expresión regular. Devuelve la pocisión en el String donde la encuentra o -1 en caso de fallo.
 miString.replace(miRegEx, "otro string"); // Reemplaza las ocurrencias de la expresión regular en el String con el segundo parametro.
 miString.split(miRegEx); // Convierte un String en un array separandolo.
-</pre>
+ {% endhighlight %}
 
 Si vemos una expresión regular, como por ejemplo:
 
-<pre class="brush: jscript; title: ; notranslate" title="">/[\w.]+@\w+\.\w{3}(\.\w{2})?/ 
-</pre>
+{% highlight js %}
+/[\w.]+@\w+\.\w{3}(\.\w{2})?/ 
+ {% endhighlight %}
 
 seguramente no sepamos que significa y hasta puede que espante un poco.  
 Sin embargo, conociendo las reglas básicas para la creación de regexs vamos a ver que en realidad esto no es tan dificil.
@@ -71,8 +74,9 @@ especifico y luego hacerlo más general.
 
 Empezamos definiendo nuestra regex como:
 
-<pre class="brush: jscript; title: ; notranslate" title="">/tehsis@yimeil\.com/
-</pre><aside>
+{% highlight js %}
+/tehsis@yimeil\.com/
+ {% endhighlight %}<aside>
 
 **Aclaración:** El *punto*, lo *escapamos* para que la regex espere, valga la redundancia, un punto. Ya que este carácter tiene un significado especial dentro de las expresiones regulares.</aside> 
 
@@ -105,8 +109,9 @@ usar *rangos*: [a-z], [1-9], etc.
 Módificamos, entonces nuestra expresión regular original, para que acepte  
 cualquier caracter del alfabeto antes del @, despues y luego del punto:*
 
-<pre class="brush: jscript; title: ; notranslate" title="">/[a-z]@[a-z]\.[a-z]/
-</pre>
+{% highlight js %}
+/[a-z]@[a-z]\.[a-z]/
+ {% endhighlight %}
 
 Esta expresión regular, sin embargo, lo que buscará sera: *Un* caracter de la  
 &#8220;a&#8221; a la &#8220;z&#8221;. Si queremos que busque 2, podemos poner \[a-z\]\[a-z\] y si queremos  
@@ -116,8 +121,9 @@ elegantes. Una de ellas, es &#8220;+&#8221; que quiere decir &#8220;Esperá una 
 esta *unidad*&#8221; (hablamos de *unidad* y no de caracter ya que se  
 puede aplicar a clases, agrupaciones, etc).
 
-<pre class="brush: jscript; title: ; notranslate" title="">/[a-z]+@[a-z]+\.[a-z]+/
-</pre>
+{% highlight js %}
+/[a-z]+@[a-z]+\.[a-z]+/
+ {% endhighlight %}
 
 Nuestra expresión regular ya no parece tan simple como al principio, pero el  
 funcionamiento es el mismo. Debemos tener en cuenta los caracteres especiales, en este caso los corchetes que indican &#8220;clases&#8221;.
@@ -154,15 +160,17 @@ Podemos usarlas de la siguiente forma:
 
 Nuestra regex sera ahora:
 
-<pre class="brush: jscript; title: ; notranslate" title="">/[\w.]+@\w+\.\w{3}\.\w{2}/
-</pre>
+{% highlight js %}
+/[\w.]+@\w+\.\w{3}\.\w{2}/
+ {% endhighlight %}
 
 ### Agrupaciones
 
 Ahora podemos identificar &#8220;tehsis@yimail.com.ar&#8221; pero no &#8220;tehsis@gmail.com&#8221;, para poder contemplar casos como el segundo, vamos a usar el caracter especial &#8220;?&#8221; agrupando la última parte de nuestra regla con parentesis:
 
-<pre class="brush: jscript; title: ; notranslate" title="">/[\w.]+@\w+\.\w{3}(\.\w{2})?/
-</pre></p> 
+{% highlight js %}
+/[\w.]+@\w+\.\w{3}(\.\w{2})?/
+ {% endhighlight %}</p> 
 
 Los paréntesis cumplen una doble función. Por un lado, nos permiten agrupar reglas para tratarlas como si fuesen una unidad y ademas **capturar** estos grupos (si vemos el array devuelto por &#8220;match&#8221; ademas del string identificado, vamos a ver que tenemos también los strings identificados por las agrupaciones).  
 Básicamente lo que estamos diciendo es que &#8220;un punto seguido de dos caracteres, solo puede aparecer una vez&#8221;.  

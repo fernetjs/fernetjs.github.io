@@ -24,7 +24,8 @@ Dicho esto, veamos una imagen para hacerlo un poco mas claro:
 
 Es el dominio de tu aplicación, la idea es que ahí guardes los estados de tus Entidades, con sus métodos y también puede llegar a acceder al server mediante AJAX ya sea para un DELETE (eliminar), PUT (actualizar) o un POST (crear).
 
-<pre class="brush: jscript; title: ; notranslate" title="">// Definimos un modelo Persona, extendiendo de la clase Backbone.Model.
+{% highlight js %}
+// Definimos un modelo Persona, extendiendo de la clase Backbone.Model.
 var Persona = Backbone.Model.extend({
   
   // valores predeterminados nuestro modelo.
@@ -71,13 +72,14 @@ var pablito = new Persona({
 pablito.calcularAlgo();
 Persona.calcularAlgoEstatico();
 
-</pre>
+ {% endhighlight %}
 
 #### Propiedades y Eventos de un Modelo
 
 En un modelo de Backbone las propiedades de instancia se guardan todas adentro de &#8220;attributes&#8221;. Y a diferencia de lo que estamos acostubrados en js, por ejemplo un json, se acceden por 2 métodos *get* y *set*:
 
-<pre class="brush: jscript; title: ; notranslate" title="">var nombre = pablito.get('nombre'); // "Pablo"
+{% highlight js %}
+var nombre = pablito.get('nombre'); // "Pablo"
 pablito.set('nombre', "Pablo2");
 
 // También podemos pasar un JSON y aplicar varios:
@@ -88,11 +90,12 @@ pablito.set({
 
 // Podemos ver los cambios en
 console.dir(pablito.attributes); 
-</pre>
+ {% endhighlight %}
 
 Cuando realizamos un *set* se dispara un evento &#8220;change&#8221;, podemos escuchar los eventos del modelo con el método **on**:
 
-<pre class="brush: jscript; title: ; notranslate" title="">pablito.on('change', function(){
+{% highlight js %}
+pablito.on('change', function(){
   // alguna propiedad cambió
 });
 
@@ -103,13 +106,14 @@ pablito.on('change:edad', function(){
 // eliminamos todos los manejadores del evento
 pablito.off('change'); 
 pablito.off('change:edad'); 
-</pre>
+ {% endhighlight %}
 
 ### Colección (Backbone.Collection)
 
 También es parte de tu dominio, están pensadas como colecciones de modelos. Aparte de esto, tiene muchas utilidades mas, como centralizar métodos al servidor, ordenar los modelos, eventos, etc.
 
-<pre class="brush: jscript; title: ; notranslate" title="">// Definimos una colección de Personas, extendiendo de la clase Backbone.Collection.
+{% highlight js %}
+// Definimos una colección de Personas, extendiendo de la clase Backbone.Collection.
 var Personas = Backbone.Collection.extend({
   
   // Definimos cual es el modelo de esta colección.
@@ -146,13 +150,14 @@ var personas = new Personas([{
 personas.at(0).get('nombre'); // "jose"
 // o por id
 personas.get(1235).get('nombre'); // "pepe"
-</pre>
+ {% endhighlight %}
 
 #### Modificando una Colección
 
 Ya vimos como crear una colección pasandole modelos, ahora veamos como agregar y eliminar modelos.
 
-<pre class="brush: jscript; title: ; notranslate" title="">// tememos una persona en json
+{% highlight js %}
+// tememos una persona en json
 var personaJSON = {
   id: 1236,
   nombre: "juan",
@@ -176,30 +181,33 @@ personas.remove(personaJuan);
 personas.reset();
 // personas.length === 0
 
-</pre>
+ {% endhighlight %}
 
 En Backbone ya tenemos por defecto dentro de una coleccion todos las funciones (creo que todas) de [UnderscoreJS][3]. Lo que significa que podemos usar, por ejemplo el each:
 
-<pre class="brush: jscript; title: ; notranslate" title="">//con underscore y un array harías algo como 
+{% highlight js %}
+//con underscore y un array harías algo como 
 _.each(personas, function (persona) { });
 
 // en backbone ya lo tenemos disponible desde la colección:
 personas.each(function(persona){ });
-</pre>
+ {% endhighlight %}
 
 #### Eventos de una Colección
 
 Así como los modelos tienen eventos de cambio (change), la colección nos agrega algunos mas  
 De la misma manera que nos des/suscribimos a los eventos de un modelo con &#8220;on&#8221; y &#8220;off&#8221;, lo podemos hacer en una colección para el add, remove o reset.
 
-<pre class="brush: jscript; title: ; notranslate" title="">personas.on('add', function(personaAgregada){
+{% highlight js %}
+personas.on('add', function(personaAgregada){
   //se agregó personaAgregada a la coleccion
 });
-</pre>
+ {% endhighlight %}
 
 El evento change de una colección se va a disparar cuando algún modelo que se encuentre en ella dispare el change.
 
-<pre class="brush: jscript; title: ; notranslate" title="">// Paso 3, se dispara el evento change en la colección.
+{% highlight js %}
+// Paso 3, se dispara el evento change en la colección.
 personas.on('change:edad', function(persona){
   //persona cambio su edad
 });
@@ -211,7 +219,7 @@ persona.on('change:edad', function(){
 
 // Paso 1, cambio la edad.
 persona.set('edad', 40);
-</pre>
+ {% endhighlight %}
 
 ### Persistiendo en el servidor:
 
@@ -223,7 +231,8 @@ Eliminar un Recurso = DELETE
 
 En backbone no vamos a estar pensando en los métodos HTTP, simplemente utilizamos los de backbone:
 
-<pre class="brush: jscript; title: ; notranslate" title="">// tomando como url la especificada en la colección del ejemplo anterior
+{% highlight js %}
+// tomando como url la especificada en la colección del ejemplo anterior
 
 modelo.fetch() //GET /personas/id
 coleccion.fetch() //GET /personas
@@ -235,28 +244,31 @@ modelo.destroy() //DELETE /personas/id
 // en vez de hacer un .add() y despues un .save()
 // se puede utilizar el create de la coleccion
 coleccion.create(modelo) //POST
-</pre>
+ {% endhighlight %}
 
 Algo a tener en cuenta es que para que los métodos del modelo disparen un pedido al servidor, tienen que estar dentro de una colección con su atributo *url* especificado.
 
 En caso de que no tengamos una colección y sea simplemente un modelo que tiene que disparar pedidos al servidor, tenemos que especificarle el atributo **urlRoot** al modelo directamente (backbone se va a encargar de agregar el id de la entidad al final de la url en cada pedido):
 
-<pre class="brush: jscript; title: ; notranslate" title="">var pesona = Backbone.Model.extend({
+{% highlight js %}
+var pesona = Backbone.Model.extend({
   urlRoot: "/personas"
 });
-</pre>
+ {% endhighlight %}
 
 #### Identificadores en un modelo
 
 Backbone va a utilizar por defecto la propiedad con nombre **id** como el id del modelo (en caso de que exista). Para cambiar eso, es simplemente especificarle en la colección otro atributo como: 
 
-<pre class="brush: jscript; title: ; notranslate" title="">idAttribute: "idPersona"
-</pre>
+{% highlight js %}
+idAttribute: "idPersona"
+ {% endhighlight %}
 
 > Si **no** hay una propiedad **id** y tampoco especificas otra, tené en cuenta que para backbone ese modelo es NUEVO, es decir, va a resultar siempre en un POST y si le preguntas a Backbone, te va a decir:
 > 
-> <pre class="brush: jscript; title: ; notranslate" title="">personita.isNew() === true
-</pre>
+> {% highlight js %}
+personita.isNew() === true
+ {% endhighlight %}
 
 Hay mucho, pero mucho más para ver de Backbone, así que si alguien quiere prenderse y armar un post de Vistas, sería genial!  
 También existen otras bibliotecas para atacar la estructuración, eventos, etc de una aplicación cliente, como [Angular][4], [CanJS][5], [Ember][6], etc. No tuve experiencias con esas todavía, me gustaría escuchar la de ustedes 😉

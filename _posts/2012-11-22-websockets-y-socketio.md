@@ -12,6 +12,7 @@ tags:
   - nodejs
   - npm
   - websocket
+migration_issue: highlightline
 ---
 Si todavía no arrancaste a ver la magia del protocolo WS (web socket) este post intenta meterte en tema.
 
@@ -50,13 +51,16 @@ Así que arranquemos a configurar:
 
 Instalamos el paquete NPM de SocketIO y ya que estamos instalamos el de ExpressJS para nuestro servidor Web:
 
-<pre class="brush: bash; title: ; notranslate" title="">npm install socket.io
+{% highlight bash %}
+npm install socket.io
 npm install express
-</pre>
+ {% endhighlight %}
 
 Creamos un server.js donde vamos a levantar nuestro servidor Express con soporte para WebSocket
 
-<pre class="brush: jscript; highlight: [6,18,27,31,35]; title: server.js; notranslate" title="server.js">//referenciamos a expressJS
+<!--highlight:[6,18,27,31,35]-->
+{% highlight js %}
+//referenciamos a expressJS
 var app = require('express')()
   // creamos un web server
   , server = require('http').createServer(app)
@@ -95,11 +99,13 @@ io.sockets.on('connection', function (socket) {
 
   });
 });
-</pre>
+ {% endhighlight %}
 
 Ahora creamos un index.html que es el que retorna el servidor con la conexión a WebSocket
 
-<pre class="brush: jscript; highlight: [6,10,14,20,25]; html-script: true; title: index.html; notranslate" title="index.html">&lt;!DOCTYPE html&gt;
+<!--highlight:[6,10,14,20,25]-->
+{% highlight js %}
+&lt;!DOCTYPE html&gt;
 &lt;html&gt;
   &lt;head&gt;
     &lt;!-- Este script no existe!, y está bien que así sea, ya que lo genera 
@@ -132,12 +138,13 @@ Ahora creamos un index.html que es el que retorna el servidor con la conexión a
     &lt;!-- acá toda la magia en HTML --&gt;
   &lt;body/&gt;
 &lt;/html&gt;
-</pre>
+ {% endhighlight %}
 
 Lo que nos queda es correr el servidor web
 
-<pre class="brush: bash; title: ; notranslate" title="">node server.js
-</pre>
+{% highlight bash %}
+node server.js
+ {% endhighlight %}
 
 Abrimos un navegador y llamamos a http://localhost y listo! (abrí la consola para ver las llamadas del servidor con los randoms <img src="http://fernetjs.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" /> ).
 

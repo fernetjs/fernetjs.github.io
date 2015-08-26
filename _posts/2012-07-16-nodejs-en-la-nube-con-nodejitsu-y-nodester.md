@@ -21,24 +21,27 @@ Antes de arrancar, es necesario tener nuestro package.json en orden, pueden ver 
 
 Arranquemos creando un web server con Express de la forma simple:
 
-<pre class="brush: bash; title: ; notranslate" title="">mkdir sitioEnNode
+{% highlight bash %}
+mkdir sitioEnNode
 cd sitioEnNode
 npm install express
 node_modules/express/bin/express
-</pre>
+ {% endhighlight %}
 
 Ahora que tenemos nuestro servidor web con Express vamos a ver que tenemos creado el package.json donde tenemos las dependencias (por ejemplo a jade), asi que primero vamos a instalarlas:
 
-<pre class="brush: bash; title: ; notranslate" title="">npm install
-</pre>
+{% highlight bash %}
+npm install
+ {% endhighlight %}
 
 Con esto vamos a instalar desde npm las dependencias declaradas en el package.json.
 
 Iniciamos la aplicación para probar que todo esté en orden e ingresamos a http://localhost:3000:
 
-<pre class="brush: bash; title: ; notranslate" title="">node app.js
+{% highlight bash %}
+node app.js
 sitioEnNode server listening on port 3000 in development mode
-</pre>
+ {% endhighlight %}
 
 * * *
 
@@ -47,28 +50,32 @@ sitioEnNode server listening on port 3000 in development mode
 Primero ingresamos a [Nodejitsu][3], nos creamos un usuario y lo activamos  
 Luego nos queda instalar el cliente:
 
-<pre class="brush: bash; title: ; notranslate" title="">npm install -g jitsu
-</pre>
+{% highlight bash %}
+npm install -g jitsu
+ {% endhighlight %}
 
 > Si estas en linux, necesitas permisos de root para instalar con npm como global (parámetro -g), para eso ingresa *sudo* antes de toda la linea anterior. 
 
 Ahora nos queda autenticarnos, ya que es la primera vez que usamos el cliente:
 
-<pre class="brush: bash; title: ; notranslate" title="">jitsu login
-</pre>
+{% highlight bash %}
+jitsu login
+ {% endhighlight %}
 
 Eso es todo, ahora hagamos un deploy!, vamos a la carpeta que creamos antes con nuestro web server:
 
-<pre class="brush: bash; title: ; notranslate" title="">cd sitioEnNode
+{% highlight bash %}
+cd sitioEnNode
 jitsu deploy
-</pre>
+ {% endhighlight %}
 
 Nos va a preguntar:
 
-<pre class="brush: jscript; title: ; notranslate" title="">prompt: subdomain (sitioEnNode): sitioEnNode //nombre del subsominio
+{% highlight js %}
+prompt: subdomain (sitioEnNode): sitioEnNode //nombre del subsominio
 prompt: scripts.start (server.js): app.js //js del server
 prompt: version (0.0.0): 0.6.12 //version de node
-</pre>
+ {% endhighlight %}
 
 Estas preguntas son para configurarlas en nuestro package.json (si no estan las propiedades, las crea)
 
@@ -82,39 +89,45 @@ Con [Nodester ][4] es distinto, pero no mas difícil, utiliza Git para los deplo
 
 Primero tenemos que pedir un cupón para el acceso (por lo general no tarda mas de 2 días)
 
-<pre class="brush: bash; title: ; notranslate" title="">curl -X POST -d "email=you@gmail.com" http://nodester.com/coupon
-</pre>
+{% highlight bash %}
+curl -X POST -d "email=you@gmail.com" http://nodester.com/coupon
+ {% endhighlight %}
 
 Despues de recibir el cupón, instalamos el cliente
 
-<pre class="brush: bash; title: ; notranslate" title="">npm install nodester-cli -g
+{% highlight bash %}
+npm install nodester-cli -g
 nodester user setup &lt;user&gt; &lt;pass&gt;
 nodester user setkey
-</pre>
+ {% endhighlight %}
 
 Para seguir con el ejemplo, vamos a deployar la misma aplicación que creamos al principio, así que nos movemos a la carpeta y creamos una app de nodester
 
-<pre class="brush: bash; title: ; notranslate" title="">cd sitioEnNode
+{% highlight bash %}
+cd sitioEnNode
 nodester app create sitioEnNode app.js
-</pre>
+ {% endhighlight %}
 
 El *create* nos va a dar el puerto donde va a estar corriendo la app, asi que confirmemos que tengamos nuestro app.js en ese puerto (o, en este ejemplo no va a ser necesario cambiar nada porque el autogenerado de express ya viene pensado para usar el puerto del proceso o 3000 si no tiene)
 
-<pre class="brush: bash; title: ; notranslate" title="">nodester app info sitioEnNode
-</pre>
+{% highlight bash %}
+nodester app info sitioEnNode
+ {% endhighlight %}
 
 Nos va a dar una url al repo de git donde se inició la app, por ejemplo: git@nodester.com:/node/git/algo/caracteresLocos, entonces ahora agregamos un remoto a ese repo:
 
 > En caso de no tener un repo git en esa carpeta, primero tenemos que iniciarlo y comitear los archivos
 > 
-> <pre class="brush: bash; title: ; notranslate" title="">git init
+> {% highlight bash %}
+git init
 git add .
 git commit -m "commit inicial"
-</pre>
+ {% endhighlight %}
 
-<pre class="brush: bash; title: ; notranslate" title="">git remote add nodester git@nodester.com:/node/git/algo/caracteresLocos
+{% highlight bash %}
+git remote add nodester git@nodester.com:/node/git/algo/caracteresLocos
 git push nodester master
-</pre>
+ {% endhighlight %}
 
 Y listo, cada vez que queramos subir cambios es un push al remoto nodester (último comando)
 
@@ -155,7 +168,8 @@ Luego de modificar y guardar, tienen que esperar un par de horas, pero mientras 
 
 En el package.json agregamos una propiedad más &#8220;domain&#8221; donde ponemos nuestro/s dominio/s
 
-<pre class="brush: jscript; title: ; notranslate" title="">//...otras configuraciones
+{% highlight js %}
+//...otras configuraciones
 
 "subdomain": "sitioEnNode",
 "domains": [
@@ -164,15 +178,16 @@ En el package.json agregamos una propiedad más &#8220;domain&#8221; donde ponem
 ],
 
 //...otras configuraciones
-</pre>
+ {% endhighlight %}
 
 #### Nodester
 
 En la consola ejecutamos el appdomain de nodester para setear nuestro dominio.
 
-<pre class="brush: bash; title: ; notranslate" title="">nodester appdomain add sitioEnNode sitioEnNode.com
+{% highlight bash %}
+nodester appdomain add sitioEnNode sitioEnNode.com
 nodester appdomain add sitioEnNode www.sitioEnNode.com
-</pre>
+ {% endhighlight %}
 
 Bueno, con eso ya tendríamos una aplicación en NodeJS deployada y con dominio copado, que tal?  
 Si tienen dudas, quieren agregar algo o cambiar, comenten! 

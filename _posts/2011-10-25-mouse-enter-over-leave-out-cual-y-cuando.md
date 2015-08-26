@@ -14,18 +14,22 @@ tags:
   - mouseleave
   - mouseout
   - mouseover
+migration_issue: highlightline
 ---
 Utilizar los eventos del mouse en javascript para modificar el DOM le da una mejor experiencia al usuario que utiliza nuestra página web, podemos comprobar en que caso tiene el mouse sobre algún lugar en especial y animarlo, mostrarlo, subrayarlo o simplemente cambiarle el color de fondo. El punto es entender que eventos son mejores que otros y para que casos.
 
 Suponiendo que no necesitamos una animación, queremos cambiar el estilo CSS de un elemento, como puede ser el tamaño de la fuente de texto, el color de la misma o el background-color, etc. Para la mayoría de esos casos no nos convendría escribir javascript ya que podríamos utilizar simplemente el *:hover* de css y con eso bastaría.
 
-<pre class="brush: xml; title: HTML; notranslate" title="HTML">&lt;div class="miClaseCSS"&gt;
+{% highlight xml %}
+&lt;div class="miClaseCSS"&gt;
     &lt;p&gt;Este div cambiará su color de fondo a verde
              cuando el mouse este sobre él&lt;/p&gt;
 &lt;/div&gt;
-</pre>
+ {% endhighlight %}
 
-<pre class="brush: css; highlight: [5]; title: CSS; notranslate" title="CSS">.miClaseCSS
+<!--highlight:[5]-->
+{% highlight css %}
+.miClaseCSS
 {
     background-color: white;
 }
@@ -33,7 +37,7 @@ Suponiendo que no necesitamos una animación, queremos cambiar el estilo CSS de 
 {
     background-color: green;
 }
-</pre>
+ {% endhighlight %}
 
 Ahora que pasa si necesitamos realizar alguna animación o ejecutar alguna lógica. Bueno, ahí cambia porque ya no es un &#8220;estilo&#8221; lo que estamos cambiando y vamos a necesitar capturar el evento en javascript.  
 <!--more-->
@@ -53,10 +57,11 @@ Son simples, entro y salgo de un control y sus respectivos eventos se disparan a
 
 Supongamos lo siguiente:
 
-<pre class="brush: xml; title: HTML; notranslate" title="HTML">&lt;div id="padre" onmouseout="alert('mouseout ejecutado!');"&gt;
+{% highlight xml %}
+&lt;div id="padre" onmouseout="alert('mouseout ejecutado!');"&gt;
    &lt;div id="hijo"&gt;&lt;/div&gt;
 &lt;/div&gt;
-</pre>
+ {% endhighlight %}
 
 En este caso cuando salgamos del div &#8220;hijo&#8221; se disparará el alert. No siempre es el comportamiento esperado, por lo que en principio yo utilizaría el mouseleave para el caso en el que salgo de un control.
 

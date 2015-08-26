@@ -22,11 +22,12 @@ Fuera de que el *try* y el *catch* son nuestros amigos, cometemos errores y hay 
 
 Entonces, cual sería el nivel más alto para poner un try catch?: el objeto global *process* &#8230; ahí es cuando aparece un gran y maravilloso &#8220;try catch&#8221; para el *proceso* que nos puede &#8220;garantizar&#8221; (notese las comillas :P) que no se caiga al momento de explotar en mil colores:
 
-<pre class="brush: jscript; title: ; notranslate" title="">process.on("uncaughtException", function (err) { 
+{% highlight js %}
+process.on("uncaughtException", function (err) { 
   console.log('Seee voló en mil pedazos, pero el proceso sigue arriba');
   console.log('Exception: ' + err.stack);
 });
-</pre>
+ {% endhighlight %}
 
 Nos suscribimos al evento &#8220;uncaughtException&#8221; del process y a partir de ahi nos queda logear o hacer lo que creamos necesario al momento de una explosión no calculada.
 

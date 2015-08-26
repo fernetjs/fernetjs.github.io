@@ -15,22 +15,25 @@ tags:
 ---
 Te pasó, no?, tenés que comprobar si el parámetro que recibiste en tu maravillosa funcion es un Array, o no. Primero probamos, tardamos menos que abrir google (o no ..):
 
-<pre class="brush: jscript; title: ; notranslate" title="">var unArray = [];
+{% highlight js %}
+var unArray = [];
 if (typeof unArray === 'Array') //puede que tenga sentido, pero no
 if (unArray.constructor === Array) //anda?, no parece piola 
-</pre>
+ {% endhighlight %}
 
 Ahora si, abrimos google y nos tira mil opciones mas
 
-<pre class="brush: jscript; title: ; notranslate" title="">if (unArray instanceof Array) //esta pinta bien
+{% highlight js %}
+if (unArray instanceof Array) //esta pinta bien
 toString.call(unArray) === "[object Array]"; //bueh..
-</pre>
+ {% endhighlight %}
 
 No estaría bueno poder hacer lo siguiente y fue?:
 
-<pre class="brush: jscript; title: ; notranslate" title="">if (Array.isArray(unArray)) {
+{% highlight js %}
+if (Array.isArray(unArray)) {
 }
-</pre>
+ {% endhighlight %}
 
 Está bueno y se puede, no entiendo porque tantas formas de comprobar lo mismo si ya podemos hacerlo tan simple.
 
@@ -38,12 +41,13 @@ Soporte: Chrome 5+, Firefox 4+, Safari 5+, Opera 10.5+, IE 9+
 
 Si, ya se, me vas a decir que en IE 6, 7 y 8 no funca, bueno para todo browser que no se la banque, metemos el script:
 
-<pre class="brush: jscript; title: ; notranslate" title="">if(!Array.isArray) {
+{% highlight js %}
+if(!Array.isArray) {
   Array.isArray = function (vArg) {
     return Object.prototype.toString.call(vArg) === "[object Array]";
   };
 }
-</pre>
+ {% endhighlight %}
 
 o bien, algunas de todas las librerias que &#8220;levantan&#8221; el soporte del browser.
 
