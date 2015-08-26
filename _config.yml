@@ -7,6 +7,8 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://fernetjs.com" # the base hostname & protocol for your site
 twitter_username: fernetjs
 github_username:  fernetjs
+safe: true
+lsi: false
 
 # Build settings
 markdown: kramdown
