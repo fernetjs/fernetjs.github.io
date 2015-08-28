@@ -234,3 +234,58 @@
         }
     }
 }
+
+/*
+* 404 not found
+*/
+
+.not-found {
+
+  #invaders-container {
+    width: 600px;
+    height: 400px;
+    position: relative;
+    margin: auto;
+
+    canvas {
+      background-color: black;
+
+      &:fullscreen{
+        width: 100% !important;
+        height: 100% !important;
+        display: block;
+      }
+      &:-webkit-full-screen{
+        width: 100% !important;
+        height: 100% !important;
+        display: block;
+      }
+      &:-moz-full-screen {
+        width: 100% !important;
+        height: 100% !important;
+        display: block;
+      }
+    }
+
+    .splash {
+      position: absolute;
+      width: 600px;
+      height: 400px;
+      top: 0;
+      left: 0;
+      background-image: url('/img/fernetjs-invaders.png');
+      opacity: 0;
+      display: none;
+      z-index: 2;
+      text-align: right;
+      float: right;
+    }
+  }
+
+  #invaders-footer {
+    width: 600px;
+    margin: auto;
+    padding: 10px 5px;
+  }
+
+}
