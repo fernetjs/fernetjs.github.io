@@ -14,7 +14,7 @@ tags:
 
 Los créditos van para @wat
 
-<!-- iframe plugin v.2.5 wordpress.org/extend/plugins/iframe/ -->
+<iframe src="http://play.codestre.am/embed/42b172009e91278ffde1545d0" frameborder="0" width="660px" height="400px"></iframe>
 
 Si no podes verlo: [WTF JS by panchot][2]
 

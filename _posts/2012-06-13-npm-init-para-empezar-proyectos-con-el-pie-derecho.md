@@ -20,7 +20,7 @@ En este [codestream][3] vamos a ver como npm nos puede ayudar a crear nuestro pa
 
 Ubicá tu terminal en la carpeta raíz de tu proyecto y seguí este pequeño paso:
 
-<!-- iframe plugin v.2.5 wordpress.org/extend/plugins/iframe/ -->
+<iframe frameborder="0" width="660px" height="400px" src="http://play.codestre.am/embed/7e00446b0d384004316a075c0"></iframe>
 
 Si no podes verlo: [npm init by panchot][4]
 

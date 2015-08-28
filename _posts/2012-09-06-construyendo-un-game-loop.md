@@ -16,7 +16,7 @@ tags:
 migration_issue: highlightline
 ---
 Hace tiempo que tengo ganas de armar este post, hay muchas formas de hacerlo, seguramente hay mejores. Está es una forma a la que llegué yo probando varias cosas y la queria compartir.  
-Antes que nada, el propósito de este post es ir creando un Game Loop paso por paso intentando ver detalladamente cada aspecto para llegar al código final, lo que puede ser el alma de un juego en HTML5. 
+Antes que nada, el propósito de este post es ir creando un Game Loop paso por paso intentando ver detalladamente cada aspecto para llegar al código final, lo que puede ser el alma de un juego en HTML5.
 
 #### Temas
 
@@ -51,7 +51,7 @@ loop();
 
 Lo anterior es una versión extremadamente reducida del game loop, básicamente tengo una funcion *loop* a la que se llama a sí misma cada 20 mili-segundos y es la encargada de primero actualizar los estados del juego y después dibujar.
 
-> Para una explicación detallada del setTimeout te dejo [este post][9] 
+> Para una explicación detallada del setTimeout te dejo [este post][9]
 
 #### <a name="1.2" style="text-decoration: none;">Encapsulando el juego</a>
 
@@ -133,7 +133,7 @@ var juego = (function(){
       canvas = document.getElementById('canvas');
       if (canvas.getContext){
         contexto = canvas.getContext('2d');
-      } 
+      }
       else throw "canvas no soportado!";
   }
 
@@ -152,7 +152,7 @@ var juego = (function(){
 
 Lo que hicimos fue agregar 2 variables dentro del alcance del módulo, uno para el canvas y otro para el contexto para poder referenciarlo desde la función dibujar. Creamos una función para iniciar y asignar las variables, y agregamos la llamada a esa función al momento de iniciar el juego.
 
-> Te recomiendo unos posts si no estas familiarizado con Canvas: [Dibujando][11] y [Animando][12] 
+> Te recomiendo unos posts si no estas familiarizado con Canvas: [Dibujando][11] y [Animando][12]
 
 #### <a name="1.4" style="text-decoration: none;">Actualizando y Dibujando</a>
 
@@ -172,7 +172,7 @@ var juego = (function(){
       x: 100,
       y: 25,
       width: 50,
-      height: 150 
+      height: 150
     };
 
 // aca sigue el mismo código ...
@@ -200,20 +200,20 @@ function actualizar() {
     case '37': //izquierda
       cuadrado.x -= 20;
       //para que no se pase del inicio del canvas
-      if (cuadrado.x &lt; 0) 
+      if (cuadrado.x &lt; 0)
         cuadrado.x = 0;
     break;
     case '39': //derecha
       cuadrado.x += 20;
       //para que no se pase del largo del canvas
-      if (cuadrado.x + cuadrado.width &gt; canvas.width) 
+      if (cuadrado.x + cuadrado.width &gt; canvas.width)
         cuadrado.x = canvas.width - cuadrado.width;
     break;
   }
 }
  {% endhighlight %}
 
-Entonces cada vez que se ejecute la función comprueba la flecha presionada y actualiza la x del cuadrado. 
+Entonces cada vez que se ejecute la función comprueba la flecha presionada y actualiza la x del cuadrado.
 
 Ahora nos queda dibujar el estado del cuadrado en cada momento que se ejecute dibujar():
 
@@ -229,7 +229,8 @@ function dibujar() {
 En la primer linea limpiamos todo el canvas, y despues dibujamos el cuadrado en la posición actual.
 
 Nos queda algo asi:  
-<!-- iframe plugin v.2.5 wordpress.org/extend/plugins/iframe/ -->
+
+<iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/pjnovas/7F26V/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 #### <a name="1.5" style="text-decoration: none;">Optimizando</a>
 
@@ -237,7 +238,7 @@ Hay muchas optimizaciones para tener en cuenta al hacer un juego en javascript, 
 
 ##### <a name="1.5.1" style="text-decoration: none;">Canvas Buffer</a>
 
-Como suena, tener un canvas que funcione como un buffer para el redibujo continuo, básicamente la idea es dibujar sobre otro canvas *oculto* y cuando esté todo listo dibujarlo completo sobre el *real*, porque esto?, si bien la mejora no es increible, logramos evitar el famoso &#8220;flickering&#8221; y es esa sensación de que medio se traba la animación. 
+Como suena, tener un canvas que funcione como un buffer para el redibujo continuo, básicamente la idea es dibujar sobre otro canvas *oculto* y cuando esté todo listo dibujarlo completo sobre el *real*, porque esto?, si bien la mejora no es increible, logramos evitar el famoso &#8220;flickering&#8221; y es esa sensación de que medio se traba la animación.
 
 Para explicarlo mejor: suponiendo que tenemos 30 elementos que se dibujan de a uno sobre el canvas, y a medida que se van dibujando y armando la escena de una secuencia de animación puede tardar un mínimo de tiempo en el cual el ojo llega a percibirlo y nos queda un efecto no muy feliz. Bueno, para evitar ese &#8220;efecto&#8221;, dibujamos todos en un canvas &#8220;falso&#8221; y después aplicamos el dibujo completo de la escena en el canvas &#8220;real&#8221;.
 
@@ -254,15 +255,15 @@ Genial, vamos a agregar esta optimización al game loop volviendo a nuestro cód
 
   function iniciarCanvas() {
       canvas = document.getElementById('canvas');
-      
+
       canvasBuffer = document.createElement('canvas');
       canvasBuffer.width = canvas.width;
       canvasBuffer.height = canvas.height;
-      
+
       if (canvas.getContext){
         contexto = canvas.getContext('2d');
         contextoBuffer = canvasBuffer.getContext('2d');
-      } 
+      }
       else throw "canvas no soportado!";
   }
  {% endhighlight %}
@@ -280,7 +281,7 @@ function dibujar() {
   //limpiamos el real
   contexto.clearRect(0, 0, canvas.width, canvas.height);  
   //aplicamos el buffer
-  contexto.drawImage(canvasBuffer, 0, 0); 
+  contexto.drawImage(canvasBuffer, 0, 0);
 }
  {% endhighlight %}
 
@@ -321,7 +322,8 @@ Y si el explorador no lo soporta?, bueno para ese caso les recomiendo utilizar e
 **Que sigue ahora?, bueno primero que nada este código que construimos es a modo de ejemplo, las funciones de actualizar() y dibujar() deberían encargarse de llamar a otros módulos o clases y delegar totalmente las funcionalidades, con esto quiero decir que no debería crecer mas el módulo de lo que está y mantenerse sólo en la lógica del game loop, no queremos que se vuelva un mounstro gigante <img src="http://fernetjs.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" />**
 
 Les dejo el Game Loop terminado con el ejemplo:  
-<!-- iframe plugin v.2.5 wordpress.org/extend/plugins/iframe/ -->
+
+<iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/pjnovas/SB8Pn/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 Y un [Gist][14] con el Game Loop completo como template para que hagan cosas locas:
 
@@ -333,47 +335,47 @@ fernetjs.juego = (function(){
     contexto,
     canvasBuffer,
     contextoBuffer;
- 
+
   function actualizar() {
     //actualizaciones del estado
   }
- 
+
   function dibujar() {
     contextoBuffer.clearRect(0, 0, canvas.width, canvas.height);
-    
+
     //dibujos en el contextoBuffer
- 
+
     contexto.clearRect(0, 0, canvas.width, canvas.height);  
-    contexto.drawImage(canvasBuffer, 0, 0); 
+    contexto.drawImage(canvasBuffer, 0, 0);
   }
- 
+
   function iniciarCanvas() {
     canvas = document.getElementById('canvas');
-     
+
     canvasBuffer = document.createElement('canvas');
     canvasBuffer.width = canvas.width;
     canvasBuffer.height = canvas.height;
-     
+
     if (canvas.getContext){
       contexto = canvas.getContext('2d');
       contextoBuffer = canvasBuffer.getContext('2d');
-    } 
+    }
     else throw "canvas no soportado!";
   }
- 
+
   function loop(){
    actualizar();
    dibujar();
- 
+
    reqAnimId = window.requestAnimationFrame(loop);
   }
- 
+
  return {
 
    iniciar: function() {
      if (!canvas)
        iniciarCanvas();
-  
+
      if(reqAnimId)
        this.detener();
 
@@ -385,7 +387,7 @@ fernetjs.juego = (function(){
       reqAnimId = 0;
    }
  }
- 
+
 })();
 
 //iniciar:

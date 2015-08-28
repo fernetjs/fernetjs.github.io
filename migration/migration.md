@@ -37,7 +37,11 @@ fernetjs usaba en algunos posts highlight de lineas de código. Cosa que pygment
 Para no perder nada lo dejamos como comment:
     perl -0777 -i.original -pe 's/((<pre class="brush: .*?)?highlight: (.*?);)/<!--highlight:$3-->\n$1/gim' _posts/*.md
 
-    grep -HRl1 "highlight: \[" _posts/ 
+    grep -HRl1 "highlight: \[" _posts/
     perl -0777 -i.original -pe 's/---(.*?)---/---$1migration_issue: highlightline\n---/gis'
 
 Eso hay que ejecutarlo antes que todo lo anterior.
+
+## iframes
+En un par de posts se embebía material de otros sitios. Nos damos cuenta porque en el export aparece `<!-- iframe plugin v.2.5 wordpress.org/extend/plugins/iframe/ -->` donde debería estar el iframe.
+La corrección de esta data se hizo manualmente, ya que eran algunas pocas páginas/posts que hacían uso de este plugin de wordpress para incluir iframes. Todo lo que se hizo fue, incluir el respectivo html en el markdown apropiado.
