@@ -1,0 +1,17 @@
+/**
+ * Fernet volador
+ */
+ .fernet-capita {
+	background-image: url('/img/fernet-capita.png');
+	background-position: 80px 80px;
+	width: 80px;
+	height: 80px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	display: inline-block;
+}
+
+.fernet-capita.x {
+	background-position: 160px 80px;
+}
