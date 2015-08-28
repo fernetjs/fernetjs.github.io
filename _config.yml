@@ -7,9 +7,13 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://fernetjs.com" # the base hostname & protocol for your site
 twitter_username: fernetjs
 github_username:  fernetjs
-safe: true
+facebook_username: fernetjs
+#safe: true # prevents sitemap from working?
 lsi: false
 
 # Build settings
 markdown: kramdown
 highlighter: pygments
+
+gems:
+  - jekyll-sitemap
