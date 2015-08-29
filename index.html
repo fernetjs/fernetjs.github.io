@@ -7,13 +7,22 @@ layout: default
   <!-- <h1 class="page-heading">Posts</h1> -->
 
   <ul class="post-list">
-    {% for post in site.posts %}
+    {% for post in paginator.posts %}
 
       {% include postPreview.html post=post %}
 
     {% endfor %}
   </ul>
 
+  <div class="paginator">
+    {% if paginator.previous_page_path %}
+      <a href="{{ paginator.previous_page_path }}">Página anterior</a>
+    {% endif %}
+    {% if paginator.next_page_path %}
+      <a href="{{ paginator.next_page_path }}">Página siguiente</a>
+    {% endif %}
+  </div>
+  
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
 </div>

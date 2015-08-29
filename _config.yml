@@ -10,7 +10,8 @@ github_username:  fernetjs
 facebook_username: fernetjs
 #safe: true # prevents sitemap from working?
 lsi: false
-
+paginate: 30
+paginate_path: "/pagina/:num"
 #google_analytics: UA-26473955-1
 
 # Build settings
