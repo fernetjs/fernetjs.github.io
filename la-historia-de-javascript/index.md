@@ -1,6 +1,6 @@
 ---
 title: La Historia de Javascript
-author: Pablo Novas
+author: pjnovas
 layout: page
 dsq_thread_id:
   - 860838148

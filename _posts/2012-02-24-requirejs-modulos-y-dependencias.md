@@ -1,6 +1,6 @@
 ---
 title: 'RequireJS: Módulos y Dependencias'
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2012/02/requirejs-modulos-y-dependencias/
 dsq_thread_id:

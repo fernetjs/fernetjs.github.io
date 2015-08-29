@@ -1,6 +1,6 @@
 ---
 title: A pantalla completa
-author: Matias Arriola
+author: matiasarriola
 layout: post
 permalink: /2012/05/a-pantalla-completa/
 dsq_thread_id:

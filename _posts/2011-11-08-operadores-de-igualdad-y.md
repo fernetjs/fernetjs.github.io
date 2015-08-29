@@ -1,6 +1,6 @@
 ---
 title: Operadores de igualdad ( == y === )
-author: Lucas Romero
+author: lucasromero
 layout: post
 permalink: /2011/11/operadores-de-igualdad-y/
 dsq_thread_id:

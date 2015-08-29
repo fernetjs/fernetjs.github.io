@@ -1,6 +1,6 @@
 ---
 title: Qué es NodeJS?, breve introducción
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2011/11/que-es-nodejs-breve-introduccion/
 dsq_thread_id:

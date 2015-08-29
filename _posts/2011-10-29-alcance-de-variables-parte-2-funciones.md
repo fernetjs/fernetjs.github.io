@@ -1,6 +1,6 @@
 ---
 title: 'Alcance de Variables &#8211; Parte 2: funciones'
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2011/10/alcance-de-variables-parte-2-funciones/
 dsq_thread_id:

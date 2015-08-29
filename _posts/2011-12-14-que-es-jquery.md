@@ -1,6 +1,6 @@
 ---
 title: Que es jQuery?
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2011/12/que-es-jquery/
 dsq_thread_id:

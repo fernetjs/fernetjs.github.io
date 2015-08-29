@@ -1,6 +1,6 @@
 ---
 title: Módulos en NodeJS
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2012/02/modulos-en-nodejs/
 dsq_thread_id:

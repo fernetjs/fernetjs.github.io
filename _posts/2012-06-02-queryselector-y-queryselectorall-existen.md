@@ -1,6 +1,6 @@
 ---
 title: querySelector y querySelectorAll existen
-author: Matias Arriola
+author: matiasarriola
 layout: post
 permalink: /2012/06/queryselector-y-queryselectorall-existen/
 dsq_thread_id:

@@ -1,6 +1,6 @@
 ---
 title: Construyendo un Game Loop
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2012/09/construyendo-un-game-loop/
 dsq_thread_id:

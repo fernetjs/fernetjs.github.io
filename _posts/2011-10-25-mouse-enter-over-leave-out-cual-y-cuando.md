@@ -1,6 +1,6 @@
 ---
 title: Mouse enter, over, leave, out. cual y cuando?
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2011/10/mouse-enter-over-leave-out-cual-y-cuando/
 dsq_thread_id:

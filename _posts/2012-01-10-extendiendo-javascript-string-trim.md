@@ -1,6 +1,6 @@
 ---
 title: 'Extendiendo javascript: String.trim()'
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2012/01/extendiendo-javascript-string-trim/
 dsq_thread_id:

@@ -1,6 +1,6 @@
 ---
 title: Diferencia entre dos Fechas en Años y Meses
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2011/10/diferencia-entre-dos-fechas-en-anos-y-meses/
 dsq_thread_id:

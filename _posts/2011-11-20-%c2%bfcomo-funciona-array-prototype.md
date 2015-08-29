@@ -1,6 +1,6 @@
 ---
 title: ¿Cómo funciona Array.prototype?
-author: Lucas Romero
+author: lucasromero
 layout: post
 permalink: /2011/11/%c2%bfcomo-funciona-array-prototype/
 dsq_thread_id:
@@ -19,7 +19,7 @@ Veamos un ejemplo sencillo para entender su funcionamiento:
 Array.prototype.fernet = function() {
     console.log('Fernet + JS!');
 };
-    
+
 var vector = [];
 vector.fernet();
  {% endhighlight %}

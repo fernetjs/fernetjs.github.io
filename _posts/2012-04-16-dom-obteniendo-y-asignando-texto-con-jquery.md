@@ -1,6 +1,6 @@
 ---
 title: 'DOM: Obteniendo y asignando texto con jQuery'
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2012/04/dom-obteniendo-y-asignando-texto-con-jquery/
 dsq_thread_id:

@@ -1,6 +1,6 @@
 ---
 title: Estructura de un sitio web MVC en NodeJS
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2012/02/estructura-de-un-sitio-web-mvc-en-nodejs/
 dsq_thread_id:

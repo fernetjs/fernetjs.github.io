@@ -1,6 +1,6 @@
 ---
 title: Usando la API de Twitter de forma simple
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2012/10/usando-la-api-de-twitter-de-forma-simple/
 dsq_thread_id:

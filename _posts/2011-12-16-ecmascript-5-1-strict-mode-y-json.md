@@ -1,6 +1,6 @@
 ---
 title: 'ECMAScript 5.1 &#8211; Strict Mode y JSON'
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2011/12/ecmascript-5-1-strict-mode-y-json/
 dsq_thread_id:

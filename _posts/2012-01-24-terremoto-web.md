@@ -1,6 +1,6 @@
 ---
 title: Terremoto Web
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2012/01/terremoto-web/
 dsq_thread_id:

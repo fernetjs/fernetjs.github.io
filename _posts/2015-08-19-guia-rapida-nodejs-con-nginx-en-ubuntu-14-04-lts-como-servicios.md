@@ -1,6 +1,6 @@
 ---
 title: 'Guía rápida: NodeJS con NGINX en Ubuntu 14.04 LTS como servicios'
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2015/08/guia-rapida-nodejs-con-nginx-en-ubuntu-14-04-lts-como-servicios/
 dsq_thread_id:

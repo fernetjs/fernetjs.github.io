@@ -1,6 +1,6 @@
 ---
 title: Feliz Navidad!
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2013/12/feliz-navidad/
 dsq_thread_id:

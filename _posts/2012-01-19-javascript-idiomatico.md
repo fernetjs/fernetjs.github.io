@@ -1,6 +1,6 @@
 ---
 title: JavaScript idiomático
-author: Matias Arriola
+author: matiasarriola
 layout: post
 permalink: /2012/01/javascript-idiomatico/
 dsq_thread_id:

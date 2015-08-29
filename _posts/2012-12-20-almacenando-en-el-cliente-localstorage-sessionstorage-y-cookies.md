@@ -1,6 +1,6 @@
 ---
 title: 'Almacenando en el cliente: LocalStorage, SessionStorage y Cookies'
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2012/12/almacenando-en-el-cliente-localstorage-sessionstorage-y-cookies/
 dsq_thread_id:

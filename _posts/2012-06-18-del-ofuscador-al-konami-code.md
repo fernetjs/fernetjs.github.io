@@ -1,6 +1,6 @@
 ---
 title: Del ofuscador al konami code
-author: Matias Arriola
+author: matiasarriola
 layout: post
 permalink: /2012/06/del-ofuscador-al-konami-code/
 dsq_thread_id:

@@ -1,6 +1,6 @@
 ---
 title: Aprendiendo con javascript-koans
-author: Matias Arriola
+author: matiasarriola
 layout: post
 permalink: /2011/12/aprendiendo-con-javascript-koans/
 dsq_thread_id:

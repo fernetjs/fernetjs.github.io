@@ -1,6 +1,6 @@
 ---
 title: Lista de IDEs y Editores de Texto para Javascript
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2012/01/el-mejor-ide-para-javascript/
 dsq_thread_id:

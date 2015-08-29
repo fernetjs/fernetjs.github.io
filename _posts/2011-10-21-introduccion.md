@@ -1,6 +1,6 @@
 ---
 title: Introducción
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2011/10/introduccion/
 dsq_thread_id:

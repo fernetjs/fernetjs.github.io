@@ -1,6 +1,6 @@
 ---
 title: 'jQuery Plugin &#8211; Month Picker'
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2011/10/jquery-plugin-month-picker/
 dsq_thread_id:

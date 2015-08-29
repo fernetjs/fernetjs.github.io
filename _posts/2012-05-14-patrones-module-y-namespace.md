@@ -1,6 +1,6 @@
 ---
 title: 'Patrones: Module y Namespace'
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2012/05/patrones-module-y-namespace/
 dsq_thread_id:

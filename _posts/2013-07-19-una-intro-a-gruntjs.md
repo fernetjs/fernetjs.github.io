@@ -1,6 +1,6 @@
 ---
 title: Una intro a GruntJS
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2013/07/una-intro-a-gruntjs/
 dsq_thread_id:

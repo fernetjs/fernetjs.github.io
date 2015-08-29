@@ -1,6 +1,6 @@
 ---
 title: La era del package.json
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2011/12/la-era-del-package-json/
 dsq_thread_id:

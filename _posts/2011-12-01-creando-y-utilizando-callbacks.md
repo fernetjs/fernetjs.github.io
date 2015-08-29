@@ -1,6 +1,6 @@
 ---
 title: Creando y utilizando callbacks
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2011/12/creando-y-utilizando-callbacks/
 dsq_thread_id:

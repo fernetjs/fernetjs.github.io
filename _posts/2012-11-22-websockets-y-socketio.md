@@ -1,6 +1,6 @@
 ---
 title: WebSockets y SocketIO
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2012/11/websockets-y-socketio/
 dsq_thread_id:

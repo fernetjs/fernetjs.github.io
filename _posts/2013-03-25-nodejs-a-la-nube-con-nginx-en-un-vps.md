@@ -1,6 +1,6 @@
 ---
 title: NodeJS a la nube con NGINX en un VPS
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2013/03/nodejs-a-la-nube-con-nginx-en-un-vps/
 dsq_thread_id:

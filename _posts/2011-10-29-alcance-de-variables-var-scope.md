@@ -1,6 +1,6 @@
 ---
 title: Alcance de Variables (var scope)
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2011/10/alcance-de-variables-var-scope/
 dsq_thread_id:

@@ -1,6 +1,6 @@
 ---
 title: El juego de la vida en JS
-author: Lucas Romero
+author: lucasromero
 layout: post
 permalink: /2012/03/el-juego-de-la-vida-en-js/
 dsq_thread_id:

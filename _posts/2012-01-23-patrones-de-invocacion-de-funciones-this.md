@@ -1,6 +1,6 @@
 ---
 title: 'Patrones de Invocación de Funciones: this'
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2012/01/patrones-de-invocacion-de-funciones-this/
 dsq_thread_id:

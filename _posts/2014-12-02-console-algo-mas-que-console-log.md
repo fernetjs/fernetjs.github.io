@@ -1,6 +1,6 @@
 ---
 title: 'console: algo más que console.log'
-author: Matias Arriola
+author: matiasarriola
 layout: post
 permalink: /2014/12/console-algo-mas-que-console-log/
 dsq_thread_id:

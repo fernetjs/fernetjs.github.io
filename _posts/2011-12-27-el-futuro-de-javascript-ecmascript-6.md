@@ -1,6 +1,6 @@
 ---
 title: 'El futuro de Javascript &#8211; ECMAScript 6'
-author: Lucas Romero
+author: lucasromero
 layout: post
 permalink: /2011/12/el-futuro-de-javascript-ecmascript-6/
 dsq_thread_id:

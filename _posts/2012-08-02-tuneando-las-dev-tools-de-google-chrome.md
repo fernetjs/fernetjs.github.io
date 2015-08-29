@@ -1,6 +1,6 @@
 ---
 title: Tuneando las Dev Tools de Google Chrome
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2012/08/tuneando-las-dev-tools-de-google-chrome/
 dsq_thread_id:

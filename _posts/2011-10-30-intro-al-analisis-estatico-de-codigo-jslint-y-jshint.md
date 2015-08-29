@@ -1,6 +1,6 @@
 ---
 title: Intro al análisis estatico de código. jslint y jshint
-author: Matias Arriola
+author: matiasarriola
 layout: post
 permalink: /2011/10/intro-al-analisis-estatico-de-codigo-jslint-y-jshint/
 dsq_thread_id:

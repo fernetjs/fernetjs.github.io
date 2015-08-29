@@ -1,6 +1,6 @@
 ---
 title: jQuery .animate y .stop
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2011/11/jquery-animate-y-stop/
 dsq_thread_id:

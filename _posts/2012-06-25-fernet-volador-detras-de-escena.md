@@ -1,6 +1,6 @@
 ---
 title: 'Fernet Volador: detrás de escena'
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2012/06/fernet-volador-detras-de-escena/
 dsq_thread_id:

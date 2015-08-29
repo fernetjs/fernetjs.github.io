@@ -1,6 +1,6 @@
 ---
 title: Pequeñas herramientas de gran utilidad
-author: Matias Arriola
+author: matiasarriola
 layout: post
 permalink: /2011/11/pequenas-herramientas-gran-utilidad/
 dsq_thread_id:

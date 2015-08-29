@@ -1,6 +1,6 @@
 ---
 title: Manejando eventos con jQuery
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2012/04/manejando-eventos-con-jquery/
 dsq_thread_id:

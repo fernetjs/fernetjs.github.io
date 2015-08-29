@@ -1,6 +1,6 @@
 ---
 title: Scripts desde CDN con reserva local
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2012/03/scripts-desde-cdn-con-reserva-local/
 dsq_thread_id:

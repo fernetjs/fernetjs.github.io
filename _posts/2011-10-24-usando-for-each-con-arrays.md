@@ -1,6 +1,6 @@
 ---
 title: Usando for each con Arrays
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2011/10/usando-for-each-con-arrays/
 dsq_thread_id:

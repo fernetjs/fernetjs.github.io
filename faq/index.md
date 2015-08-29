@@ -1,6 +1,6 @@
 ---
 title: FAQ
-author: Matias Arriola
+author: matiasarriola
 layout: page
 dsq_thread_id:
   - 790428094

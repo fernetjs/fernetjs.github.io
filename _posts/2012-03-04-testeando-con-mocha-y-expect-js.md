@@ -1,6 +1,6 @@
 ---
 title: Testeando con mocha y expect.js
-author: Matias Arriola
+author: matiasarriola
 layout: post
 permalink: /2012/03/testeando-con-mocha-y-expect-js/
 dsq_thread_id:

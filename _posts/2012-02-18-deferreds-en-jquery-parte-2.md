@@ -1,6 +1,6 @@
 ---
 title: Deferreds en jQuery (parte 2)
-author: Matias Arriola
+author: matiasarriola
 layout: post
 permalink: /2012/02/deferreds-en-jquery-parte-2/
 dsq_thread_id:

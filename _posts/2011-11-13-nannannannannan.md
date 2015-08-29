@@ -1,6 +1,6 @@
 ---
 title: 'NaNNaNNaNNaNNaN&#8230;.'
-author: Matias Arriola
+author: matiasarriola
 layout: post
 permalink: /2011/11/nannannannannan/
 dsq_thread_id:

@@ -1,6 +1,6 @@
 ---
 title: Javascript
-author: Pablo Novas
+author: pjnovas
 layout: page
 dsq_thread_id:
   - 642143461

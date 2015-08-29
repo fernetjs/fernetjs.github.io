@@ -1,6 +1,6 @@
 ---
 title: Ejecuciones Asincrónicas de funciones
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2011/11/ejecuciones-asincronicas-de-funciones/
 dsq_thread_id:

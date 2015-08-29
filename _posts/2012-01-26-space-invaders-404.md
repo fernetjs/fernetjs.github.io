@@ -1,6 +1,6 @@
 ---
 title: Space Invaders 404
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2012/01/space-invaders-404/
 dsq_thread_id:

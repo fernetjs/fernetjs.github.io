@@ -1,6 +1,6 @@
 ---
 title: Una excepción y chau proceso
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2012/06/una-excepcion-y-chau-proceso/
 dsq_thread_id:

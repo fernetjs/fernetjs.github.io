@@ -1,6 +1,6 @@
 ---
 title: 'Modificando el contexto: call, apply y bind'
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2013/01/modificando-el-contexto-call-apply-y-bind/
 dsq_thread_id:

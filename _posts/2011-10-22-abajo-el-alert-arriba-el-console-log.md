@@ -1,6 +1,6 @@
 ---
 title: Abajo el alert, arriba el console.log!
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2011/10/abajo-el-alert-arriba-el-console-log/
 dsq_thread_id:
@@ -25,7 +25,7 @@ Para los que no lo utilizan la consola, tenemos distintas opciones para abrirla:
 
 <!--more-->
 
-  
+
 Luego de tener abierta la consola es bastante simple &#8230; lo que hacemos es escribir en nuestro javascript console.log(&#8216;texto a la consola&#8217;);
 
 

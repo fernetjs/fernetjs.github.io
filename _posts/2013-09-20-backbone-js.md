@@ -1,6 +1,6 @@
 ---
 title: Backbone JS
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2013/09/backbone-js/
 dsq_thread_id:

@@ -1,6 +1,6 @@
 ---
 title: Entendiendo Deferreds en jQuery
-author: Matias Arriola
+author: matiasarriola
 layout: post
 permalink: /2012/02/entendiendo-deferreds-en-jquery/
 dsq_thread_id:

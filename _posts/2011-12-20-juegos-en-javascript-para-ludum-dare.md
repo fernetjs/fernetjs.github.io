@@ -1,6 +1,6 @@
 ---
 title: Juegos en javascript para el Ludum Dare 22
-author: Matias Arriola
+author: matiasarriola
 layout: post
 permalink: /2011/12/juegos-en-javascript-para-ludum-dare/
 dsq_thread_id:

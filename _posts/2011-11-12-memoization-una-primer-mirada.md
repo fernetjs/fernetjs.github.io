@@ -1,6 +1,6 @@
 ---
 title: Memoization. Una primer mirada
-author: Matias Arriola
+author: matiasarriola
 layout: post
 permalink: /2011/11/memoization-una-primer-mirada/
 dsq_thread_id:

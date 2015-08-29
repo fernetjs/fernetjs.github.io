@@ -1,0 +1,6 @@
+{% assign author = site.data.authors[page.author] %}
+{% if author %}
+  <a href="https://twitter.com/{{ author.twitter }}">{{ author.display_name }}</a>
+{% else %}
+  {{ page.author }}
+{% endif %}

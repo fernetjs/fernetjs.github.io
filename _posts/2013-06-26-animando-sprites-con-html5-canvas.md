@@ -1,6 +1,6 @@
 ---
 title: 'Animando sprites con HTML5: Canvas'
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2013/06/animando-sprites-con-html5-canvas/
 dsq_thread_id:

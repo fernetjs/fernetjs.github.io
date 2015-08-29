@@ -1,6 +1,6 @@
 ---
 title: Variables Globales
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2011/11/variables-globales/
 dsq_thread_id:

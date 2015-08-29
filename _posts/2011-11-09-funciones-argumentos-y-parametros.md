@@ -1,6 +1,6 @@
 ---
 title: 'Funciones: Argumentos y Parámetros'
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2011/11/funciones-argumentos-y-parametros/
 dsq_thread_id:

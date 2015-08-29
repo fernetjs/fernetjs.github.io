@@ -1,6 +1,6 @@
 ---
 title: 'Performance: El DOM y la memoria'
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2011/11/performance-el-dom-y-la-memoria/
 dsq_thread_id:

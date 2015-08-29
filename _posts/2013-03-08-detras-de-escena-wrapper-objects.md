@@ -1,6 +1,6 @@
 ---
 title: 'Detrás de escena: wrapper objects'
-author: Matias Arriola
+author: matiasarriola
 layout: post
 permalink: /2013/03/detras-de-escena-wrapper-objects/
 dsq_thread_id:

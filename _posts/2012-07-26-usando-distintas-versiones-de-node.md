@@ -1,6 +1,6 @@
 ---
 title: Usando distintas versiones de node
-author: Matias Arriola
+author: matiasarriola
 layout: post
 permalink: /2012/07/usando-distintas-versiones-de-node/
 dsq_thread_id:

@@ -1,6 +1,6 @@
 ---
 title: Configurando NodeJS
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2011/12/configurando-nodejs/
 dsq_thread_id:

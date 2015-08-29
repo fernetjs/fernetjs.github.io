@@ -1,6 +1,6 @@
 ---
 title: 'Animando en CANVAS &#8211; HTML5'
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2011/12/animando-en-canvas-html5/
 dsq_thread_id:

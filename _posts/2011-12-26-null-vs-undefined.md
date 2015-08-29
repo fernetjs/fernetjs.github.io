@@ -1,6 +1,6 @@
 ---
 title: null vs. undefined
-author: Lucas Romero
+author: lucasromero
 layout: post
 permalink: /2011/12/null-vs-undefined/
 dsq_thread_id:

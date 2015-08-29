@@ -1,6 +1,6 @@
 ---
 title: Cuando no es sólo una cuestion de estilo
-author: Matias Arriola
+author: matiasarriola
 layout: post
 permalink: /2011/10/cuando-no-es-solo-una-cuestion-de-estilo/
 dsq_thread_id:

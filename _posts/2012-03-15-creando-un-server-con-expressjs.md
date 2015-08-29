@@ -1,6 +1,6 @@
 ---
 title: Creando un server con ExpressJS
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2012/03/creando-un-server-con-expressjs/
 dsq_thread_id:

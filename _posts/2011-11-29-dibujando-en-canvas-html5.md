@@ -1,6 +1,6 @@
 ---
 title: 'Dibujando en CANVAS &#8211; HTML5'
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2011/11/dibujando-en-canvas-html5/
 dsq_thread_id:

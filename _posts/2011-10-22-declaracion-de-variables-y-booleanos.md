@@ -1,6 +1,6 @@
 ---
 title: Declaración de Variables y Booleanos
-author: Pablo Novas
+author: pjnovas
 layout: post
 permalink: /2011/10/declaracion-de-variables-y-booleanos/
 dsq_thread_id:
