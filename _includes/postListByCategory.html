@@ -1,6 +1,6 @@
 <div class="home">
 
-  <h1 class="page-heading">Posts en {{ include.category }}</h1>
+  <h1 class="page-heading">Posts en la categoría: {{ include.category }}</h1>
 
   <ul class="post-list">
     {% for post in site.categories[include.category] %}
@@ -11,7 +11,7 @@
         <span class="post-meta">
           <span class="post-date">{{ post.date | date: "%F" }}</span>
           {% for category in post.categories %}
-            <a href="/categorias/{{ category | slugify }}/" class="post-category">{{ category }}<a/>
+            <a href="/categorias/{{ category | slugify }}/" class="post-category">{{ category }}</a>
           {% endfor %}
         </span>
       </li>
