@@ -11,6 +11,8 @@ facebook_username: fernetjs
 #safe: true # prevents sitemap from working?
 lsi: false
 
+#google_analytics: UA-26473955-1
+
 # Build settings
 markdown: kramdown
 highlighter: pygments
