@@ -1,0 +1,63 @@
+{% capture description %}{% if page.description %}{{ page.description | truncatewords: 100 | strip_newlines | escape_once }}{% else %}{% if page.title %}{{ page.content | textilize | strip_html | truncatewords: 50 | strip_newlines | escape_once }}{% else %}{{ site.description }}{% endif %}{% endif %}{% endcapture %}
+
+<meta name="description" content="{{ description }}">
+{% if page.author %}
+  <meta name="author" content="{{ page.author }}">
+{% endif %}
+{% if page.tags %}
+  <meta name="keywords" content="{{ page.tags | join: ',' }}">
+{% endif %}
+
+<meta content="{{ site.title }}" property="og:site_name">
+{% if page.title %}
+  <meta content="{{ page.title }}" property="og:title">
+{% else %}
+  <meta content="{{ site.title }}" property="og:title">
+{% endif %}
+{% if page.title %}
+  <meta content="article" property="og:type">
+{% else %}
+  <meta content="website" property="og:type">
+{% endif %}
+<meta content="{{ description }}" property="og:description">
+{% if page.url %}
+  <meta content="{{ site.url }}{{ page.url | replace:'index.html','' }}" property="og:url">
+{% endif %}
+{% if page.date %}
+  <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
+{% endif %}
+{% if page.image %}
+  <meta content="/img/posts/{{ page.image }}" property="og:image">
+{% else %}
+  <meta content="{{ site.url }}/img/logo.png" property="og:image">
+{% endif %}
+{% if page.categories %}
+  {% for category in page.categories limit:1 %}
+  <meta content="{{ category }}" property="article:section">
+  {% endfor %}
+{% endif %}
+{% if page.tags %}
+  {% for tag in page.tags %}
+  <meta content="{{ tag }}" property="article:tag">
+  {% endfor %}
+{% endif %}
+
+<meta name="twitter:card" content="summary">
+{% if site.twitter_username %}
+  <meta name="twitter:site" content="@{{ site.twitter_username }}">
+{% endif %}
+<!-- <meta name="twitter:creator" content="@creator_username"> -->
+{% if page.title %}
+  <meta name="twitter:title" content="{{ page.title }}">
+{% else %}
+  <meta name="twitter:title" content="{{ site.title }}">
+{% endif %}
+{% if page.url %}
+  <meta name="twitter:url" content="{{ site.url }}{{ page.url | replace:'index.html','' }}">
+{% endif %}
+<meta name="twitter:description" content="{{ description }}">
+{% if page.image %}
+  <meta name="twitter:image:src" content="{{ site.url }}/img/posts/{{ page.image }}">
+{% else %}
+  <meta name="twitter:image:src" content="{{ site.url }}/img/logo.png">
+{% endif %}
