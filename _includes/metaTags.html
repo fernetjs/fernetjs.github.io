@@ -2,7 +2,11 @@
 
 <meta name="description" content="{{ description }}">
 {% if page.author %}
-  <meta name="author" content="{{ page.author }}">
+  {% if site.data.authors[page.author] %}
+    <meta name="author" content="{{ site.data.authors[page.author].display_name }}">
+  {% else %}
+    <meta name="author" content="{{ page.author }}">
+  {% endif %}
 {% endif %}
 {% if page.tags %}
   <meta name="keywords" content="{{ page.tags | join: ',' }}">
@@ -46,7 +50,9 @@
 {% if site.twitter_username %}
   <meta name="twitter:site" content="@{{ site.twitter_username }}">
 {% endif %}
-<!-- <meta name="twitter:creator" content="@creator_username"> -->
+{% if page.author and site.data.authors[page.author] %}
+  <meta name="twitter:creator" content="@{{ site.data.authors[page.author].twitter }}">
+{% endif %}
 {% if page.title %}
   <meta name="twitter:title" content="{{ page.title }}">
 {% else %}
