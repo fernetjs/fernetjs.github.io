@@ -1,0 +1,11 @@
+<li>
+  <h2>
+    <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+  </h2>
+  <span class="post-meta">
+    <span class="post-date">{{ post.date | date: "%F" }}</span>
+    {% for category in post.categories %}
+      <a href="/categorias/{{ category | slugify }}/" class="post-category">{{ category }}<a/>
+    {% endfor %}
+  </span>
+</li>
