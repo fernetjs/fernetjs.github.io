@@ -6,9 +6,9 @@
     {% if page.dsq_thread_id %}
       var disqus_identifier = '{{ page.dsq_thread_id }}';
     {% else %}
-      var disqus_identifier = '{{ page.url }}';
+      var disqus_identifier = '{{ page.url | replace:'index.html','' }}';
     {% endif %}
-    var disqus_url = '{{ site.url }}{{ page.url }}';
+    var disqus_url = '{{ site.url }}{{ page.url | replace:'index.html','' }}';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
