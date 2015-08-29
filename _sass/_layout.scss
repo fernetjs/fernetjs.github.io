@@ -271,7 +271,23 @@
     font-size: 24px;
 }
 
+.paginator {
+  font-family: $title-font-family;
+  text-align: center;
 
+  a.paginator-btn {
+    white-space: nowrap;
+    color: $grey-color-dark;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 10px 30px;
+  }
+}
+
+.rss-subscribe {
+  margin-top: 10px;
+  text-align:right;
+}
 
 /**
  * Posts

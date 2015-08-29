@@ -15,14 +15,14 @@ layout: default
   </ul>
 
   <div class="paginator">
-    {% if paginator.previous_page_path %}
-      <a href="{{ paginator.previous_page_path }}">Página anterior</a>
-    {% endif %}
     {% if paginator.next_page_path %}
-      <a href="{{ paginator.next_page_path }}">Página siguiente</a>
+      <a href="{{ paginator.next_page_path }}" class="paginator-btn"> &lt;&lt; Posts anteriores</a>
+    {% endif %}
+    {% if paginator.previous_page_path %}
+      <a href="{{ paginator.previous_page_path }}" class="paginator-btn">Posts siguientes &gt;&gt;</a>
     {% endif %}
   </div>
-  
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+  <p class="rss-subscribe">Usás RSS? <a href="{{ "/feed.xml" | prepend: site.baseurl }}">suscribite!</a></p>
 
 </div>
