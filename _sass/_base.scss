@@ -104,6 +104,13 @@ a {
     }
 }
 
+div.page-content a {
+  padding: 1px;
+  &:hover {
+      background-color: $front-color-light;
+      color: $text-color;
+  }
+}
 
 
 /**

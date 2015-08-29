@@ -8,14 +8,43 @@
 
     // Positioning context for the mobile navigation icon
     position: relative;
+    #logo {
+      width: 140px;
+      height: 140px;
+      background: transparent url(/img/logo.png) 0 0 no-repeat;
+      margin-bottom: 10px;
+    }
+
+    .col-1 {
+      width: 30%;
+      float: left;
+    }
+    .col-2 {
+      width: 70%;
+      text-align: center;
+    }
+    @include media-query($on-palm) {
+      .col-2 {
+        width: 100%;
+        text-align: right;
+      }
+      .site-nav {
+        top: 114px;
+      }
+    }
+    h1 {
+      margin-bottom: 0;
+      margin-top: 10px;
+    }
+    .site-description {
+      color: $grey-color;
+    }
 }
 
 .site-title {
-    font-size: 26px;
+    font-size: 36px;
     line-height: 56px;
     letter-spacing: -1px;
-    margin-bottom: 0;
-    float: left;
     text-transform: uppercase;
     text-align: center;
 
@@ -26,20 +55,29 @@
 }
 
 .site-nav {
-    float: right;
     line-height: 56px;
+    text-align: right;
 
     .menu-icon {
         display: none;
     }
 
     .page-link {
-        color: $text-color;
+        color: $grey-color;
+        padding: 7px;
+        border-bottom: 2px solid;
         line-height: $base-line-height;
 
         // Gaps between nav items, but not on the first one
         &:not(:first-child) {
-            margin-left: 20px;
+            margin-left: 2px;
+        }
+
+        &:hover {
+          background-color: $front-color;
+          color: $grey-color-dark;
+          border-bottom: 3px solid $front-color-dark;
+          text-decoration: none;
         }
     }
 
@@ -96,69 +134,65 @@
 .site-footer {
     border-top: 1px solid $grey-color-light;
     padding: $spacing-unit 0;
+    background-color: $grey-color-dark;
+
+    a {
+      font-weight: bold;
+      color: $grey-color-light;
+      padding: 5px;
+
+      &:hover {
+        color: $grey-color-dark;
+        background-color: $front-color;
+        text-decoration: none;
+
+        svg * {
+          fill: $grey-color-dark;
+        }
+      }
+
+      &:visited {
+
+      }
+    }
+
+    .disclaimer {
+      color: $grey-color-light;
+      float: left;
+      a {
+        text-decoration: underline;
+        text-decoration-style: dashed;
+        padding: 3px;
+      }
+    }
 }
 
 .footer-heading {
     font-size: 18px;
     margin-bottom: $spacing-unit / 2;
+    text-transform: uppercase;
+    float: left;
+    margin-right: 15px;
+    color: $front-color;
 }
 
 .contact-list,
 .social-media-list {
     list-style: none;
     margin-left: 0;
-}
 
-.footer-col-wrapper {
-    font-size: 15px;
-    color: $grey-color;
-    margin-left: -$spacing-unit / 2;
-    @extend %clearfix;
-}
-
-.footer-col {
-    float: left;
-    margin-bottom: $spacing-unit / 2;
-    padding-left: $spacing-unit / 2;
-}
-
-.footer-col-1 {
-    width: -webkit-calc(35% - (#{$spacing-unit} / 2));
-    width:         calc(35% - (#{$spacing-unit} / 2));
-}
-
-.footer-col-2 {
-    width: -webkit-calc(20% - (#{$spacing-unit} / 2));
-    width:         calc(20% - (#{$spacing-unit} / 2));
-}
-
-.footer-col-3 {
-    width: -webkit-calc(45% - (#{$spacing-unit} / 2));
-    width:         calc(45% - (#{$spacing-unit} / 2));
-}
-
-@include media-query($on-laptop) {
-    .footer-col-1,
-    .footer-col-2 {
-        width: -webkit-calc(50% - (#{$spacing-unit} / 2));
-        width:         calc(50% - (#{$spacing-unit} / 2));
+    li {
+      display: inline;
+      padding: 10px;
     }
-
-    .footer-col-3 {
-        width: -webkit-calc(100% - (#{$spacing-unit} / 2));
-        width:         calc(100% - (#{$spacing-unit} / 2));
+    @include media-query($on-palm) {
+      li {
+        display: block;
+        float: left;
+        padding: 1px;
+      }
     }
 }
-
-@include media-query($on-palm) {
-    .footer-col {
-        float: none;
-        width: -webkit-calc(100% - (#{$spacing-unit} / 2));
-        width:         calc(100% - (#{$spacing-unit} / 2));
-    }
-}
-
-
 
 /**
  * Page content
@@ -198,6 +232,7 @@
         }
         &:hover {
           color: $front-color;
+          background-color: transparent;
         }
       }
 

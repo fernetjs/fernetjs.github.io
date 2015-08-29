@@ -2,7 +2,15 @@
 
   <div class="wrapper">
 
-    <h1><a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
+    <div class="col-1">
+      <a class="site-title" href="{{ site.baseurl }}/"><div id="logo"></div></a>
+    </div>
+    <div class="col-2">
+      <h1>
+        <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+      </h1>
+      <div class="site-description">{{ site.description }}</div>
+    </div>
 
     <nav class="site-nav">
       <a href="#" class="menu-icon">
@@ -14,11 +22,11 @@
       </a>
 
       <div class="trigger">
-        <a class="page-link" href="/about/">About</a>
-        <a class="page-link" href="/faq/">FAQ</a>
         <a class="page-link" href="/javascript/">JavaScript</a>
         <a class="page-link" href="/nodejs/">NodeJS</a>
         <a class="page-link" href="/la-historia-de-javascript/">Historia</a>
+        <a class="page-link" href="/faq/">FAQ</a>
+        <a class="page-link" href="/about/">About</a>
       </div>
     </nav>
 

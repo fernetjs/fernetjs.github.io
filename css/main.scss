@@ -27,6 +27,8 @@ $on-palm:          600px;
 $on-laptop:        800px;
 
 $front-color: #F0DB4F;
+$front-color-dark: darken($front-color, 25%);
+$front-color-light: lighten($front-color, 15%);
 
 // Using media queries with like this:
 // @include media-query($palm) {
