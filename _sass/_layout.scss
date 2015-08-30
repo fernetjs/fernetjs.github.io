@@ -15,6 +15,11 @@
       margin-bottom: 10px;
     }
 
+    .wrapper {
+      //Positioning social-media
+      position: relative;
+    }
+
     .col-1 {
       width: 30%;
       float: left;
@@ -23,21 +28,61 @@
       width: 70%;
       text-align: center;
     }
+
     @include media-query($on-palm) {
       .col-2 {
         width: 100%;
         text-align: right;
       }
-      .site-nav {
-        top: 114px;
-      }
     }
+
     h1 {
       margin-bottom: 0;
       margin-top: 10px;
     }
+
     .site-description {
       color: $grey-color;
+    }
+
+    .social-media {
+      display: block;
+      font-size: 0;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+
+      a, svg {
+        display: block;
+      }
+      a {
+        position: relative;
+        height: 65px;
+        width: 65px;
+        float: left;
+
+        &:hover {
+          background-color: $front-color;
+          svg * {
+            fill: $grey-color-dark;
+          }
+        }
+
+        svg {
+          height: 100%;
+          width: 100%;
+
+          * {
+            fill: lighten($grey-color-light, 5%);
+          }
+        }
+      }
+    }
+
+    @include media-query($on-palm) {
+      .social-media {
+        display: none;
+      }
     }
 }
 
@@ -83,7 +128,7 @@
 
     @include media-query($on-palm) {
         position: absolute;
-        top: 9px;
+        top: 100px;
         right: 30px;
         background-color: $background-color;
         border: 1px solid $grey-color-light;
