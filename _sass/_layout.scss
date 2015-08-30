@@ -239,6 +239,12 @@
     }
 }
 
+.build-info {
+  font-size: $smallest-font-size;
+  color: $grey-color;
+  display: inline-block;
+}
+
 /**
  * Page content
  */
