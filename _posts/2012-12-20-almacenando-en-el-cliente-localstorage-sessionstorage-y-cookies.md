@@ -24,7 +24,7 @@ Ambos tienen los mismos métodos:
   * **setItem** ( *key* , *value* )
   * **removeItem** ( *key* )
 
-> Van a ver por ahí un **globalStorage**: es una implementación de Mozilla previa a HTML5, pero desde la versión de Firefox 13 dejó de soportarse, por lo que olvidate de que existe 😉 
+> Van a ver por ahí un **globalStorage**: es una implementación de Mozilla previa a HTML5, pero desde la versión de Firefox 13 dejó de soportarse, por lo que olvidate de que existe 😉
 
 No hay mucho para explicar sobre los métodos ya que hablan por si solos, veamos un ejemplo:
 
@@ -34,7 +34,7 @@ if (window.localStorage) {
   localStorage.setItem("nombre", "pepe");
 
   var nombre = localStorage.getItem("nombre");
-  
+
   localStorage.removeItem("nombre");
 }
 else {
@@ -43,7 +43,7 @@ else {
  {% endhighlight %}
 
 > También se puede utilizar los Items como propiedades del objeto localStorage ó sessionStorage (pero <font style="color:red"><strong>no está recomendado</strong></font>, así que tomalo como título informativo):
-> 
+>
 > {% highlight js %}
 localStorage["nombre"] = "pepe";
 var nombre = localStorage.nombre;
@@ -52,43 +52,12 @@ delete localStorage["nombre"];
 
 El soporte de navegadores es muy amplio:
 
-<pre>+---migration_issue: highlightline
-------migration_issue: highlightline
--------+migration_issue: highlightline
---------+migration_issue: highlightline
-------migration_issue: highlightline
-------migration_issue: highlightline
------+----+migration_issue: highlightline
--------+migration_issue: highlightline
-------migration_issue: highlightline
-------migration_issue: highlightline
------+
+|----------------|--------|-----------------|----|-------|-----------------|
 |    Feature     | Chrome | Firefox (Gecko) | IE | Opera | Safari (WebKit) |
-+---migration_issue: highlightline
-------migration_issue: highlightline
--------+migration_issue: highlightline
---------+migration_issue: highlightline
-------migration_issue: highlightline
-------migration_issue: highlightline
------+----+migration_issue: highlightline
--------+migration_issue: highlightline
-------migration_issue: highlightline
-------migration_issue: highlightline
------+
+|----------------|-------:|----------------:|---:|------:|----------------:|
 | localStorage   |      4 | 3.5             |  8 | 10.50 |               4 |
 | sessionStorage |      5 | 2               |  8 | 10.50 |               4 |
-+---migration_issue: highlightline
-------migration_issue: highlightline
--------+migration_issue: highlightline
---------+migration_issue: highlightline
-------migration_issue: highlightline
-------migration_issue: highlightline
------+----+migration_issue: highlightline
--------+migration_issue: highlightline
-------migration_issue: highlightline
-------migration_issue: highlightline
------+
-</pre>
+|----------------|--------|-----------------|----|-------|-----------------|
 
 Pueden ver mas info [acá][1]
 
@@ -143,7 +112,7 @@ var personaGuardada = localStorage.getItem("persona");
 console.log(typeof persona); //object
 console.log(typeof personaGuardada); //string
 
-var personaGuardada = JSON.parse(personaGuardada); 
+var personaGuardada = JSON.parse(personaGuardada);
 console.log(personaGuardada.locura); //true
  {% endhighlight %}
 
