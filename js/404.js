@@ -1,4 +1,4 @@
-
+/* invaders404: https://github.com/pjnovas/invaders404 */
 (function(){var initializing=false,fnTest=/xyz/.test(function(){xyz;})?/\b_super\b/:/.*/;this.Class=function(){};Class.extend=function(prop){var _super=this.prototype;initializing=true;var prototype=new this();initializing=false;for(var name in prop){prototype[name]=typeof prop[name]=="function"&&typeof _super[name]=="function"&&fnTest.test(prop[name])?(function(name,fn){return function(){var tmp=this._super;this._super=_super[name];var ret=fn.apply(this,arguments);this._super=tmp;return ret;};})(name,prop[name]):prop[name];}
 function Class(){if(!initializing&&this.init)
 this.init.apply(this,arguments);}
@@ -48,12 +48,12 @@ this.currentDir[i]=null;this.currentDir=[];this.destroy();},drawSplash:function(
 var timerAux=setInterval(function(){if(colIdx<colsL/10){drawColumn(colIdx,"#F0DB4F");drawColumn(colIdx+1,"#ddc649");drawColumn(colIdx+2,"#c4ad41");drawColumn(colIdx+3,"#938631");drawColumn(colIdx+4,"#6d6224");colIdx++;}
 else{clearInterval(timerAux);callback();}},this.loopInterval);},goFullscreen:function(){var canvas=this.canvas,requestFullscreen=canvas.requestFullscreen||canvas.mozRequestFullScreen||canvas.webkitRequestFullScreen;if(requestFullscreen){requestFullscreen.call(canvas);}},exitFullscreen:function(){var cancelFullscreen=document.cancelFullscreen||document.mozCancelFullScreen||document.webkitCancelFullScreen;if(cancelFullscreen){cancelFullscreen.call(document);}}});
 
-var invaders;
 
+var invaders;
 window.addEventListener('load', function(){
 	initInvaders404();
 	setFullscreenLabel();
-
+	sendAnalytics();
 });
 
 document.documentElement.addEventListener('keypress', function(ev){
@@ -104,4 +104,16 @@ function initInvaders404(){
 	});
 
 	invaders.start();
+}
+
+
+function sendAnalytics(){
+	var ga = window.ga || console.debug.bind(console),
+		page = document.location.pathname + document.location.search,
+		ref =  document.referrer;
+
+	ga('send', 'event', 'error', '404', 'page: ' + page + ' ref: ' + ref, {
+		'nonInteraction': 1
+	});
+
 }
