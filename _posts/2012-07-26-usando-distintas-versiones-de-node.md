@@ -22,7 +22,7 @@ Un escenario bastante común es encontrarse con:
 > varios desarrolladores que tienen distintas versiones de node
 
 Eso aumenta la probabilidad de confusión, errores y pérdida de tiempo ( que no es lo que buscamos ).  
-Node se encuentra en actividad permanente, y hay muchas versiones dando vueltas. Si bien los cambios que se van haciendo, en su mayoría, son compatibles hacia atrás, seguramente no sepamos el changelog de memoria, ni querramos correr algún tipo de riesgo. 
+Node se encuentra en actividad permanente, y hay muchas versiones dando vueltas. Si bien los cambios que se van haciendo, en su mayoría, son compatibles hacia atrás, seguramente no sepamos el changelog de memoria, ni querramos correr algún tipo de riesgo.
 
 En <a href="http://fernetjs.com/2011/12/la-era-del-package-json/" title="La era del package.json" target="_blank">el package.json</a> de nuestro proyecto podemos especificar la versión de node con la que sabemos que funciona. Por ejemplo, <a href="https://github.com/MatthewMueller/cheerio/blob/master/package.json" title="cheerio package.json" target="_blank">cheerio</a> corre en versiones mayores o iguales a 0.6.
 
@@ -47,32 +47,32 @@ npm install -g nave
 
 Después, el uso es bastante sencillo e intuitivo.  
 **Instalar (descargar y buildear) una versión de node: **  
-`<br />
-nave install 0.8.4<br />
-`  
+{% highlight bash %}
+nave install 0.8.4
+{% endhighlight %}
 Donde 0.8.4 es la versión, y puede ser reemplazado por stable o latest.
 
 **Usar la versión que querramos**  
-`<br />
-nave use 0.8.4<br />
-`  
+{% highlight bash %}
+nave use 0.8.4
+{% endhighlight %}
 (si cuando hacemos use, no tenemos instalada esa versión, nave la va a instalar automáticamente)
 
 **Listar las versiones que tenemos instaladas: **  
-`<br />
-nave ls<br />
-`
+{% highlight bash %}
+nave ls
+{% endhighlight %}
 
 **Listar las versiones que existen**  
-`<br />
-nave ls-remote<br />
-`  
+{% highlight bash %}
+nave ls-remote
+{% endhighlight %}
 *Un par, no?*
 
 Y a nunca olvidarse de **checkear la versión** que en efecto vamos a ejecutar:  
-`<br />
-node -v<br />
-`
+{% highlight bash %}
+node -v
+{% endhighlight %}
 
 nave trabaja con subshells, lo que significa que si hacemos nave use 0.4, entonces cuando cerremos la consola actual o abramos una nueva consola, no vamos a seguir sobre 0.4 sino que sobre la versión posta de node que teníamos inicialmente.
 
