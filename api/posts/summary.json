@@ -1,0 +1,11 @@
+---
+---
+{% capture json %}
+[
+  {% for post in site.posts %}
+{"url": "{{post.url}}","title": "{{post.title}}"}{% if forloop.last == false %},{% endif %}
+  {% endfor %}
+]
+{% endcapture %}
+
+{{json | strip_newlines}}
