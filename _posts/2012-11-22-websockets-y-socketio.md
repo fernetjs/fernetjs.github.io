@@ -44,7 +44,7 @@ Ahora que ya sabemos de que se trata, vamos a utilizarlo.
 
 * * *
 
-[<img src="http://fernetjs.com/wp-content/uploads/2012/11/socketio_logo.png" alt="" title="socketio_logo" style="width: 300px; height: 100px;" class="aligncenter size-thumbnail wp-image-3025" />][4]</p> 
+[<img src="http://fernetjs.com/wp-content/uploads/2012/11/socketio_logo.png" alt="" title="socketio_logo" style="width: 300px; height: 100px;" class="aligncenter size-thumbnail wp-image-3025" />][4]</p>
 
 SocketIO es una biblioteca que nos facilita increíblemente el uso de web sockets en NodeJS.  
 Así que arranquemos a configurar:
@@ -75,7 +75,7 @@ app.get('/', function (req, res) {
   res.sendfile(__dirname + '/index.html');
 });
 
-// nos suscribimos al evento de socketIO cuando 
+// nos suscribimos al evento de socketIO cuando
 // un cliente se conecta por WebSockets
 io.sockets.on('connection', function (socket) {
 
@@ -88,7 +88,7 @@ io.sockets.on('connection', function (socket) {
   // para el mensaje y un json con los datos
   socket.emit('bienvenida', { digo: 'Hola cliente WS!' });
 
-  // nos suscribimos a un mensaje que nos puede 
+  // nos suscribimos a un mensaje que nos puede
   // enviar el cliente.
   socket.on('quiero un random', function (cada_cuanto) {
 
@@ -104,11 +104,11 @@ io.sockets.on('connection', function (socket) {
 Ahora creamos un index.html que es el que retorna el servidor con la conexión a WebSocket
 
 <!--highlight:[6,10,14,20,25]-->
-{% highlight js %}
+{% highlight html %}
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- Este script no existe!, y está bien que así sea, ya que lo genera 
+    <!-- Este script no existe!, y está bien que así sea, ya que lo genera
          SocketIO automáticamente al recibir el pedido del archivo -->
     <script src="/socket.io/socket.io.js" type="text/javascript"></script>
 
@@ -116,13 +116,13 @@ Ahora creamos un index.html que es el que retorna el servidor con la conexión a
       // Nos conectamos al WebSocket
       var socket = io.connect('http://localhost');
 
-      // Nos suscribimos al mensaje de bienvenida 
+      // Nos suscribimos al mensaje de bienvenida
       // que creamos en el servidor
       socket.on('bienvenida', function (bienvenida) {
         document.write(bienvenida.digo);
-        
+
         // Una vez que nos saluda el servidor
-        // Le enviamos un mensaje pidiendo un random 
+        // Le enviamos un mensaje pidiendo un random
         // cada 5 segundos (5000 milisegundos)
         socket.emit('quiero un random', 5000);
       });
@@ -131,7 +131,7 @@ Ahora creamos un index.html que es el que retorna el servidor con la conexión a
       // del servidor para el número random que nos va a enviar
       socket.on('toma un random', function (data) {
         console.log(data.numero);
-      }); 
+      });
     </script>
   </head>
   <body>
@@ -148,7 +148,7 @@ node server.js
 
 Abrimos un navegador y llamamos a http://localhost y listo! (abrí la consola para ver las llamadas del servidor con los randoms <img src="http://fernetjs.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" /> ).
 
-> Al principio expliqué que tanto el cliente como el servidor deben soportar web sockets, tenemos que tener en cuenta que es necesario HTML5 con web sockets, te dejo este [LINK][5] con el detalle de los navegadores que lo soportan. Fuera de eso tené en cuenta que SocketIO se encarga de que la conexión funcione sin importar el navegador, esto lo hace intentando con otros mecanismos de transporte (XHR Pooling, Flash Sockets, etc.). No va a ser con web sockets pero va a funcionar como si lo fuera <img src="http://fernetjs.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" /> 
+> Al principio expliqué que tanto el cliente como el servidor deben soportar web sockets, tenemos que tener en cuenta que es necesario HTML5 con web sockets, te dejo este [LINK][5] con el detalle de los navegadores que lo soportan. Fuera de eso tené en cuenta que SocketIO se encarga de que la conexión funcione sin importar el navegador, esto lo hace intentando con otros mecanismos de transporte (XHR Pooling, Flash Sockets, etc.). No va a ser con web sockets pero va a funcionar como si lo fuera <img src="http://fernetjs.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" />
 
 **Te dejo el código del ejemplo &#8211; [ejemplo.zip][6]**
 
