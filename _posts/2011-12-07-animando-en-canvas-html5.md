@@ -38,7 +38,7 @@ function loop(posX, posY) {
 
     dibujarContorno();
 
-    if (posX &gt; 0 || posY &gt; 0) {
+    if (posX > 0 || posY > 0) {
 
         setTimeout(function(){
             //llamada a sí misma restando 10 pixeles
@@ -72,7 +72,7 @@ function animar(termino){
 
         dibujarContorno();
 
-        if (posX &gt; 0 || posY &gt; 0) {
+        if (posX > 0 || posY > 0) {
             setTimeout(function(){
                 loop(posX-10, posY-10);
             }, 40);

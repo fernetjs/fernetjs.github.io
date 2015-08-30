@@ -168,10 +168,10 @@ if (!window.localStorage) {
         else { aKeys.splice(iThisIndx, 1); }
         delete oStorage[sKey];
       }
-      for (aKeys; aKeys.length &gt; 0; aKeys.splice(0, 1)) { oStorage.removeItem(aKeys[0]); }
-      for (var aCouple, iKey, nIdx = 0, aCouples = document.cookie.split(/\s*;\s*/); nIdx &lt; aCouples.length; nIdx++) {
+      for (aKeys; aKeys.length > 0; aKeys.splice(0, 1)) { oStorage.removeItem(aKeys[0]); }
+      for (var aCouple, iKey, nIdx = 0, aCouples = document.cookie.split(/\s*;\s*/); nIdx < aCouples.length; nIdx++) {
         aCouple = aCouples[nIdx].split(/\s*=\s*/);
-        if (aCouple.length &gt; 1) {
+        if (aCouple.length > 1) {
           oStorage[iKey = unescape(aCouple[0])] = unescape(aCouple[1]);
           aKeys.push(iKey);
         }

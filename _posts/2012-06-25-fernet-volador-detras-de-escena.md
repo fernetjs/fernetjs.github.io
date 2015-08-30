@@ -100,12 +100,12 @@ En esta funcion vamos a crear el dom, eventos e iniciar los loops de animacion:
 var runKonami = function(){
   //creamos los elementos del DOM
   //este es el div que rota con la imagen de la botella
-  bottle = $("&lt;div&gt;").addClass('fernet-capita');
+  bottle = $("<div>").addClass('fernet-capita');
   //mensaje inicial 
-  legend = $("&lt;div&gt;").addClass('legend').text("&lt;- Fernet volador");
+  legend = $("<div>").addClass('legend').text("<- Fernet volador");
 
   //este va a ser el div que se mueve por la pantalla
-  bottleWrap = $("&lt;div&gt;").addClass("bottle-wrap")
+  bottleWrap = $("<div>").addClass("bottle-wrap")
     .append(bottle) //agregamos la botella
     .append(legend) //agregamos el mensaje inicial
     //posicionamiento inicial de la botella
@@ -120,7 +120,7 @@ var runKonami = function(){
   //vamos a usar mucho esta funcion dentro de moveBottle
   //el array keys es donde vamos a mantener las flechas presionadas
   keys.has = function(){
-    for(var i=0;i&lt;arguments.length;i++){
+    for(var i=0;i<arguments.length;i++){
       if(keys.indexOf(arguments[i]) === -1) return false;
     }
     return true;
@@ -158,7 +158,7 @@ Manejando el array *keys* dependiendo de que esta presionado y que se dejó de p
 var konamiKeyDown = function(e){
   //comprobamos que la flecha presionada no esté en el array (sea nueva)
   if (keys.indexOf(e.which) === -1) {
-    if (keys.length &gt; 1) keys.shift(); // si el array ya tiene 2, sacamos la primera
+    if (keys.length > 1) keys.shift(); // si el array ya tiene 2, sacamos la primera
     keys.push(e.which); //agregamos la flecha al array
   }
 
@@ -191,23 +191,23 @@ var moveBottle = function(){
   //comprobamos que flechas están en el array y asignamos angulo y posicion
   if(keys.has(key.up)){
     cls = 0;
-    if(top &gt; 0) top-=vel; 
+    if(top > 0) top-=vel; 
   }
   if(keys.has(key.right)){
     cls = 90;
-    if((left + bottleWrap.width()) &lt; $window.width()) left+=vel;
+    if((left + bottleWrap.width()) < $window.width()) left+=vel;
   }
   if(keys.has(key.down)){
     cls = 180;
-    if((top + bottleWrap.height() * 2) &lt; $window.height() + $window.scrollTop()) top+=vel;
+    if((top + bottleWrap.height() * 2) < $window.height() + $window.scrollTop()) top+=vel;
   }
   if(keys.has(key.left)){
     cls = 270;
-    if(left &gt; 0) left-=vel;
+    if(left > 0) left-=vel;
   }
 
   //este caso es para cuando tiene 2 flechas presionadas
-  if(keys.length &gt; 1){
+  if(keys.length > 1){
     cls = 45;
 			
     if (keys.has(key.up, key.right)) cls *= 1;
@@ -227,7 +227,7 @@ var moveBottle = function(){
   style = style.replace(/\[d\]/g, cls); 
 
   //comprobamos si hay que mover el scroll de la ventana
-  if(top &gt; hScroll || top &lt; hScroll){
+  if(top > hScroll || top < hScroll){
     $window.scrollTop(top - half);
   }
 

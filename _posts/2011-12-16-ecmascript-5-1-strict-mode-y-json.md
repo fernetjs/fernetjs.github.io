@@ -124,7 +124,7 @@ function mifunction(){
 Si ya estuvieron trabajando con serializaciones de objetos en javascript (JSON) seguramente usaron el famoso script <a href="http://www.json.org/" title="JSON" target="_blank"><em>json2.js</em></a> o alguna otra librería. 
 
 {% highlight xml %}
-&lt;script type="text/javascript" src="json2.js" &gt;&lt;/script&gt;
+<script type="text/javascript" src="json2.js" ></script>
  {% endhighlight %}
 
 {% highlight js %}
@@ -145,9 +145,9 @@ Bueno, en este nuevo standard ya tenemos la clase JSON incluida, no necesitamos 
 Por ejemplo:
 
 {% highlight xml %}
-&lt;!--[if lt IE 8]&gt;
-   &lt;script type="text/javascript" src="json2.js" &gt;&lt;/script&gt;
-&lt;![endif]--&gt;
+<!--[if lt IE 8]>
+   <script type="text/javascript" src="json2.js" ></script>
+<![endif]-->
  {% endhighlight %}
 
 De esta manera cubrimos el caso en que esté utilizando un explorador viejo de internet explorer, sino, dejamos que el motor del explorador se encargue.  

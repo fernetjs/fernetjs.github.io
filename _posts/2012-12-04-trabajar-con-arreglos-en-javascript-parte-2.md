@@ -50,7 +50,7 @@ El objetivo de este ejemplo es escribir el código necesario para saber si algun
 
 {% highlight js %}
 var hayAlMenosUnAdministrador = false;
-for (var i; i &lt; usuarios.length; i++) {
+for (var i; i < usuarios.length; i++) {
 	var usuario = usuarios[i];
 	if (usuario.esAdmin) 
 		hayAlMenosUnAdministrador = true;        
@@ -101,11 +101,11 @@ El objetivo de este ejemplo es escribir el código necesario para construir un a
 
 {% highlight js %}
 var todosLosErrores = [];
-for (var i = 0; i &lt; usuarios.length; i++){
+for (var i = 0; i < usuarios.length; i++){
 	var usuario = usuarios[i];
 	var errores = usuario.validar();
 	
-	for (var e = 0; e &lt; errores.length; i++)
+	for (var e = 0; e < errores.length; i++)
 		todosLosErrores.push(e);
 }
  {% endhighlight %}
@@ -114,7 +114,7 @@ for (var i = 0; i &lt; usuarios.length; i++){
 
 {% highlight js %}
 var todosLosErrores = [];
-for (var i = 0; i &lt; usuarios.length; i++){
+for (var i = 0; i < usuarios.length; i++){
 	var usuario = usuarios[i];
 	var errores = usuario.validar();	
 	todosLosErrores = todosLosErrores.concat(errores);

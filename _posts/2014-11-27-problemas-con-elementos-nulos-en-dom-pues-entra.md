@@ -22,7 +22,7 @@ A partir de acá sabemos que al navegador web entra al sitio web **renderiza** t
 **Desde el body**
 
 {% highlight xml %}
-&lt;body onload="myMainFunction()"&gt;
+<body onload="myMainFunction()">
  {% endhighlight %}
 
 **Desde el javascript**

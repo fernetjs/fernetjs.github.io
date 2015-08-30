@@ -74,7 +74,7 @@ Dicho esto, los siguientes ejemplos funcionan de la misma manera sin afectar ren
 {% highlight js %}
 function miFuncionA(){
     var unaVar;
-    for(var i=0; i&lt;100; i++){
+    for(var i=0; i<100; i++){
        unaVar = 'algun valor';
     }
 
@@ -84,7 +84,7 @@ function miFuncionA(){
 
 {% highlight js %}
 function miFuncionB(){
-    for(var i=0; i&lt;100; i++){
+    for(var i=0; i<100; i++){
        var unaVar = 'algun valor';
     }
 

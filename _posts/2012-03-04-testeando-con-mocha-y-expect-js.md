@@ -22,16 +22,16 @@ El paso a paso para arrancar a usarlo:
 <!--more-->
 
 {% highlight xml %}
-&lt;html&gt;
-&lt;head&gt;
-  &lt;meta charset="utf-8"&gt;
-  &lt;title&gt;Mocha Tests&lt;/title&gt;
-  &lt;link rel="stylesheet" href="https://raw.github.com/visionmedia/mocha/master/mocha.css" /&gt;
-  &lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"&gt;&lt;/script&gt;
-  &lt;script src="https://raw.github.com/LearnBoost/expect.js/d2440da086bf8dc38c6085641f23b968a0f48b29/expect.js"&gt;&lt;/script&gt;
-  &lt;script src="https://raw.github.com/visionmedia/mocha/master/mocha.js"&gt;&lt;/script&gt;
-  &lt;script&gt;mocha.setup('bdd') //acá definimos el estilo de los tests, otra opción válida es tdd&lt;/script&gt;
-  &lt;script src="miImplementacion.js"&gt;&lt;/script&gt;
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mocha Tests</title>
+  <link rel="stylesheet" href="https://raw.github.com/visionmedia/mocha/master/mocha.css" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="https://raw.github.com/LearnBoost/expect.js/d2440da086bf8dc38c6085641f23b968a0f48b29/expect.js"></script>
+  <script src="https://raw.github.com/visionmedia/mocha/master/mocha.js"></script>
+  <script>mocha.setup('bdd') //acá definimos el estilo de los tests, otra opción válida es tdd</script>
+  <script src="miImplementacion.js">&lt;/script&gt;
   &lt;script src="misTests.js"&gt;&lt;/script&gt;
   &lt;script&gt;
     $(function () {

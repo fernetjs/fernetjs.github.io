@@ -29,7 +29,7 @@ function obtenerFernet(){
 
 Ahora que podemos obtener un poco de fernet, vamos a servirlo..
 
-<pre>&gt;&gt;&gt; obtenerFernet()
+<pre>>>> obtenerFernet()
 undefined</pre>
 
 <div>

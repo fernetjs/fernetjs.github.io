@@ -27,7 +27,7 @@ Simplemente es crear un archivo con el nombre package.json en el root del paquet
   , "description": "un paquete de nodeJs con dependencias a express y socket.io de NPM."
   , "dependencies": {
       "express": "2.5.1"
-    , "socket.io": "&gt;= 0.2.3"
+    , "socket.io": ">= 0.2.3"
   }
 }
  {% endhighlight %}

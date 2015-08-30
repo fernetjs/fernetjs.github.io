@@ -37,7 +37,7 @@ var miRegEx = /[a-z]/i
 var miString = "Hola a todos"
 
 miRegEx.exec(miString); // Ejecuta la expresión regular contra el String. Devuelve un Array con la información que extrae.
-miRegEx.test(miString); // Prueba la expresión regular contra el String. Devuelve &lt;i&gt;true&lt;/i&gt; o &lt;i&gt;false&lt;/i&gt;.
+miRegEx.test(miString); // Prueba la expresión regular contra el String. Devuelve <i>true</i> o <i>false</i>.
 
 miString.match(miRegEx); // Ejecuta la expresión regular contra el String. Devuelve un Array con la información que extrae.
 miString.search(miRegEx); // Busca en el String el patrón definido por la expresión regular. Devuelve la pocisión en el String donde la encuentra o -1 en caso de fallo.

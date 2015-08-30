@@ -67,7 +67,7 @@ var arr = [];
 arr[1] = 'hola';
 arr[2] = 'chau';
 
-for (var i=0; i &lt; arr.length; i++){
+for (var i=0; i < arr.length; i++){
     //i === 0: arr[0] === undefined;
     //i === 1: arr[1] === 'hola';
     //i === 2: arr[2] === 'chau';

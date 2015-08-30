@@ -42,6 +42,10 @@ Para no perder nada lo dejamos como comment:
 
 Eso hay que ejecutarlo antes que todo lo anterior.
 
+### Cerrando, parte II
+Otra tarea que surgió fue la de reemplazar htmlentities que salieron del export, que quedaron atrapadas en el highlight.
+Por ejemplo, en el código en lugar de ver `<`, en todos lados se veía `&lt;`.
+
 ## iframes
 En un par de posts se embebía material de otros sitios. Nos damos cuenta porque en el export aparece `<!-- iframe plugin v.2.5 wordpress.org/extend/plugins/iframe/ -->` donde debería estar el iframe.
 La corrección de esta data se hizo manualmente, ya que eran algunas pocas páginas/posts que hacían uso de este plugin de wordpress para incluir iframes. Todo lo que se hizo fue, incluir el respectivo html en el markdown apropiado.

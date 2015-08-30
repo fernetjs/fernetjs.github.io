@@ -47,7 +47,7 @@ O &#8230; mejor todavia, empecemos organizadamente a armar nuestro [package.json
   "name": "SitioWebConNodeJS",
   "version": "0.0.1",
   "dependencies": {
-    "express": "&gt;=2.5.8"
+    "express": ">=2.5.8"
   }
 }
  {% endhighlight %}

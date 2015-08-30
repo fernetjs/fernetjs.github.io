@@ -32,7 +32,7 @@ Veamos otro ejemplo:
 {% highlight js %}
 Array.prototype.where = function(func) {
     var found = [];
-    for (var i = 0, l = this.length; i &lt; l; ++i) {
+    for (var i = 0, l = this.length; i < l; ++i) {
         var item = this[i];
         if (func(item))
             found.push(item);
@@ -47,7 +47,7 @@ conjunto[2] = 2;
 conjunto[3] = 3;
 
 var resultado = conjunto.where(function(a){
-    return a&lt;2?true:false;
+    return a<2?true:false;
 });
 
 console.log(conjunto);

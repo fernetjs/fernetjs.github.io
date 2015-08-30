@@ -165,7 +165,7 @@ Primero llamamos a `console.group` con una etiqueta, y todo logueo de consola qu
 
 {% highlight js %}
 function update(){
-  for(var i=0; i&lt; 5; i++){
+  for(var i=0; i< 5; i++){
     console.log(i);
   }
   console.count('update');
@@ -191,7 +191,7 @@ También se pueden tener grupos anidados!
 {% highlight js %}
 function update(){
   console.groupCollapsed('DB');
-  for(var i=0; i&lt; 5; i++){
+  for(var i=0; i< 5; i++){
     console.log(i);
   }
   console.groupEnd('DB');

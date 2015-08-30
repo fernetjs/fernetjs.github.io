@@ -29,7 +29,7 @@ Tenemos otras ventajas en su uso también, como el cache del browser, es decir, 
 Supongamos que tenemos nuestra referencia:
 
 {% highlight xml %}
-&lt;script src="js/jquery.min-1-7-1.js"&gt;&lt;/script&gt;
+<script src="js/jquery.min-1-7-1.js"></script>
  {% endhighlight %}
 
 Es poco probable que el cliente ya lo tenga en cache con ese nombre.
@@ -37,7 +37,7 @@ Es poco probable que el cliente ya lo tenga en cache con ese nombre.
 ### Referenciando a un CDN
 
 {% highlight xml %}
-&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"&gt;&lt;/script&gt;
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
  {% endhighlight %}
 
 Se vé mucho mejor, no?
@@ -49,8 +49,8 @@ Podríamos pensarlo para un entorno de desarrollo o una intranet, si el cliente 
 Y qué pasa si el CDN, por ejemplo de Google, está caído?, aparte de que se seguramente el mundo se detendría, nuestro sitio no funcionaría, así que agreguemos la reserva local *por si las dudas*:
 
 {% highlight xml %}
-&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"&gt;&lt;/script&gt;
-&lt;script&gt;window.jQuery || document.write('&lt;script src="js/libs/jquery-1.7.1.min.js"&gt;&lt;\/script&gt;')&lt;/script&gt;
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
  {% endhighlight %}
 
 Así de simple, referenciamos al CDN de google para la version 1.7.1 de jquery y ponemos otro script comprobando que si *window.jQuery* es *undefined* insertamos nuestro script local.

@@ -105,14 +105,14 @@ Ahora creamos un index.html que es el que retorna el servidor con la conexión a
 
 <!--highlight:[6,10,14,20,25]-->
 {% highlight js %}
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;!-- Este script no existe!, y está bien que así sea, ya que lo genera 
-         SocketIO automáticamente al recibir el pedido del archivo --&gt;
-    &lt;script src="/socket.io/socket.io.js" type="text/javascript"&gt;&lt;/script&gt;
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Este script no existe!, y está bien que así sea, ya que lo genera 
+         SocketIO automáticamente al recibir el pedido del archivo -->
+    <script src="/socket.io/socket.io.js" type="text/javascript"></script>
 
-    &lt;script type="text/javascript"&gt;
+    <script type="text/javascript">
       // Nos conectamos al WebSocket
       var socket = io.connect('http://localhost');
 
@@ -132,12 +132,12 @@ Ahora creamos un index.html que es el que retorna el servidor con la conexión a
       socket.on('toma un random', function (data) {
         console.log(data.numero);
       }); 
-    &lt;/script&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;!-- acá toda la magia en HTML --&gt;
-  &lt;body/&gt;
-&lt;/html&gt;
+    </script>
+  </head>
+  <body>
+    <!-- acá toda la magia en HTML -->
+  <body/>
+</html>
  {% endhighlight %}
 
 Lo que nos queda es correr el servidor web

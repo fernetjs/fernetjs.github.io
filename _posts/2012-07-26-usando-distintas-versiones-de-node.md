@@ -28,7 +28,7 @@ En <a href="http://fernetjs.com/2011/12/la-era-del-package-json/" title="La era 
 
 {% highlight js %}
 "engines": {
-    "node": "&gt;= 0.6"
+    "node": ">= 0.6"
   }
  {% endhighlight %}
 

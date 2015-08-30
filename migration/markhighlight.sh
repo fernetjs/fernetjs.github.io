@@ -18,6 +18,19 @@ echo "manual fixes"
 sed -i '78s/plain/bash/' _posts/2011-11-16-que-es-nodejs-breve-introduccion.md
 sed -i '88s/plain/http/' _posts/2011-11-16-que-es-nodejs-breve-introduccion.md
 
+echo "replacing html entities inside highlight"
+# lol no time to research
+perl -0777 -i.original -pe 's/({% highlight .*?%})(.*?)(&lt;)(.*?)({%)/$1$2<$4$5/gis' _posts/*.md
+perl -0777 -i.original -pe 's/({% highlight .*?%})(.*?)(&gt;)(.*?)({%)/$1$2>$4$5/gis' _posts/*.md
+perl -0777 -i.original -pe 's/({% highlight .*?%})(.*?)(&lt;)(.*?)({%)/$1$2<$4$5/gis' _posts/*.md
+perl -0777 -i.original -pe 's/({% highlight .*?%})(.*?)(&gt;)(.*?)({%)/$1$2>$4$5/gis' _posts/*.md
+perl -0777 -i.original -pe 's/({% highlight .*?%})(.*?)(&lt;)(.*?)({%)/$1$2<$4$5/gis' _posts/*.md
+perl -0777 -i.original -pe 's/({% highlight .*?%})(.*?)(&gt;)(.*?)({%)/$1$2>$4$5/gis' _posts/*.md
+perl -0777 -i.original -pe 's/({% highlight .*?%})(.*?)(&lt;)(.*?)({%)/$1$2<$4$5/gis' _posts/*.md
+perl -0777 -i.original -pe 's/({% highlight .*?%})(.*?)(&gt;)(.*?)({%)/$1$2>$4$5/gis' _posts/*.md
+
 rm _posts/*.original
+
+
 
 echo "done!"

@@ -58,7 +58,7 @@ function hacerAlguna(a, b){
 
     console.log(hacerAlguna.length); // 2
 
-    if(arguments.length &gt; hacerAlguna.length)
+    if(arguments.length > hacerAlguna.length)
        console.log('ey! me enviaste más parametros de los que tengo!');
 }
 

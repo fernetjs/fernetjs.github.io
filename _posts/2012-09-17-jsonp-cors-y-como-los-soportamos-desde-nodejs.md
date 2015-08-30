@@ -73,14 +73,14 @@ Este servicio está en otro dominio, y ahora sabemos que tenemos la política Sa
 Y si referenciamos una url bajo un tag script?, por ejemplo, esto si podemos hacerlo:
 
 {% highlight xml %}
-&lt;script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"&gt;&lt;/script&gt;
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
  {% endhighlight %}
 
 Eso si funciona, ya que no hay problema en referenciar a un script que esté en otro origen, ahí no *juega* la política de Same Origin.  
 Entonces referenciemos al servicio con un script:
 
 {% highlight xml %}
-&lt;script type="text/javascript" src="http://nolaborables.com.ar/API/v1/proximo"&gt;&lt;/script&gt;
+<script type="text/javascript" src="http://nolaborables.com.ar/API/v1/proximo"></script>
  {% endhighlight %}
 
 Error!, porque el interpretador de JS no sabe como leer un json colgado de la nada, pero si la respuesta de ese servicio nos devolviera el json como una llamada a una función?, el interpretador sabe que hacer con eso, no?
@@ -121,7 +121,7 @@ function llamame(jsonRespuesta){
 Después inyectamos el siguiente script para que haga la llamada, indicándole cual es la función a la que va a llamar (el Padding):
 
 {% highlight xml %}
-&lt;script type="text/javascript" src="http://nolaborables.com.ar/API/v1/proximo?callback=llamame"&gt;&lt;/script&gt;
+<script type="text/javascript" src="http://nolaborables.com.ar/API/v1/proximo?callback=llamame"></script>
  {% endhighlight %}
 
 Ese script va a generar la llamada a la función *llamame* enviándole el JSON:
@@ -196,12 +196,12 @@ Cuando disparamos una llamada Ajax a un servidor, el explorador se encarga de ag
 
 <!--highlight:[2,6]-->
 {% highlight bash %}
-GET /API/v1/proximo HTTP/1.1 &lt;- metodo HTTP con el path al que llamanos
-Host: nolaborables.com.ar &lt;- host al que estamos llamando
+GET /API/v1/proximo HTTP/1.1 <- metodo HTTP con el path al que llamanos
+Host: nolaborables.com.ar <- host al que estamos llamando
 User-Agent: Mozilla, Chrome, etc..
 Accept: text/html,application/json
 Connection: keep-alive
-Origin: http://midominio.com  &lt;- aca estamos nosotros
+Origin: http://midominio.com  <- aca estamos nosotros
  {% endhighlight %}
 
 El servidor va a comprobar la propiedad Origen y decide si permite el acceso, una respuesta satisfactoria seria:
@@ -209,7 +209,7 @@ El servidor va a comprobar la propiedad Origen y decide si permite el acceso, un
 <!--highlight:[2]-->
 {% highlight bash %}
 HTTP/1.1 200 OK
-Access-Control-Allow-Origin: *  &lt;- aca tenemos la propiedad que dice si se puede o no
+Access-Control-Allow-Origin: *  <- aca tenemos la propiedad que dice si se puede o no
 Keep-Alive: timeout=2, max=100
 Connection: Keep-Alive
 Transfer-Encoding: chunked

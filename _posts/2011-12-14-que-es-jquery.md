@@ -65,7 +65,7 @@ Pero no termina ahí, el punto no es solo *buscar* de una manera mas fácil en e
 
 {% highlight js %}
 var divs = $('div.foo');
-if (divs.length &gt; 0) {
+if (divs.length > 0) {
     divs.addClass('baz');
 }
  {% endhighlight %}

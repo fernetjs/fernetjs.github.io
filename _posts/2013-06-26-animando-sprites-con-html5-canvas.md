@@ -166,7 +166,7 @@ Para información sobre el drawImage, está muy bien explicado [acá][8]
 
 {% highlight js %}
 function dibujar(){
-  //context.drawImage(&lt;Objeto Image&gt;, &lt;X Sprite&gt;, &lt;Y Sprite&gt;, &lt;Ancho Sprite&gt;, &lt;Alto Sprite&gt;, &lt;X en Canvas&gt;, &lt;Y en Canvas&gt;, &lt;Ancho en Canvas&gt;, &lt;Alto en Canvas&gt;);
+  //context.drawImage(<Objeto Image>, <X Sprite>, <Y Sprite>, <Ancho Sprite>, <Alto Sprite>, <X en Canvas>, <Y en Canvas>, <Ancho en Canvas>, <Alto en Canvas>);
   contexto.drawImage(imgSprites, pos.x, pos.y, pos.w, pos.h, 0, 0, pos.w, pos.h);
 }
  {% endhighlight %}

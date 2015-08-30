@@ -62,46 +62,46 @@ A continuación se muestran los métodos de la clase array y algunos ejemplos de
 var arr = ['durazno', 'pera', 'manzana', 'banana', 'mandarina']
 
 arr.pop()
-&gt; "mandarina" //el arreglo queda: ["durazno", "pera", "manzana", "banana"]
+> "mandarina" //el arreglo queda: ["durazno", "pera", "manzana", "banana"]
 
 arr.shift()
-&gt; "durazno" //el arreglo queda: ["pera", "manzana", "banana"]
+> "durazno" //el arreglo queda: ["pera", "manzana", "banana"]
 
 arr.push('naranja')
-&gt; 4 //el arreglo queda: ["pera", "manzana", "banana", "naranja"]
+> 4 //el arreglo queda: ["pera", "manzana", "banana", "naranja"]
 
 arr.unshift('kiwi')
-&gt; 5 //el arreglo queda: ["kiwi", "pera", "manzana", "banana", "naranja"]
+> 5 //el arreglo queda: ["kiwi", "pera", "manzana", "banana", "naranja"]
 
 arr.splice(0,1)
-&gt; ["kiwi"] //el arreglo queda: ["pera", "manzana", "banana", "naranja"]
+> ["kiwi"] //el arreglo queda: ["pera", "manzana", "banana", "naranja"]
 
 arr.splice(2,2)
-&gt; ["banana", "naranja"] //el arreglo queda: ["pera", "manzana"]
+> ["banana", "naranja"] //el arreglo queda: ["pera", "manzana"]
 
 arr.splice(2,0, "banana", "naranja")
-&gt; [] //el arreglo queda: ["pera", "manzana", "banana", "naranja"]
+> [] //el arreglo queda: ["pera", "manzana", "banana", "naranja"]
 
 arr.splice(0,1, "kiwi")
-&gt; ["pera"] //el arreglo queda: ["kiwi", "manzana", "banana", "naranja"]
+> ["pera"] //el arreglo queda: ["kiwi", "manzana", "banana", "naranja"]
 
 arr.reverse()
-&gt; ["naranja", "banana", "manzana", "kiwi"] //el arreglo queda: ["naranja", "banana", "manzana", "kiwi"]
+> ["naranja", "banana", "manzana", "kiwi"] //el arreglo queda: ["naranja", "banana", "manzana", "kiwi"]
 
 arr.sort()
-&gt; ["banana", "kiwi", "manzana", "naranja"] //el arreglo queda: ["banana", "kiwi", "manzana", "naranja"]
+> ["banana", "kiwi", "manzana", "naranja"] //el arreglo queda: ["banana", "kiwi", "manzana", "naranja"]
 
 arr.concat(['pera', 'pomelo'])
-&gt; ["banana", "kiwi", "manzana", "naranja", "pera", "pomelo"] //el arreglo queda: ["banana", "kiwi", "manzana", "naranja"]
+> ["banana", "kiwi", "manzana", "naranja", "pera", "pomelo"] //el arreglo queda: ["banana", "kiwi", "manzana", "naranja"]
 
 arr.join()
-&gt; "banana,kiwi,manzana,naranja"
+> "banana,kiwi,manzana,naranja"
 
 arr.indexOf('naranja')
-&gt; 3
+> 3
 
 arr.indexOf('kiwi')
-&gt; 1
+> 1
  {% endhighlight %}
 
 En la segunda parte de este artículo se muestran ejemplos de los métodos más interesantes de array: forEach, filter, map, every, some

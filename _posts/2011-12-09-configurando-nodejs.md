@@ -40,8 +40,8 @@ Esto nos va a mostrar la version que instalamos, lo que nos queda es probar algo
 
 {% highlight js %}
 node
-&gt; var prueba = 'Hola Node';
-&gt; console.log(prueba);
+> var prueba = 'Hola Node';
+> console.log(prueba);
  {% endhighlight %}
 
 listo!, node instalado en windows. Para lo que respecta NPM, ya lo tenemos, vamos a ver la version:
@@ -93,8 +93,8 @@ Tiremos algo de codigo javascript para un momento de emoción: simplemente tenem
 
 {% highlight js %}
 node
-&gt; var prueba = 'Hola Node';
-&gt; console.log(prueba);
+> var prueba = 'Hola Node';
+> console.log(prueba);
  {% endhighlight %}
 
 Presionamos Ctrl+C 2 veces y volvemos al terminal.

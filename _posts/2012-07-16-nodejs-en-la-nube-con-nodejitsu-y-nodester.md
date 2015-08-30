@@ -97,7 +97,7 @@ Despues de recibir el cupón, instalamos el cliente
 
 {% highlight bash %}
 npm install nodester-cli -g
-nodester user setup &lt;user&gt; &lt;pass&gt;
+nodester user setup <user> <pass>
 nodester user setkey
  {% endhighlight %}
 

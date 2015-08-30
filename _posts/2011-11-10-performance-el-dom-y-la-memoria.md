@@ -36,12 +36,12 @@ function AgregarElementos(){
 
     $('#unDiv').html('');
 
-    for(var i=0; i&lt;100; i++) {
-       $('#unDiv').append($('&lt;p&gt;').text('texto'));
+    for(var i=0; i<100; i++) {
+       $('#unDiv').append($('<p>').text('texto'));
     }
 
     //Si ejecutó menos de 5 veces, vuelvo a ejecutar.
-    if (cantidadEjecuciones &lt;= 5){
+    if (cantidadEjecuciones <= 5){
         setTimeout(function() {
             AgregarElementos();
         }, 2000);
@@ -64,12 +64,12 @@ function AgregarElementos(){
     //Limpio el DOM con los elementos anteriores.
     $('#unDiv p').empty().remove();
 
-    for(var i=0; i&lt;100; i++) {
-       $('#unDiv').append($('&lt;p&gt;').text('texto'));
+    for(var i=0; i<100; i++) {
+       $('#unDiv').append($('<p>').text('texto'));
     }
 
     //Si ejecutó menos de 5 veces, vuelvo a ejecutar.
-    if (cantidadEjecuciones &lt;= 5){
+    if (cantidadEjecuciones <= 5){
         setTimeout(function() {
             AgregarElementos();
         }, 2000);

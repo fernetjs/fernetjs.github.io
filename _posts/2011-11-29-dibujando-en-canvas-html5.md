@@ -31,9 +31,9 @@ Hay que tener en cuenta que al ser HTML 5 no va a funcionar en cualquier explora
 ### Configurando
 
 {% highlight xml %}
-&lt;canvas id="miCanvas" width="145px" height="145px"&gt;
- &lt;span&gt;Tu explorador es anciano, renovalo si queres ver la magia&lt;/span&gt;
-&lt;/canvas&gt;
+<canvas id="miCanvas" width="145px" height="145px">
+ <span>Tu explorador es anciano, renovalo si queres ver la magia</span>
+</canvas>
  {% endhighlight %}
 
 Tan simple como eso, agregamos al html el tag *<canvas>* y seteamos el tamaño. Noten que ingrese el tamaño como atributo del tag y no como CSS, es importante hacerlo así ya que en algunos exploradores no funciona bien si lo hacemos por CSS. 

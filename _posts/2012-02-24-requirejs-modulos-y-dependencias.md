@@ -33,20 +33,20 @@ root/
  {% endhighlight %}
 
 {% highlight xml %}
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;Sin RequireJS&lt;/title&gt;
-    &lt;!-- agrego mi coqueto script main.js--&gt;
-    &lt;script type="text/javascript" src="scripts/main.js"&gt;&lt;/script&gt;
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sin RequireJS</title>
+    <!-- agrego mi coqueto script main.js-->
+    <script type="text/javascript" src="scripts/main.js"></script>
 
-    &lt;!-- main.js tiene una dependencia a utils.js, asi que lo agrego --&gt;
-    &lt;script type="text/javascript" src="scripts/utils.js"&gt;&lt;/script&gt;
+    <!-- main.js tiene una dependencia a utils.js, asi que lo agrego -->
+    <script type="text/javascript" src="scripts/utils.js"></script>
 
-    &lt;!-- Pero utils.js tiene una dependencia a pepe.js, lo agrego --&gt;
-    &lt;script type="text/javascript" src="scripts/pepe.js"&gt;&lt;/script&gt;
+    <!-- Pero utils.js tiene una dependencia a pepe.js, lo agrego -->
+    <script type="text/javascript" src="scripts/pepe.js"></script>
 
-    &lt;!-- Espero no olvidarme de otro script porque explota en colores --&gt;
+    <!-- Espero no olvidarme de otro script porque explota en colores -->
   &lt;/head&gt;
   &lt;body&gt;
   &lt;/body&gt;
@@ -72,17 +72,17 @@ root/
 
 <!--highlight:[7]-->
 {% highlight xml %}
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;Con RequireJS&lt;/title&gt;
-    &lt;!-- agrego la referencia a require.js y con data-main 
-     le digo que quiero que cargue cuando termine require.js --&gt;
-    &lt;script data-main="scripts/main" src="scripts/require.js"&gt;&lt;/script&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Con RequireJS</title>
+    <!-- agrego la referencia a require.js y con data-main 
+     le digo que quiero que cargue cuando termine require.js -->
+    <script data-main="scripts/main" src="scripts/require.js"></script>
+  </head>
+  <body>
+  </body>
+</html>
  {% endhighlight %}
 
 {% highlight js %}

@@ -36,14 +36,14 @@ var valorDiv = $("#unDiv").html();
 //Asignar
 $("#unInput").val(valorInput + " ... Nuevo");
 $("#unSpan").text(valorSpan + " ... Nuevo");
-$("#unDiv").html(valorDiv + "&lt;b&gt; ... Nuevo&lt;/b&gt;");
+$("#unDiv").html(valorDiv + "<b> ... Nuevo</b>");
 
 //Diferencia entre text() y html()
 
-$("#unDiv").text("&lt;span&gt;HOLA!&lt;/span&gt;"); 
-//resultado: &lt;span&gt;HOLA!&lt;/span&gt;
+$("#unDiv").text("<span>HOLA!</span>"); 
+//resultado: <span>HOLA!</span>
 
-$("#unDiv").html("&lt;span&gt;HOLA!&lt;/span&gt;");
+$("#unDiv").html("<span>HOLA!</span>");
 //resultado: HOLA!
  {% endhighlight %}
 
@@ -70,7 +70,7 @@ var valor = $('#unInput').removeClass('alerta').val();
 
 {% highlight js %}
 // SET: html, text y val asignan el valor a todos 
-$('div').html('&lt;p&gt;Contenido pisado con este Párrafo&lt;/p&gt;');
+$('div').html('<p>Contenido pisado con este Párrafo</p>');
 
 // GET: 
 // html devuelve SOLO el innerHTML del primer elemento
@@ -87,10 +87,10 @@ var paisesSeleccionados = $('#paises').val();
 {% highlight js %}
 // Pisamos sin limpiar y perdemos la referencia
 // a lo que ya existia de DOM
-$("#unDiv").html("&lt;span&gt;Piso todo&lt;/span&gt;");
+$("#unDiv").html("<span>Piso todo</span>");
 // Limpiamos el contenido del div antes de asignar
 // nuevo html
-$("#unDiv").empty().html("&lt;span&gt;Piso todo&lt;/span&gt;");
+$("#unDiv").empty().html("<span>Piso todo</span>");
  {% endhighlight %}
 
 Al momento de asignar con el método html() y pisar el contenido hay que tener en cuenta limpiar la memoria de los elementos antes de hacerlo para evitar que la memoria se nos vaya de las manos. Pueden ver mas sobre empty() y remove() en [este post][1]

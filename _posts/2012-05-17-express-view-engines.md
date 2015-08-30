@@ -79,17 +79,17 @@ En la primeras 2 lineas referenciamos a express y creamos un server. En la linea
 Ejs es el mas simple, ya que se parece mucho a otros lenguajes como Java o .NET. Con Ejs la vista nos quedaria de esta forma:
 
 {% highlight xml %}
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;&lt;%= title %&gt;&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-  &lt;% if (lenguajes.length) { %&gt;
-    &lt;ul&gt;
-      &lt;% lenguajes.forEach(function(lenguaje){ %&gt;
-        &lt;li&gt;&lt;%= lenguaje %&gt;&lt;/li&gt;
-      &lt;% }) %&gt;
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body>
+  <% if (lenguajes.length) { %>
+    <ul>
+      <% lenguajes.forEach(function(lenguaje){ %>
+        <li><%= lenguaje %></li>
+      <% }) %>
     &lt;/ul&gt;
   &lt;% } %&gt;
   &lt;/body&gt;
@@ -121,19 +121,19 @@ Jade es bastante diferente, ya que es mas apuntando a [ZenCoding][3], no exactam
 Este es interesante ya que el template queda bastante mas limpio, es decir, no tiene condicionales ni forEachs. Por lo que no es para cualquier cosa, pero si armas templates simple (como el de arriba) queda mucho mas limpio tu view.
 
 {% highlight xml %}
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;{{title}}&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-  &lt;ul&gt;
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+  </head>
+  <body>
+  <ul>
   {{# lenguajes}}
-    &lt;li&gt;{{.}}&lt;/li&gt;
+    <li>{{.}}</li>
   {{/ lenguajes}}
-  &lt;/ul&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
+  </ul>
+  </body>
+</html>
  {% endhighlight %}
 
 [Github Mustache][5]

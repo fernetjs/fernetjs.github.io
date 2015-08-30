@@ -84,16 +84,16 @@ Claro yo se que los `id` no son los mismos, que salen en tu consola. Pero seamos
 
 {% highlight js %}
 $ mongo
-mongo&gt; show dbs
+mongo> show dbs
 prueba 0.203125GB
 test 0.203125GB
-mongo&gt; use prueba
-mongo&gt; show collections
+mongo> use prueba
+mongo> show collections
 posts
 users
-mongo&gt; db.users.find()
+mongo> db.users.find()
 { "_id" : ObjectId("2d2ac97cf59cee65f7a38e596c"), "name" : "Pepito Perez", "nick" : "pepito", "email" : "pepito@pepito.com" }
-mongo&gt; db.posts.find()
+mongo> db.posts.find()
 { _id : ObjectId("50903550a04313310c000001"), "titulo" : "Este es mi primer Post!", "post" : "Publicando mi primer post!! que felicidad!!", "slug" : "este-es-mi-primer-post", "autor" : ObjectId("2d2ac97cf59cee65f7a38e596c" }
  {% endhighlight %}
 

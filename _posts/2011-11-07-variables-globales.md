@@ -32,15 +32,15 @@ unaFuncion();
 Si inspeccionamos los objetos luego de ejecutar el script, tendremos lo siguiente:
 
 {% highlight js %}
-&gt;&gt; window
-    &gt;&gt; foo // true
-    &gt;&gt; foo2 // 'foo'
-    &gt;&gt; foo3 // false
+>> window
+    >> foo // true
+    >> foo2 // 'foo'
+    >> foo3 // false
 
-&gt;&gt; baz // 101
+>> baz // 101
 
-&gt;&gt; unaFunction
-    &gt;&gt; bar // true
+>> unaFunction
+    >> bar // true
  {% endhighlight %}
 
 Como se puede ver *foo* y *foo2* no fueron declaradas con *var*, y ambas fueron tratadas al igual que *foo3*, es decir, automáticamente asignadas al objeto *window*. Esto siginifica que *window* es nuestro **objeto global**, todo lo que **no** declaremos con *var* terminará siendo un miembro de *window*.  

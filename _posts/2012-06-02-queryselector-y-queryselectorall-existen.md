@@ -56,7 +56,7 @@ querySelectorAll devuelve un array de elementos con los que el selector matchea.
 {% highlight js %}
 //traigo todos los elementos con la clase warning
 var warnings = document.querySelectorAll('.warning');
-if (warnings.length &gt; 0){
+if (warnings.length > 0){
     throw new Error('que lo pario! que pasó??');
 }
  {% endhighlight %}

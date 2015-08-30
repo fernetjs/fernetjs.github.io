@@ -67,7 +67,7 @@ function obtenerDatos(){
 
     // lógica para obtener y mostrar los datos
 
-    if (cantidadDeLlamadas &lt; 5) {
+    if (cantidadDeLlamadas < 5) {
         setTimeout(function(){
              obtenerDatos();
         }, 10000);

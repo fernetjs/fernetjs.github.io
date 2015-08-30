@@ -21,10 +21,10 @@ Utilizar los eventos del mouse en javascript para modificar el DOM le da una mej
 Suponiendo que no necesitamos una animación, queremos cambiar el estilo CSS de un elemento, como puede ser el tamaño de la fuente de texto, el color de la misma o el background-color, etc. Para la mayoría de esos casos no nos convendría escribir javascript ya que podríamos utilizar simplemente el *:hover* de css y con eso bastaría.
 
 {% highlight xml %}
-&lt;div class="miClaseCSS"&gt;
-    &lt;p&gt;Este div cambiará su color de fondo a verde
-             cuando el mouse este sobre él&lt;/p&gt;
-&lt;/div&gt;
+<div class="miClaseCSS">
+    <p>Este div cambiará su color de fondo a verde
+             cuando el mouse este sobre él</p>
+</div>
  {% endhighlight %}
 
 <!--highlight:[5]-->
@@ -58,9 +58,9 @@ Son simples, entro y salgo de un control y sus respectivos eventos se disparan a
 Supongamos lo siguiente:
 
 {% highlight xml %}
-&lt;div id="padre" onmouseout="alert('mouseout ejecutado!');"&gt;
-   &lt;div id="hijo"&gt;&lt;/div&gt;
-&lt;/div&gt;
+<div id="padre" onmouseout="alert('mouseout ejecutado!');">
+   <div id="hijo"></div>
+</div>
  {% endhighlight %}
 
 En este caso cuando salgamos del div &#8220;hijo&#8221; se disparará el alert. No siempre es el comportamiento esperado, por lo que en principio yo utilizaría el mouseleave para el caso en el que salgo de un control.

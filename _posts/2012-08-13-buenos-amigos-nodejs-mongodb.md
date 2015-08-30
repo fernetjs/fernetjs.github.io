@@ -71,7 +71,7 @@ Listo!, ya tenemos el server corriendo. Ahora abrimos otro terminal y ejecutemos
 
 {% highlight cpp %}
 $ ./mongo
-&gt; db.version()
+> db.version()
  {% endhighlight %}
 
 Bueno, ya tenemos todo listo, podemos crear una colección y un documento:

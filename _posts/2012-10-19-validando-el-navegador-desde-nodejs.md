@@ -71,15 +71,15 @@ app.get('/', function(req, res) {
   //despues simplemente hacemos las validaciones
   var ua = useragent.is(uAgent);
 
-  if (ua.ie && agent.satisfies('&lt;9')) {
+  if (ua.ie && agent.satisfies('<9')) {
      res.send("tu navegador es Internet Explorer con versión menor a 9");
   }
 
-  if (ua.firefox && agent.satisfies('&lt;12')) {
+  if (ua.firefox && agent.satisfies('<12')) {
      res.send("tu navegador es Firefox con versión menor a 12");
   }
 
-  if (ua.chrome && agent.satisfies('&lt;20')) {
+  if (ua.chrome && agent.satisfies('<20')) {
      res.send("tu navegador es Google Chrome con versión menor a 20");
   }
 

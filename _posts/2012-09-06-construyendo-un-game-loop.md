@@ -101,9 +101,9 @@ Como se vé retornamos un objeto con el acceso a nuestro módulo, para poder ini
 Ahora, para hacerlo un poco mas *real*, vamos a meter un canvas, ya que es una excelente opción hoy en día al momento de desarrollar un juego con HTML5.
 
 {% highlight xml %}
-&lt;canvas id="canvas" width="600px" height="600px"&gt;
+<canvas id="canvas" width="600px" height="600px">
   Tu explorador no soporta Canvas
-&lt;/canvas&gt;
+</canvas>
  {% endhighlight %}
 
 <!--highlight:[4,5,22,23,24,25,26,27,28,32]-->
@@ -200,13 +200,13 @@ function actualizar() {
     case '37': //izquierda
       cuadrado.x -= 20;
       //para que no se pase del inicio del canvas
-      if (cuadrado.x &lt; 0)
+      if (cuadrado.x < 0)
         cuadrado.x = 0;
     break;
     case '39': //derecha
       cuadrado.x += 20;
       //para que no se pase del largo del canvas
-      if (cuadrado.x + cuadrado.width &gt; canvas.width)
+      if (cuadrado.x + cuadrado.width > canvas.width)
         cuadrado.x = canvas.width - cuadrado.width;
     break;
   }
