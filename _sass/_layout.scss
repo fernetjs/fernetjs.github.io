@@ -334,6 +334,11 @@
     }
 }
 
+.post aside {
+  background-color: lighten($front-color-light, 10%);
+  padding: 10px;
+}
+
 /*
 * 404 not found
 */
