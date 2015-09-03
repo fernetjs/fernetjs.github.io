@@ -5,6 +5,7 @@ email: equipo@fernetjs.com
 description: fernet + javascript
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://fernetjs.com" # the base hostname & protocol for your site
+permalink: /:year/:month/:title/
 twitter_username: fernetjs
 github_username:  fernetjs
 facebook_username: fernetjs
@@ -13,7 +14,6 @@ lsi: false
 paginate: 30
 paginate_path: "/pagina/:num"
 google_analytics: UA-26473955-1
-
 # Build settings
 markdown: kramdown
 highlighter: pygments
