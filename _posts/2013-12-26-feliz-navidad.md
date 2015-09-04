@@ -14,9 +14,9 @@ tags:
 ---
 **Felicidades a todos los Ferneteos+Javascripteros!, les dejo una locura navideña y les cuento un poco como lo hice:**
 
-<iframe style="width: 100%; height: 700px;" src="http://jsfiddle.net/pjnovas/qJ585/embedded/result,js,html,css/" frameborder="1" width="600" height="700"></iframe>
+<iframe style="width: 100%; height: 700px;" src="//jsfiddle.net/pjnovas/qJ585/embedded/result,js,html,css/" frameborder="1" width="600" height="700"></iframe>
 
-[<img src="http://fernetjs.com/wp-content/uploads/2013/12/santa_layers1.png" alt="santa_layers" width="800" height="600" class="size-full wp-image-3903" />][1]
+[<img src="//fernetjs.com/wp-content/uploads/2013/12/santa_layers1.png" alt="santa_layers" width="800" height="600" class="size-full wp-image-3903" />][1]
 
 Dividí las partículas (nieve) en 3 capas, entonces dibujo primero la capa de fondo, luego el santa, pero intercalando con una capa de nieve para darle mas realismo. De esas 3 capas de nieve una es la que tiene partículas con colisión, es decir, la capa amarilla dibuja las partículas que se quedan en el santa.
 

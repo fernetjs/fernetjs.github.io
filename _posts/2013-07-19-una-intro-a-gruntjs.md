@@ -16,7 +16,7 @@ migration_issue: highlightline
 ---
 La verdad que lo vengo usando en prácticamente cualquier cosa que hago con javascript, sea solo cliente, server o ambas. Así que decidí escribir un post de esta interesante herramienta.
 
-[<img src="http://fernetjs.com/wp-content/uploads/2013/07/gruntjs1.png" alt="gruntjs" width="155" height="157" class="alignleft size-full wp-image-3778" />][1]
+[<img src="//fernetjs.com/wp-content/uploads/2013/07/gruntjs1.png" alt="gruntjs" width="155" height="157" class="alignleft size-full wp-image-3778" />][1]
 
 #### [Grunt JS][2]
 

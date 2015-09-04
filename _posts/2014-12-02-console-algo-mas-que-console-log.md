@@ -34,7 +34,7 @@ console.warn('El fernet está muy caro');
 console.error('No me alcanza pal fernet');
 {% endhighlight %}
 
-<img src="http://fernetjs.com/wp-content/uploads/2014/12/log.gif" alt="log info warn y error" width="866" height="209" class="size-full wp-image-3975" />
+<img src="//fernetjs.com/wp-content/uploads/2014/12/log.gif" alt="log info warn y error" width="866" height="209" class="size-full wp-image-3975" />
 
 Todos estos métodos soportan que le pasemos varios parámetros.
 
@@ -62,8 +62,8 @@ Pueden existir diferencias entre navegadores, pero en general los posibles strin
 `%o` formatea el valor como un elemento DOM expandible (como en el tab de elements de las devtools, pasando el mouse por encima resalta el elemento en el documento según corresponda).  
 `%O` formatea el valor como un objeto de JavaScript expandible.
 
-<img src="http://fernetjs.com/wp-content/uploads/2014/12/log_o.gif" alt="log con %O" width="890" height="467" class="alignleft size-full wp-image-3980" />  
-<img src="http://fernetjs.com/wp-content/uploads/2014/12/log_O.gif" alt="log con %o" width="904" height="393" class="alignleft size-full wp-image-3979" />
+<img src="//fernetjs.com/wp-content/uploads/2014/12/log_o.gif" alt="log con %O" width="890" height="467" class="alignleft size-full wp-image-3980" />  
+<img src="//fernetjs.com/wp-content/uploads/2014/12/log_O.gif" alt="log con %o" width="904" height="393" class="alignleft size-full wp-image-3979" />
 
 Adicionalmente, se puede formatear la salida con CSS, utilizando `%c`. El soporte para estos estilos también puede cambiar en base al navegador.
 
@@ -71,7 +71,7 @@ Adicionalmente, se puede formatear la salida con CSS, utilizando `%c`. El soport
 console.log('%cFERNETJS', 'background:#AAAA00; font-size:16pt');
  {% endhighlight %}
 
-<img src="http://fernetjs.com/wp-content/uploads/2014/12/log_style.png" alt="console log con estilo" width="468" height="46" class="size-full wp-image-3981" />
+<img src="//fernetjs.com/wp-content/uploads/2014/12/log_style.png" alt="console log con estilo" width="468" height="46" class="size-full wp-image-3981" />
 
 Utilizando las características vistas hasta ahora, ya se pueden hacer bastantes cosas, que inclusive van más allá del debugging. Por ejemplo, muchas empresas han colocado mensajes en la consola para reclutar desarrolladores usando estilos y arte ascii, y algunos hasta han ido más allá haciendo <a href="http://rikukissa.github.io/falling/" title="falling - juego que utiliza console" target="_blank">juegos</a>!
 
@@ -113,7 +113,7 @@ render(); //render: 1
 render(); //render: 2
  {% endhighlight %}
 
-<img src="http://fernetjs.com/wp-content/uploads/2014/12/count.png" alt="" width="215" height="192" class="alignnone size-full wp-image-3984" />
+<img src="//fernetjs.com/wp-content/uploads/2014/12/count.png" alt="" width="215" height="192" class="alignnone size-full wp-image-3984" />
 
 ### dir
 
@@ -131,14 +131,14 @@ var links = [
 console.table(links);
  {% endhighlight %}
 
-<img src="http://fernetjs.com/wp-content/uploads/2014/12/table.png" alt="" width="869" height="82" class="alignnone size-full wp-image-3988" />
+<img src="//fernetjs.com/wp-content/uploads/2014/12/table.png" alt="" width="869" height="82" class="alignnone size-full wp-image-3988" />
 
 {% highlight js %}
 // sólo nos interesa la propiedad url
 console.table(links, ['url']);
  {% endhighlight %}
 
-<img src="http://fernetjs.com/wp-content/uploads/2014/12/table2.png" alt="" width="864" height="84" class="alignnone size-full wp-image-3987" />
+<img src="//fernetjs.com/wp-content/uploads/2014/12/table2.png" alt="" width="864" height="84" class="alignnone size-full wp-image-3987" />
 
 {% highlight js %}
 // podemos imprimir objetos
@@ -153,7 +153,7 @@ var linksComoObjetos = {
 console.table(linksComoObjetos);
  {% endhighlight %}
 
-<img src="http://fernetjs.com/wp-content/uploads/2014/12/table3.png" alt="" width="865" height="82" class="alignnone size-full wp-image-3986" />
+<img src="//fernetjs.com/wp-content/uploads/2014/12/table3.png" alt="" width="865" height="82" class="alignnone size-full wp-image-3986" />
 
 Los ejemplos son bastantes triviales, pero puede a llegar a ser bastante útil y cómodo. Por ejemplo, qué pasa si hacemos `console.table(console)` ?
 
@@ -184,7 +184,7 @@ render();
 console.groupEnd('rendering');
  {% endhighlight %}
 
-<img src="http://fernetjs.com/wp-content/uploads/2014/12/group.png" alt="" width="145" height="127" class="alignnone size-full wp-image-3992" />
+<img src="//fernetjs.com/wp-content/uploads/2014/12/group.png" alt="" width="145" height="127" class="alignnone size-full wp-image-3992" />
 
 También se pueden tener grupos anidados!
 
@@ -211,7 +211,7 @@ render();
 console.groupEnd('rendering');
  {% endhighlight %}
 
-<img src="http://fernetjs.com/wp-content/uploads/2014/12/group2.png" alt="" width="138" height="82" class="alignnone size-full wp-image-3991" />
+<img src="//fernetjs.com/wp-content/uploads/2014/12/group2.png" alt="" width="138" height="82" class="alignnone size-full wp-image-3991" />
 
 ### trace
 
@@ -236,8 +236,8 @@ setTimeout(function(){
 Esta funcionalidad no está disponible en todos los browsers, o por lo menos solo está documentada en <a href="https://developer.chrome.com/devtools/docs/console-api#consoleprofilelabel" title="console profile chrome" target="_blank">chrome</a>, <a href="https://getfirebug.com/wiki/index.php/Console.profile" title="console.profile en firebug" target="_blank">firebug</a>, e <a href="http://msdn.microsoft.com/en-us/library/ie/jj152133(v=vs.85).aspx" title="console.profile en IE" target="_blank">IE</a>.  
 Al llamar a `profile`, se arranca una sesión de profiling, hasta que se llama a `profileEnd`. Opcionalmente se puede llamar con una etiqueta, y sería equivalente a arrancar y terminar la sesión manualmente desde las dev tools. Más allá de la llamada a `console.profile`, el tab de profiling puede ser determinante para encontrar problemas de performance en tu código!
 
-<img src="http://fernetjs.com/wp-content/uploads/2014/12/profile.png" alt="" width="258" height="118" class="alignnone size-full wp-image-3997" />  
-<img src="http://fernetjs.com/wp-content/uploads/2014/12/profile2.png" alt="" width="882" height="173" class="alignnone size-full wp-image-3996" />
+<img src="//fernetjs.com/wp-content/uploads/2014/12/profile.png" alt="" width="258" height="118" class="alignnone size-full wp-image-3997" />  
+<img src="//fernetjs.com/wp-content/uploads/2014/12/profile2.png" alt="" width="882" height="173" class="alignnone size-full wp-image-3996" />
 
 ## console en Node.js
 

@@ -12,7 +12,7 @@ tags:
   - poco serio
   - tipos de datos
 ---
-[<img class="aligncenter size-full wp-image-417" title="BATMAN!" src="http://www.fernetjs.com/wp-content/uploads/2011/11/3601491300_ab28b127bb.jpg" alt="Imagen de batman" width="328" height="500" /><!--more-->][1]Si, soy un gil, pero acá va este &#8220;chiste&#8221; que había visto dando vueltas por ahí hace un tiempo. Es una línea de código:
+[<img class="aligncenter size-full wp-image-417" title="BATMAN!" src="//www.fernetjs.com/wp-content/uploads/2011/11/3601491300_ab28b127bb.jpg" alt="Imagen de batman" width="328" height="500" /><!--more-->][1]Si, soy un gil, pero acá va este &#8220;chiste&#8221; que había visto dando vueltas por ahí hace un tiempo. Es una línea de código:
 
 {% highlight js %}
 Array(10).join("fernet" - 2) + " Batman!";

@@ -91,7 +91,7 @@ La variable personas contendrá un array de objetos con la información de la pl
  {nombre: "Billy"   , apellido: "Pilgrim"}]
  {% endhighlight %}
 
-Si no quieren escribir tanto, en la página de descarga hay una página demo.html que contiene un par de ejemplos concretos de uso, conectándose a una planilla de prueba que ya está publicada. Bajen y abran con el navegador, y voilá <img src="http://fernetjs.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" />
+Si no quieren escribir tanto, en la página de descarga hay una página demo.html que contiene un par de ejemplos concretos de uso, conectándose a una planilla de prueba que ya está publicada. Bajen y abran con el navegador, y voilá <img src="//fernetjs.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" />
 
 #### Descarga y distribucion
 

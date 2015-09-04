@@ -35,7 +35,7 @@ Como se puede ver es una función recursiva (se llama a si misma). Ahora, si la 
 factorial(0);// 1
 factorial(4);//24 {% endhighlight %}
 
-Parece funcionar bien.. pero lo que queremos hacer es optimizar esta función, porque a cada valor más grande que le pasamos como parámetro, la función nos tarda mucho mas <img src="http://fernetjs.com/wp-includes/images/smilies/frownie.png" alt=":(" class="wp-smiley" style="height: 1em; max-height: 1em;" />  
+Parece funcionar bien.. pero lo que queremos hacer es optimizar esta función, porque a cada valor más grande que le pasamos como parámetro, la función nos tarda mucho mas <img src="//fernetjs.com/wp-includes/images/smilies/frownie.png" alt=":(" class="wp-smiley" style="height: 1em; max-height: 1em;" />  
 <!--more-->
 
 {% highlight js %}

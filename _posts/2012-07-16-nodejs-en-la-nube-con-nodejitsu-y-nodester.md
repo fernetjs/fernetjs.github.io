@@ -79,7 +79,7 @@ prompt: version (0.0.0): 0.6.12 //version de node
 
 Estas preguntas son para configurarlas en nuestro package.json (si no estan las propiedades, las crea)
 
-Y eso es todo para Nodejitsu, simplemente entramos al sub-dominio y tenemos el deploy de la app. <img src="http://fernetjs.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" />
+Y eso es todo para Nodejitsu, simplemente entramos al sub-dominio y tenemos el deploy de la app. <img src="//fernetjs.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" />
 
 * * *
 
@@ -152,7 +152,7 @@ Dentro de esa información van a ver esta linea (con una IP real):
 
 **Y mas abajo un link *launch*, click a ese link!.**
 
-[<img src="http://fernetjs.com/wp-content/uploads/2012/07/nic.dnsManager.png" alt="" title="nic.dnsManager" width="266" height="178" class="alignnone size-full wp-image-2431" />][7]
+[<img src="//fernetjs.com/wp-content/uploads/2012/07/nic.dnsManager.png" alt="" title="nic.dnsManager" width="266" height="178" class="alignnone size-full wp-image-2431" />][7]
 
 Lo vamos a hacer es modificar esa IP a la que nos da Nodester o Nodejitsu.
 
@@ -160,7 +160,7 @@ Les recomiendo no modificar el nombre del host ( @ ), ya que está relacionado c
 
 Les dejo las IPs de [Nodester ][8]y [Nodejitsu][9]
 
-[<img src="http://fernetjs.com/wp-content/uploads/2012/07/nic.arecord.png" alt="" title="nic.arecord" width="653" height="160" class="alignnone size-full wp-image-2432" />][10]
+[<img src="//fernetjs.com/wp-content/uploads/2012/07/nic.arecord.png" alt="" title="nic.arecord" width="653" height="160" class="alignnone size-full wp-image-2432" />][10]
 
 Luego de modificar y guardar, tienen que esperar un par de horas, pero mientras esperamos vamos a avisar que tenemos un dominio:
 

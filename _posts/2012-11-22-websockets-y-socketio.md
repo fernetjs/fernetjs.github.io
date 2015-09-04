@@ -18,11 +18,11 @@ Si todavía no arrancaste a ver la magia del protocolo WS (web socket) este post
 
 ### Qué es WebSocket?
 
-[<img src="http://fernetjs.com/wp-content/uploads/2012/11/ws_logo-150x150.png" alt="" title="ws_logo" width="150" height="150" class="alignleft size-thumbnail wp-image-3024" />][1]  
+[<img src="//fernetjs.com/wp-content/uploads/2012/11/ws_logo-150x150.png" alt="" title="ws_logo" width="150" height="150" class="alignleft size-thumbnail wp-image-3024" />][1]  
 WebSocket es un protocolo nuevo para la web bajo TCP, por el cual, a diferencia de la conexión que venimos usando bajo HTTP, este es bi-direccional, que significa esto?, hoy por hoy venís usando una conexión en una sola dirección, pedís al servidor y esperas la respuesta (o viceversa con ServerEvents). Pero con web sockets el servidor te habla también, te puede llamar y mandar un mensaje en cualquier momento.
 
 Esto es genial, ya que las posibilidades de magia en un sito web aumentan considerablemente, pero hay que tener en cuenta algunas cosas, ya que son **Web** Sockets:  
-[<img src="http://fernetjs.com/wp-content/uploads/2012/11/cables21-300x223.jpg" alt="" title="cables21" width="300" height="223" class="alignleft size-medium wp-image-3042" style="margin-right: 30px; margin-top: 10px;" />][2]
+[<img src="//fernetjs.com/wp-content/uploads/2012/11/cables21-300x223.jpg" alt="" title="cables21" width="300" height="223" class="alignleft size-medium wp-image-3042" style="margin-right: 30px; margin-top: 10px;" />][2]
 
   * Se inicia con un *handshake* HTTP, por lo que si no hay HTTP no hay WebSockets
   * Tanto servidor como cliente tienen que soportarlo (para eso tenemos a HTML 5 en cliente y SocketIO en el servicor 😛 )
@@ -34,7 +34,7 @@ Esto es genial, ya que las posibilidades de magia en un sito web aumentan consid
 
 ### Cómo funciona?
 
-[<img src="http://fernetjs.com/wp-content/uploads/2012/11/websocket-lifecycle-300x245.png" alt="" title="websocket-lifecycle" width="300" height="245" class="alignright size-medium wp-image-3022" />][3]
+[<img src="//fernetjs.com/wp-content/uploads/2012/11/websocket-lifecycle-300x245.png" alt="" title="websocket-lifecycle" width="300" height="245" class="alignright size-medium wp-image-3022" />][3]
 
 Para iniciar una conexión con el protocolo WS primero el cliente le pide al servidor que quiere iniciar esta conexión (handshake: se pasan unos secretitos para validarse), el servidor responde un &#8220;dale para adelante&#8221; y a partir de ahí dejan de utilizar HTTP y pasan a WS.  
 Aparte de darnos está posibilidad de una conexión bi-direccional, nos ahorramos el &#8220;payload&#8221;, es decir, en estas transmiciones que hacemos por el protocolo ws ya no tenemos el HTTP header y toda la data de &#8220;info&#8221; para que el servidor sepa que le enviamos y nosotros que recibimos, qué tipo de conexión usamos, etc.  
@@ -44,7 +44,7 @@ Ahora que ya sabemos de que se trata, vamos a utilizarlo.
 
 * * *
 
-[<img src="http://fernetjs.com/wp-content/uploads/2012/11/socketio_logo.png" alt="" title="socketio_logo" style="width: 300px; height: 100px;" class="aligncenter size-thumbnail wp-image-3025" />][4]</p>
+[<img src="//fernetjs.com/wp-content/uploads/2012/11/socketio_logo.png" alt="" title="socketio_logo" style="width: 300px; height: 100px;" class="aligncenter size-thumbnail wp-image-3025" />][4]</p>
 
 SocketIO es una biblioteca que nos facilita increíblemente el uso de web sockets en NodeJS.  
 Así que arranquemos a configurar:
@@ -146,9 +146,9 @@ Lo que nos queda es correr el servidor web
 node server.js
  {% endhighlight %}
 
-Abrimos un navegador y llamamos a http://localhost y listo! (abrí la consola para ver las llamadas del servidor con los randoms <img src="http://fernetjs.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" /> ).
+Abrimos un navegador y llamamos a http://localhost y listo! (abrí la consola para ver las llamadas del servidor con los randoms <img src="//fernetjs.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" /> ).
 
-> Al principio expliqué que tanto el cliente como el servidor deben soportar web sockets, tenemos que tener en cuenta que es necesario HTML5 con web sockets, te dejo este [LINK][5] con el detalle de los navegadores que lo soportan. Fuera de eso tené en cuenta que SocketIO se encarga de que la conexión funcione sin importar el navegador, esto lo hace intentando con otros mecanismos de transporte (XHR Pooling, Flash Sockets, etc.). No va a ser con web sockets pero va a funcionar como si lo fuera <img src="http://fernetjs.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" />
+> Al principio expliqué que tanto el cliente como el servidor deben soportar web sockets, tenemos que tener en cuenta que es necesario HTML5 con web sockets, te dejo este [LINK][5] con el detalle de los navegadores que lo soportan. Fuera de eso tené en cuenta que SocketIO se encarga de que la conexión funcione sin importar el navegador, esto lo hace intentando con otros mecanismos de transporte (XHR Pooling, Flash Sockets, etc.). No va a ser con web sockets pero va a funcionar como si lo fuera <img src="//fernetjs.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" />
 
 **Te dejo el código del ejemplo &#8211; [ejemplo.zip][6]**
 

@@ -80,7 +80,7 @@ Eso si funciona, ya que no hay problema en referenciar a un script que esté en 
 Entonces referenciemos al servicio con un script:
 
 {% highlight xml %}
-<script type="text/javascript" src="http://nolaborables.com.ar/API/v1/proximo"></script>
+<script type="text/javascript" src="//nolaborables.com.ar/API/v1/proximo"></script>
  {% endhighlight %}
 
 Error!, porque el interpretador de JS no sabe como leer un json colgado de la nada, pero si la respuesta de ese servicio nos devolviera el json como una llamada a una función?, el interpretador sabe que hacer con eso, no?
@@ -121,7 +121,7 @@ function llamame(jsonRespuesta){
 Después inyectamos el siguiente script para que haga la llamada, indicándole cual es la función a la que va a llamar (el Padding):
 
 {% highlight xml %}
-<script type="text/javascript" src="http://nolaborables.com.ar/API/v1/proximo?callback=llamame"></script>
+<script type="text/javascript" src="//nolaborables.com.ar/API/v1/proximo?callback=llamame"></script>
  {% endhighlight %}
 
 Ese script va a generar la llamada a la función *llamame* enviándole el JSON:
@@ -178,7 +178,7 @@ app.configure(function(){
 });
  {% endhighlight %}
 
-Listo, con esa linea soportamos JSONP con Express <img src="http://fernetjs.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" />
+Listo, con esa linea soportamos JSONP con Express <img src="//fernetjs.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" />
 
 > Estuve leyendo por ahí preguntas sobre hacer un POST con JSONP, ahora que entendemos como funciona, podemos entender el &#8220;porque&#8221; es imposible realizar un POST: si estamos realizando un GET desde un tag script, como que no tenemos forma de cambiar el método HTTP. 
 

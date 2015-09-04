@@ -34,7 +34,7 @@ Hice una recopilación de los juegos basados en javascript / HTML / Canvas que s
       </h3>
       
       <p>
-        <img class="alignleft size-full wp-image-1124" title="A Ninja" src="http://fernetjs.com/wp-content/uploads/2011/12/aNinja.jpg" alt="A Ninja Screenshot" width="315" height="237" />
+        <img class="alignleft size-full wp-image-1124" title="A Ninja" src="//fernetjs.com/wp-content/uploads/2011/12/aNinja.jpg" alt="A Ninja Screenshot" width="315" height="237" />
       </p>
       
       <p>
@@ -54,7 +54,7 @@ Hice una recopilación de los juegos basados en javascript / HTML / Canvas que s
       </h3>
       
       <p>
-        <img class="alignleft size-full wp-image-1125" title="IwasHere" src="http://fernetjs.com/wp-content/uploads/2011/12/IwasHere.jpg" alt="I was here Screenshot" width="315" height="232" />
+        <img class="alignleft size-full wp-image-1125" title="IwasHere" src="//fernetjs.com/wp-content/uploads/2011/12/IwasHere.jpg" alt="I was here Screenshot" width="315" height="232" />
       </p>
       
       <p>
@@ -74,7 +74,7 @@ Hice una recopilación de los juegos basados en javascript / HTML / Canvas que s
       </h3>
       
       <p>
-        <img class="alignleft size-full wp-image-1127" title="SpaceGhost" src="http://fernetjs.com/wp-content/uploads/2011/12/SpaceGhost.jpg" alt="Space ghost screenshot" width="315" height="236" />
+        <img class="alignleft size-full wp-image-1127" title="SpaceGhost" src="//fernetjs.com/wp-content/uploads/2011/12/SpaceGhost.jpg" alt="Space ghost screenshot" width="315" height="236" />
       </p>
       
       <p>
@@ -94,7 +94,7 @@ Hice una recopilación de los juegos basados en javascript / HTML / Canvas que s
       </h3>
       
       <p>
-        <img class="alignleft size-full wp-image-1126" title="LoneKytten" src="http://fernetjs.com/wp-content/uploads/2011/12/LoneKytten.jpg" alt="Lone Kitty Screenshot" width="193" height="208" />
+        <img class="alignleft size-full wp-image-1126" title="LoneKytten" src="//fernetjs.com/wp-content/uploads/2011/12/LoneKytten.jpg" alt="Lone Kitty Screenshot" width="193" height="208" />
       </p>
       
       <p>

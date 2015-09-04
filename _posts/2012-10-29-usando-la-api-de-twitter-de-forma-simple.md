@@ -41,7 +41,7 @@ Bajamos Tuiter desde NPM en nuestro proyecto:
 npm install tuiter
  {% endhighlight %}
 
-Y abrimos el app.js para hacer la lectura del Streaming <img src="http://fernetjs.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" />
+Y abrimos el app.js para hacer la lectura del Streaming <img src="//fernetjs.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" />
 
 {% highlight js %}
 //Acá reemplazamos las claves que generamos para nuestra app en dev.twitter.com
@@ -96,7 +96,7 @@ De donde saqué el &#8220;update&#8221; y los parametros?, bueno Tuiter implemen
 
 Objetivo cumplido!, escuchamos una frase y respondemos con un tweet, y no fue nada complicado.
 
-Dejo el [Showcase][5] de apps que están utilizando la biblioteca Tuiter, donde van a encontrar también [TuiterFighter!][6] (una pelea entre palabras que arme hace unas semanas utilizando Tuiter) <img src="http://fernetjs.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" />
+Dejo el [Showcase][5] de apps que están utilizando la biblioteca Tuiter, donde van a encontrar también [TuiterFighter!][6] (una pelea entre palabras que arme hace unas semanas utilizando Tuiter) <img src="//fernetjs.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" />
 
 **Links útiles**
 

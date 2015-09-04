@@ -27,7 +27,7 @@ El paso a paso para arrancar a usarlo:
   <meta charset="utf-8">
   <title>Mocha Tests</title>
   <link rel="stylesheet" href="https://raw.github.com/visionmedia/mocha/master/mocha.css" />
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script src="https://raw.github.com/LearnBoost/expect.js/d2440da086bf8dc38c6085641f23b968a0f48b29/expect.js"></script>
   <script src="https://raw.github.com/visionmedia/mocha/master/mocha.js"></script>
   <script>mocha.setup('bdd') //acá definimos el estilo de los tests, otra opción válida es tdd</script>

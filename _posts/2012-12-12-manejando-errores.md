@@ -80,7 +80,7 @@ try {
 }
  {% endhighlight %}
 
-Simplemente extendemos la clase *Error* con nuestro nuevo tipo de error <img src="http://fernetjs.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" />
+Simplemente extendemos la clase *Error* con nuestro nuevo tipo de error <img src="//fernetjs.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" />
 
 Al tener tipos propios de errores, es seguro que vamos a necesitar catchear cada tipo, porque para eso los creamos, ya que esto no es un feo string y ahora es una clase, podemos comprobar por instancia para que quede prolijo:
 

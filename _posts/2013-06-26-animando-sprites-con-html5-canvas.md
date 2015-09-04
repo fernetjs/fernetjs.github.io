@@ -17,13 +17,13 @@ Vamos a armar una animación utilizando Sprites. Que es un Sprite?, simplemente 
 
 Para el caso de este ejemplo me descargué un Sprite del ActionDoom desde [acá][4], que luego organicé un poco para que me sea mas simple manejarlo desde el javascript, quedando en lo siguiente:
 
-[<img src="http://fernetjs.com/wp-content/uploads/2013/06/sprites-300x250.png" alt="sprites" width="300" height="250" class="size-medium wp-image-3688" />][5]
+[<img src="//fernetjs.com/wp-content/uploads/2013/06/sprites-300x250.png" alt="sprites" width="300" height="250" class="size-medium wp-image-3688" />][5]
 
 #### Seccionando el sprite
 
 Para poder usarlo desde javascript, tenemos que pensar en una grilla virtual, lo que podemos traducir a una matriz de posiciones, mientras que cada celda tenga el mismo ancho y alto:
 
-[<img src="http://fernetjs.com/wp-content/uploads/2013/06/sprites_grid1-300x250.png" alt="sprites_grid" width="300" height="250" class="size-medium wp-image-3700" />][6]
+[<img src="//fernetjs.com/wp-content/uploads/2013/06/sprites_grid1-300x250.png" alt="sprites_grid" width="300" height="250" class="size-medium wp-image-3700" />][6]
 
 Ahora que tenemos nuestra grilla imaginaria, vamos a definir que celdas corresponden a cada estado, en este caso la separe que colores para que sea visible, siendo:
 
@@ -42,7 +42,7 @@ Acción
 
 Recarga
 
-[<img src="http://fernetjs.com/wp-content/uploads/2013/06/sprites_grid_colors1-300x251.png" alt="sprites_grid_colors" width="300" height="251" class="size-medium wp-image-3709" />][7]
+[<img src="//fernetjs.com/wp-content/uploads/2013/06/sprites_grid_colors1-300x251.png" alt="sprites_grid_colors" width="300" height="251" class="size-medium wp-image-3709" />][7]
 
 Todo listo, ahora armemos la matriz de referencia y animaciones en el código:
 

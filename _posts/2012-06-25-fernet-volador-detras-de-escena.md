@@ -27,11 +27,11 @@ El objetivo del fernet volador es basicamente lo que se vé, una botella de fern
 
 Primero nuestra imagen de la botella, hacemos los movimientos de la capa en la misma imagen, la cual va a estar cambiando continuamente (el background-position en CSS) dando el efecto de que se mueve la capa:
 
-[<img src="http://fernetjs.com/wp-content/uploads/2012/06/fernet-capita.png" alt="" title="fernet-capita" width="160" height="80" class="alignnone size-full wp-image-2306" />][2]
+[<img src="//fernetjs.com/wp-content/uploads/2012/06/fernet-capita.png" alt="" title="fernet-capita" width="160" height="80" class="alignnone size-full wp-image-2306" />][2]
 
 Vamos a tener que mover la botella en angulos dependiendo de *hacia donde este yendo*, por lo que usamos CSS3 y el copado *rotate*, pero también vamos a tener que mover la posición de la botella en la pantalla para simular el movimiento, asi que armamos 2 divs, uno con la imagen del fernet (en posición absoluta), en el cual vamos a ir modificando el rotate (verde) y otro que contiene a este con posicion absoluta al documento (rojo), al cual le vamos a cambiar el top y left para ir posicionandolo. 
 
-[<img src="http://fernetjs.com/wp-content/uploads/2012/06/fernetvolador_ctn1.png" alt="" title="fernetvolador_ctn" width="150" height="150" class="alignnone size-full wp-image-2314" />][3]
+[<img src="//fernetjs.com/wp-content/uploads/2012/06/fernetvolador_ctn1.png" alt="" title="fernetvolador_ctn" width="150" height="150" class="alignnone size-full wp-image-2314" />][3]
 
 Y todo esto va a depender de las flechas presionadas, asi que diría de mantenerlas en un array para que el loop se encargue de verificar cual está y aplicar los CSS. 
 

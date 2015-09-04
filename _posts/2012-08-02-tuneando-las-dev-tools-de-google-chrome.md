@@ -48,11 +48,11 @@ body.platform-linux .monospace, body.platform-linux .source-code {
 Algunos links con Themes (algunos extraídos de <a href="http://darcyclarke.me/design/skin-your-chrome-inspector/" target="_blank">este excelente post</a>):
 
   * <a href="https://gist.github.com/1150520" target="_blank">IR_black</a>  
-    [<img src="http://fernetjs.com/wp-content/uploads/2012/08/Screen-shot-2011-08-19-at-2.06.52-PM-300x121.png" alt="" title="Screen shot 2011-08-19 at 2.06.52 PM" width="300" height="121" class="alignnone size-medium wp-image-2484" />][1] 
+    [<img src="//fernetjs.com/wp-content/uploads/2012/08/Screen-shot-2011-08-19-at-2.06.52-PM-300x121.png" alt="" title="Screen shot 2011-08-19 at 2.06.52 PM" width="300" height="121" class="alignnone size-medium wp-image-2484" />][1] 
   * <a href="https://gist.github.com/1152045" target="_blank">Expresso</a>  
-    [<img src="http://fernetjs.com/wp-content/uploads/2012/08/Style-Chrome-Inspector-3-300x122.png" alt="" title="Style Chrome Inspector-3" width="300" height="122" class="alignnone size-medium wp-image-2485" />][2] 
+    [<img src="//fernetjs.com/wp-content/uploads/2012/08/Style-Chrome-Inspector-3-300x122.png" alt="" title="Style Chrome Inspector-3" width="300" height="122" class="alignnone size-medium wp-image-2485" />][2] 
   * <a href="https://gist.github.com/2174604" target="_blank">Solarized Dark (mi preferido)</a>  
-    [<img src="http://fernetjs.com/wp-content/uploads/2012/08/3yAuuh-300x80.jpg" alt="" title="3yAuuh" width="300" height="80" class="alignnone size-medium wp-image-2481" />][3]
+    [<img src="//fernetjs.com/wp-content/uploads/2012/08/3yAuuh-300x80.jpg" alt="" title="3yAuuh" width="300" height="80" class="alignnone size-medium wp-image-2481" />][3]
 
  [1]: http://fernetjs.com/wp-content/uploads/2012/08/Screen-shot-2011-08-19-at-2.06.52-PM.png
  [2]: http://fernetjs.com/wp-content/uploads/2012/08/Style-Chrome-Inspector-3.png

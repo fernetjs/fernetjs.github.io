@@ -54,7 +54,7 @@ loop(150, 150);
 
 Ese es mi loop para animar el vaso, la idea es que llamando a la función loop enviándole las coordenadas iniciales x, y se va a llamar a sí misma cada 40 milisegundos con un [setTimeout()][3] restándole 10 pixeles a cada coordenada hasta que llegue a 0.
 
-[<img class="alignnone size-full wp-image-890" title="ref7" src="http://www.fernetjs.com/wp-content/uploads/2011/12/logo_canvas7.png" alt="" width="270" height="280" />][4]
+[<img class="alignnone size-full wp-image-890" title="ref7" src="//www.fernetjs.com/wp-content/uploads/2011/12/logo_canvas7.png" alt="" width="270" height="280" />][4]
 
 De esta manera podríamos encadenar animaciones y realizar de a una a medida que van terminando. Ahora podríamos hacer un [callback  
 ][5] cuando termine esa animación para disparar otra:

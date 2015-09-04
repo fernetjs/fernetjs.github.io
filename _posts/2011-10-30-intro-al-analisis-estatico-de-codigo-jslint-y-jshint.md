@@ -22,7 +22,7 @@ Si, es cierto. Su misma página, y su propio creador lo proclaman. JSLint ( htt
 Para hacer nuestra primera prueba, todo lo que hay que hacer es dirigirse a[ la página][3] y pegar allí el código, hacer los cambios necesarios en la configuración y presionar el botón JSLint. Luego de eso se produce el momento en el que se muestran los resultados y usted comienza a maldecir a crockford, a este blog y a javascript.
 
 <div id="attachment_247" style="width: 394px" class="wp-caption aligncenter">
-  <img class="size-full wp-image-247" title="bart-laura" src="http://www.fernetjs.com/wp-content/uploads/2011/10/bart-laura.jpg" alt="Bart en la casa del arbol." width="384" height="288" />
+  <img class="size-full wp-image-247" title="bart-laura" src="//www.fernetjs.com/wp-content/uploads/2011/10/bart-laura.jpg" alt="Bart en la casa del arbol." width="384" height="288" />
   
   <p class="wp-caption-text">
     Este soy yo momentos antes de correr jslint por primera vez. NOTA: acto seguido la mina le saca el corazón.

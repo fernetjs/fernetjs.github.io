@@ -17,7 +17,7 @@ El intento de este post no es explicar qué es y cómo funciona MongoDB sino com
 Para lo referido a MongoDB, descubrí un librito excelente, corto y conciso en la [jsConfAR][1]: [The Little MongoDB Book by Karl Seguin][2], lo interesante del libro es que está hecho en markdown y publicado en [github][3] con una [versión al español][4] traducida por [@uokesita][5].
 
 Me tomé el trabajito de pasar el markdown español a varias versiones para que lo puedas leer online, en algún dispositivo movil o en el kindle:  
-<img src="http://fernetjs.com/wp-content/uploads/2012/08/title.png" alt="" title="title" width="180" height="60" class="alignleft size-full wp-image-2584" />
+<img src="//fernetjs.com/wp-content/uploads/2012/08/title.png" alt="" title="title" width="180" height="60" class="alignleft size-full wp-image-2584" />
 
 <ul style="display: inline-block;">
   <li>

@@ -230,7 +230,7 @@ En la primer linea limpiamos todo el canvas, y despues dibujamos el cuadrado en 
 
 Nos queda algo asi:  
 
-<iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/pjnovas/7F26V/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe style="width: 100%; height: 300px" src="//jsfiddle.net/pjnovas/7F26V/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 #### <a name="1.5" style="text-decoration: none;">Optimizando</a>
 
@@ -319,11 +319,11 @@ Y si el explorador no lo soporta?, bueno para ese caso les recomiendo utilizar e
 
 #### <a name="1.6" style="text-decoration: none;">Conclusión</a>
 
-**Que sigue ahora?, bueno primero que nada este código que construimos es a modo de ejemplo, las funciones de actualizar() y dibujar() deberían encargarse de llamar a otros módulos o clases y delegar totalmente las funcionalidades, con esto quiero decir que no debería crecer mas el módulo de lo que está y mantenerse sólo en la lógica del game loop, no queremos que se vuelva un mounstro gigante <img src="http://fernetjs.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" />**
+**Que sigue ahora?, bueno primero que nada este código que construimos es a modo de ejemplo, las funciones de actualizar() y dibujar() deberían encargarse de llamar a otros módulos o clases y delegar totalmente las funcionalidades, con esto quiero decir que no debería crecer mas el módulo de lo que está y mantenerse sólo en la lógica del game loop, no queremos que se vuelva un mounstro gigante <img src="//fernetjs.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" />**
 
 Les dejo el Game Loop terminado con el ejemplo:  
 
-<iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/pjnovas/SB8Pn/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe style="width: 100%; height: 300px" src="//jsfiddle.net/pjnovas/SB8Pn/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 Y un [Gist][14] con el Game Loop completo como template para que hagan cosas locas:
 

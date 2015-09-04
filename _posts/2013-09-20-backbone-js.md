@@ -18,7 +18,7 @@ tags:
 En este post voy a mostrar Modelo y Colección, con sus eventos y persistencia en el server.
 
 Dicho esto, veamos una imagen para hacerlo un poco mas claro:  
-[<img src="http://fernetjs.com/wp-content/uploads/2013/09/backbone_map.png" alt="backbone_map" width="500" height="200" class="size-full wp-image-3863" />][2]
+[<img src="//fernetjs.com/wp-content/uploads/2013/09/backbone_map.png" alt="backbone_map" width="500" height="200" class="size-full wp-image-3863" />][2]
 
 ### Modelo (Backbone.Model)
 

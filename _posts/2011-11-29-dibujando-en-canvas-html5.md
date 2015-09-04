@@ -19,7 +19,7 @@ Canvas de HTML5 es simplemente un TAG, un contenedor en donde vamos a dibujar ya
 Hay que tener en cuenta que al ser HTML 5 no va a funcionar en cualquier explorador viejo:
 
 <div id="attachment_692" style="width: 936px" class="wp-caption alignnone">
-  [fuente: <a href="http://caniuse.com">Can I Use</a>]<a href="http://www.fernetjs.com/wp-content/uploads/2011/11/canvas_table.jpg"><img class="size-full wp-image-692" title="Compatibilidad de CANVAS - HTML5" src="http://www.fernetjs.com/wp-content/uploads/2011/11/canvas_table.jpg" alt="Compatibilidad de CANVAS - HTML5" width="926" height="161" /></a>
+  [fuente: <a href="http://caniuse.com">Can I Use</a>]<a href="http://www.fernetjs.com/wp-content/uploads/2011/11/canvas_table.jpg"><img class="size-full wp-image-692" title="Compatibilidad de CANVAS - HTML5" src="//www.fernetjs.com/wp-content/uploads/2011/11/canvas_table.jpg" alt="Compatibilidad de CANVAS - HTML5" width="926" height="161" /></a>
   
   <p class="wp-caption-text">
     Compatibilidad de funciones básicas con exploradores
@@ -75,7 +75,7 @@ contexto.strokeStyle = 'black';
 contexto.strokeRect(1, 10, 143, 134); // strokeRect(x, y, largo, alto)
  {% endhighlight %}
 
-[<img class="alignnone size-full wp-image-742" title="ref 1" src="http://www.fernetjs.com/wp-content/uploads/2011/11/logo_canvas1.png" alt="" width="145" height="145" />][1]
+[<img class="alignnone size-full wp-image-742" title="ref 1" src="//www.fernetjs.com/wp-content/uploads/2011/11/logo_canvas1.png" alt="" width="145" height="145" />][1]
 
 Ahora dibujemos el &#8216;JS&#8217;, lo voy a escribir en el canvas para mostrarles que se puede, pero el método que voy a utilizar de dibujar texto tiene graves problemas de performance, es preferible hacer una imagen o una imagen por letra y dibujar la/s imagen/es (como en los viejos, pero muy viejos tiempos).
 
@@ -91,7 +91,7 @@ contexto.textBaseline = 'top';
 contexto.fillText('JS', 2, 5); // fillText(texto, x, y);
  {% endhighlight %}
 
-[<img class="alignnone size-full wp-image-743" title="ref 2" src="http://www.fernetjs.com/wp-content/uploads/2011/11/logo_canvas2.png" alt="" width="145" height="145" />][2]
+[<img class="alignnone size-full wp-image-743" title="ref 2" src="//www.fernetjs.com/wp-content/uploads/2011/11/logo_canvas2.png" alt="" width="145" height="145" />][2]
 
 Como se darán cuenta a esta altura, el contexto tiene propiedades que son aplicadas al momento de dibujar un elemento. Por ejemplo *contexto.fillStyle*, ese valor lo podríamos asignar al principio de un set de dibujos y todos van a ser aplicados con el mismo color de fondo. Esto pasa con varias propiedades, *.font*, *.strokeStyle*, *.lineWidth*, etc.
 
@@ -142,12 +142,12 @@ contexto.fillText('JS', 2, 5);
 contexto.restore();
  {% endhighlight %}
 
-[<img class="alignnone size-full wp-image-744" title="ref 3" src="http://www.fernetjs.com/wp-content/uploads/2011/11/logo_canvas3.png" alt="" width="145" height="145" />][3]
+[<img class="alignnone size-full wp-image-744" title="ref 3" src="//www.fernetjs.com/wp-content/uploads/2011/11/logo_canvas3.png" alt="" width="145" height="145" />][3]
 
 De esta forma continuamos dibujando después del *.restore()* y la configuración del contexto que aplicamos para la palabra JS se eliminó.
 
 Ahora vamos a dibujar la imagen del vaso en el canvas, esta es nuestra imagen:  
-[<img class="alignnone size-full wp-image-739" title="ref " src="http://www.fernetjs.com/wp-content/uploads/2011/11/glassup.png" alt="" width="145" height="145" />][4]
+[<img class="alignnone size-full wp-image-739" title="ref " src="//www.fernetjs.com/wp-content/uploads/2011/11/glassup.png" alt="" width="145" height="145" />][4]
 
 <!--highlight:[5]-->
 {% highlight js %}
@@ -160,7 +160,7 @@ vaso.onload = function() {
 vaso.src = "[URL DE LA IMAGEN]";
  {% endhighlight %}
 
-[<img class="alignnone size-full wp-image-745" title="ref 4" src="http://www.fernetjs.com/wp-content/uploads/2011/11/logo_canvas4.png" alt="" width="145" height="145" />][5]
+[<img class="alignnone size-full wp-image-745" title="ref 4" src="//www.fernetjs.com/wp-content/uploads/2011/11/logo_canvas4.png" alt="" width="145" height="145" />][5]
 
 Primero creamos un objeto *Image()* de javascript, que es básicamente DOM, como lo genera el explorador cuando agregamos un tag *<img>* en el HTML. Luego me suscribo al evento *onload* para asegurarme que la imagen esté cargada antes de dibujarla en el canvas.  
 La función .drawImage() tiene muchas &#8220;sobrecargas&#8221;, use las más simple de todas.  
@@ -192,11 +192,11 @@ contexto.closePath();
 contexto.fill();
  {% endhighlight %}
 
-[<img class="alignnone size-full wp-image-746" title="ref 5" src="http://www.fernetjs.com/wp-content/uploads/2011/11/logo_canvas5.png" alt="" width="445" height="165" />][6]
+[<img class="alignnone size-full wp-image-746" title="ref 5" src="//www.fernetjs.com/wp-content/uploads/2011/11/logo_canvas5.png" alt="" width="445" height="165" />][6]
 
 Bastante bien, no?, bueno después simplemente realizamos los otros triángulos y nos queda el logo terminado:
 
-[<img class="alignnone size-full wp-image-747" title="ref 6" src="http://www.fernetjs.com/wp-content/uploads/2011/11/logo_canvas6.png" alt="" width="145" height="145" />][7]
+[<img class="alignnone size-full wp-image-747" title="ref 6" src="//www.fernetjs.com/wp-content/uploads/2011/11/logo_canvas6.png" alt="" width="145" height="145" />][7]
 
 Les dejo un jsFiddle con el código completo por si quieren modificarlo y hacer pruebas  
 

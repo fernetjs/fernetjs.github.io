@@ -14,7 +14,7 @@ tags:
   - nodejs
 ---
 Bueno, no sé si te pasó antes, pero si ocurre una excepción no manejada, corta el proceso 😛  
-Por ejemplo: tenemos nuestro WebServer genial corriendo en NodeJS y algo se nos pasó, algo que no esperabamos o alguna libreria explotó &#8230; chau server, se cae el proceso de NodeJS y por lo tanto nuestro WebServer muere con el <img src="http://fernetjs.com/wp-includes/images/smilies/frownie.png" alt=":(" class="wp-smiley" style="height: 1em; max-height: 1em;" />
+Por ejemplo: tenemos nuestro WebServer genial corriendo en NodeJS y algo se nos pasó, algo que no esperabamos o alguna libreria explotó &#8230; chau server, se cae el proceso de NodeJS y por lo tanto nuestro WebServer muere con el <img src="//fernetjs.com/wp-includes/images/smilies/frownie.png" alt=":(" class="wp-smiley" style="height: 1em; max-height: 1em;" />
 
 Eso no suena nada bien &#8230;
 

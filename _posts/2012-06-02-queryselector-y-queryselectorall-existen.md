@@ -20,7 +20,7 @@ Es importante saber que a la hora de trabajar con el DOM no sólo estamos en la 
 Con js plano, puro, vanilla, o como udsted quiera llamarle, también podemos obtener elementos del DOM a partir de selectores basados en CSS.  
 Este post está hecho porque sé que hay mucha gente que no está al tanto de querySelector. O de que tiene tan buen soporte; y yo me incluyo dentro dentro de este último grupo. No hace mucho me dí cuenta de que el tiempo había pasado y que <a href="http://caniuse.com/queryselector" title="soporte querySelector" target="_blank">casi todos los browsers se lo bancan</a> lo más bien. 
 
-<img class="alignleft size-full wp-image-2097" title="Que piola!! cross-browser!" src="http://fernetjs.com/wp-content/uploads/2012/06/burns-ok.jpg" alt="copado" width="251" height="224" />
+<img class="alignleft size-full wp-image-2097" title="Que piola!! cross-browser!" src="//fernetjs.com/wp-content/uploads/2012/06/burns-ok.jpg" alt="copado" width="251" height="224" />
 
 &nbsp;
 
