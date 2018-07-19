@@ -18,5 +18,5 @@ google_analytics: UA-26473955-1
 markdown: kramdown
 highlighter: pygments
 
-gems:
+plugins:
   - jekyll-sitemap
