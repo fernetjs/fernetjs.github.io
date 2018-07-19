@@ -90,10 +90,10 @@ Ejs es el mas simple, ya que se parece mucho a otros lenguajes como Java o .NET.
       <% lenguajes.forEach(function(lenguaje){ %>
         <li><%= lenguaje %></li>
       <% }) %>
-    &lt;/ul&gt;
-  &lt;% } %&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
+    </ul>
+  <% } %>
+  </body>
+</html>
  {% endhighlight %}
 
 [Github Ejs][2]
@@ -121,6 +121,7 @@ Jade es bastante diferente, ya que es mas apuntando a [ZenCoding][3], no exactam
 Este es interesante ya que el template queda bastante mas limpio, es decir, no tiene condicionales ni forEachs. Por lo que no es para cualquier cosa, pero si armas templates simple (como el de arriba) queda mucho mas limpio tu view.
 
 {% highlight xml %}
+{% raw %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -134,7 +135,8 @@ Este es interesante ya que el template queda bastante mas limpio, es decir, no t
   </ul>
   </body>
 </html>
- {% endhighlight %}
+{% endraw  %}
+{% endhighlight %}
 
 [Github Mustache][5]
 
