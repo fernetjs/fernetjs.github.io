@@ -1,16 +1,16 @@
 # Site settings
 title: fernetjs
 name: fernetjs
-email: equipo@fernetjs.com
+#email: equipo@fernetjs.com
 description: fernet + javascript
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://fernetjs.github.io" # the base hostname & protocol for your site
 permalink: /:year/:month/:title/
-twitter_username: fernetjs
+#twitter_username: fernetjs
 github_username:  fernetjs
-facebook_username: fernetjs
+#facebook_username: fernetjs
 #safe: true # prevents sitemap from working?
-lsi: false
+#lsi: false
 paginate: 30
 paginate_path: "/pagina/:num"
 google_analytics: UA-26473955-1
