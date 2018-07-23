@@ -17,6 +17,8 @@ google_analytics: UA-26473955-1
 # Build settings
 markdown: kramdown
 highlighter: rouge
+exclude:
+  - migration
 
 plugins:
   - jekyll-sitemap
