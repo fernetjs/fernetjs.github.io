@@ -84,6 +84,14 @@
         display: none;
       }
     }
+
+    .disclaimer {
+      padding: 5px;
+      background-color: $front-color-light;
+      .warn {
+        font-weight: bold;
+      }
+    }
 }
 
 .site-title {

@@ -15,3 +15,13 @@ $(document).keydown(function(e){
     konami_index = 0;
   }
 });
+$(document).ready(function(){
+  const hideDisclaimer = window.localStorage && window.localStorage.getItem('disclaimer');
+  if(!hideDisclaimer){
+    $('.disclaimer').removeClass('hidden');
+    $('.disclaimer a').click(function(){
+      window.localStorage.setItem('disclaimer', '1');
+      $('.disclaimer').addClass('hidden');
+    });
+  }
+});
